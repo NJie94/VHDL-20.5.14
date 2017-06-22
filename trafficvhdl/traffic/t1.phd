@@ -1,0 +1,1073 @@
+" XPLAOPT Version 9.99.99.99
+" Created on Tue May 20 20:44:49 2014
+" 117 Mcells, 201 PLApts, 24 Levels, 336 Fanins
+" XPLAOPT -run s -it b -i TrafficLevel.blx -dev XC2C64A-7VQ44 -reg -xor a -mode 
+"         1 -th 28 -fi 32 -bfi 38 -pre keep -unused keeper -terminate keeper -no_output_files 
+MODULE TrafficLevel
+
+	CarEW  pin 33 ; 
+ 	CarNS  pin 34 ; 
+ 	Clock  pin 1 ; 
+ 	LEDs<0>  pin 18 ;  " 6 pt.
+ 	LEDs<1>  pin 19 ;  " 5 pt.
+ 	LEDs<2>  pin 20 ;  " 2 pt.
+ 	LEDs<3>  pin 21 ;  " 2 pt.
+ 	LEDs<4>  pin 22 ;  " 2 pt.
+ 	LEDs<5>  pin 23 ;  " 1 pt.
+ 	LEDs<6>  pin 27 ;  " 2 pt.
+ 	LEDs<7>  pin 28 ;  " 1 pt.
+ 	LightsEW<0>  pin 40 ;  " 2 pt.
+ 	LightsEW<1>  pin 39 ;  " 2 pt.
+ 	LightsNS<0>  pin 42 ;  " 1 pt.
+ 	LightsNS<1>  pin 41 ;  " 4 pt.
+ 	PedEW  pin 36 ; 
+ 	PedNS  pin 37 ; 
+ 	Reset  pin 30 ; 
+ 
+
+	Clocksec/lagTime<0>  node ;  " 3 pt.
+ 	Clocksec/lagTime<1>  node ;  " 5 pt.
+ 	Clocksec/lagTime<2>  node ;  " 6 pt.
+ 	Clocksec/lagTime<3>  node ;  " 4 pt.
+ 	DelayTimer/Counter<0>  node ;  " 1 pt.
+ 	DelayTimer/Counter<10>  node ;  " 1 pt.
+ 	DelayTimer/Counter<11>  node ;  " 1 pt.
+ 	DelayTimer/Counter<12>  node ;  " 1 pt.
+ 	DelayTimer/Counter<13>  node ;  " 2 pt.
+ 	DelayTimer/Counter<14>  node ;  " 1 pt.
+ 	DelayTimer/Counter<15>  node ;  " 2 pt.
+ 	DelayTimer/Counter<16>  node ;  " 2 pt.
+ 	DelayTimer/Counter<17>  node ;  " 2 pt.
+ 	DelayTimer/Counter<18>  node ;  " 2 pt.
+ 	DelayTimer/Counter<1>  node ;  " 1 pt.
+ 	DelayTimer/Counter<2>  node ;  " 1 pt.
+ 	DelayTimer/Counter<3>  node ;  " 1 pt.
+ 	DelayTimer/Counter<4>  node ;  " 1 pt.
+ 	DelayTimer/Counter<5>  node ;  " 2 pt.
+ 	DelayTimer/Counter<6>  node ;  " 1 pt.
+ 	DelayTimer/Counter<7>  node ;  " 1 pt.
+ 	DelayTimer/Counter<8>  node ;  " 2 pt.
+ 	DelayTimer/Counter<9>  node ;  " 1 pt.
+ 	N_PZ_259  node istype 'collapse';  " 2 pt.
+ 	N_PZ_260  node istype 'collapse';  " 2 pt.
+ 	N_PZ_261  node istype 'collapse';  " 2 pt.
+ 	N_PZ_262  node istype 'collapse';  " 2 pt.
+ 	N_PZ_263  node istype 'collapse';  " 2 pt.
+ 	N_PZ_264  node istype 'collapse';  " 2 pt.
+ 	N_PZ_265  node istype 'collapse';  " 1 pt.
+ 	N_PZ_266  node istype 'collapse';  " 2 pt.
+ 	N_PZ_267  node istype 'collapse';  " 1 pt.
+ 	N_PZ_268  node istype 'collapse';  " 2 pt.
+ 	N_PZ_269  node istype 'collapse';  " 1 pt.
+ 	N_PZ_270  node istype 'collapse';  " 2 pt.
+ 	N_PZ_271  node istype 'collapse';  " 1 pt.
+ 	N_PZ_272  node istype 'collapse';  " 1 pt.
+ 	N_PZ_273  node istype 'collapse';  " 2 pt.
+ 	N_PZ_274  node istype 'collapse';  " 1 pt.
+ 	N_PZ_275  node istype 'collapse';  " 2 pt.
+ 	N_PZ_276  node istype 'collapse';  " 1 pt.
+ 	N_PZ_277  node istype 'collapse';  " 2 pt.
+ 	N_PZ_278  node istype 'collapse';  " 1 pt.
+ 	N_PZ_279  node istype 'collapse';  " 1 pt.
+ 	N_PZ_280  node istype 'collapse';  " 1 pt.
+ 	N_PZ_281  node istype 'collapse';  " 2 pt.
+ 	N_PZ_282  node istype 'collapse';  " 1 pt.
+ 	N_PZ_283  node istype 'collapse';  " 1 pt.
+ 	N_PZ_284  node istype 'collapse';  " 2 pt.
+ 	N_PZ_285  node istype 'collapse';  " 1 pt.
+ 	N_PZ_286  node istype 'collapse';  " 2 pt.
+ 	N_PZ_287  node istype 'collapse';  " 2 pt.
+ 	N_PZ_288  node istype 'collapse';  " 1 pt.
+ 	N_PZ_289  node istype 'collapse';  " 1 pt.
+ 	N_PZ_290  node istype 'collapse';  " 2 pt.
+ 	N_PZ_291  node istype 'collapse';  " 1 pt.
+ 	N_PZ_292  node istype 'collapse';  " 1 pt.
+ 	N_PZ_293  node istype 'collapse';  " 1 pt.
+ 	N_PZ_294  node istype 'collapse';  " 1 pt.
+ 	N_PZ_295  node istype 'collapse';  " 1 pt.
+ 	N_PZ_296  node istype 'collapse';  " 1 pt.
+ 	N_PZ_297  node istype 'collapse';  " 1 pt.
+ 	N_PZ_298  node istype 'collapse';  " 1 pt.
+ 	N_PZ_299  node istype 'collapse';  " 1 pt.
+ 	N_PZ_300  node istype 'collapse';  " 1 pt.
+ 	N_PZ_301  node istype 'collapse';  " 1 pt.
+ 	N_PZ_302  node istype 'collapse';  " 1 pt.
+ 	N_PZ_303  node istype 'collapse';  " 1 pt.
+ 	N_PZ_304  node istype 'collapse';  " 1 pt.
+ 	N_PZ_305  node istype 'collapse';  " 2 pt.
+ 	N_PZ_306  node istype 'collapse';  " 2 pt.
+ 	N_PZ_307  node istype 'collapse';  " 1 pt.
+ 	N_PZ_308  node istype 'collapse';  " 1 pt.
+ 	N_PZ_309  node istype 'collapse';  " 2 pt.
+ 	N_PZ_310  node istype 'collapse';  " 1 pt.
+ 	N_PZ_311  node istype 'collapse';  " 2 pt.
+ 	N_PZ_312  node istype 'collapse';  " 2 pt.
+ 	N_PZ_313  node istype 'collapse';  " 2 pt.
+ 	N_PZ_314  node istype 'collapse';  " 2 pt.
+ 	N_PZ_315  node istype 'collapse';  " 1 pt.
+ 	N_PZ_316  node istype 'collapse';  " 1 pt.
+ 	N_PZ_317  node istype 'collapse';  " 2 pt.
+ 	N_PZ_318  node istype 'collapse';  " 2 pt.
+ 	N_PZ_319  node istype 'collapse';  " 1 pt.
+ 	N_PZ_320  node istype 'collapse';  " 1 pt.
+ 	N_PZ_321  node istype 'collapse';  " 1 pt.
+ 	N_PZ_322  node istype 'collapse';  " 2 pt.
+ 	N_PZ_323  node istype 'collapse';  " 2 pt.
+ 	N_PZ_324  node istype 'collapse';  " 2 pt.
+ 	N_PZ_325  node istype 'collapse';  " 1 pt.
+ 	N_PZ_326  node istype 'collapse';  " 1 pt.
+ 	N_PZ_327  node istype 'collapse';  " 1 pt.
+ 	N_PZ_328  node istype 'collapse';  " 1 pt.
+ 	count_LED<0>  node ;  " 1 pt.
+ 	count_LED<1>  node ;  " 1 pt.
+ 	count_LED<2>  node ;  " 1 pt.
+ 	count_LED<3>  node ;  " 1 pt.
+ 	delayFinal  node ;  " 4 pt.
+ 	start_Count  node ;  " 2 pt.
+ 	statesTraffic/state_FSM_FFd1  node ;  " 2 pt.
+ 	statesTraffic/state_FSM_FFd2  node ;  " 4 pt.
+ 	statesTraffic/state_FSM_FFd3  node ;  " 4 pt.
+ 	statesTraffic/state_FSM_FFd4  node ;  " 4 pt.
+ 	statesTraffic/temp_PedEW  node ;  " 2 pt.
+ 	statesTraffic/temp_PedNS  node ;  " 2 pt.
+ 
+
+xpla property 'USER_SLEW_RATE LEDs<0> LEDs<1> LEDs<2> LEDs<3> LEDs<6> LightsEW<1> LEDs<4> LEDs<5> 
+	LEDs<7> LightsEW<0> LightsNS<0> LightsNS<1> '; 
+xpla property 'GLOBAL_CLK Clock '; 
+xpla property 'POWER_UP_HIGH DelayTimer/Counter<0> '; 
+xpla property 'unused_keeper'; 
+xpla property 'timespec  Clocksec/lagTime<2>.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<3>.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<0>.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<1>.Q delayFinal.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q delayFinal.CE 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<0>.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<2>.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<3>.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<1>.Q Clocksec/lagTime<0>.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q Clocksec/lagTime<0>.CE 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<2>.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<3>.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<0>.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<1>.Q Clocksec/lagTime<1>.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q Clocksec/lagTime<1>.CE 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<2>.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<3>.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<0>.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<1>.Q Clocksec/lagTime<2>.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q Clocksec/lagTime<2>.CE 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<2>.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<3>.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<0>.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<1>.Q Clocksec/lagTime<3>.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q Clocksec/lagTime<3>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<0>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<0>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<0>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<0>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<0>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<0>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<0>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<10>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<10>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<10>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<10>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<10>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<10>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<10>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<11>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<11>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<11>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<11>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<11>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<11>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<11>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<12>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<12>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<12>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<12>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<12>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<12>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<12>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<13>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<13>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<13>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<13>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<13>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<13>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<13>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<14>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<14>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<14>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<14>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<14>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<14>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<14>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<15>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<15>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<15>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<15>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<15>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<15>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<15>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<16>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<16>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<16>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<16>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<16>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<16>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<16>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<17>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<17>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<17>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<17>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<17>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<17>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<17>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<1>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<1>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<1>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<1>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<1>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<1>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<1>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<2>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<2>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<2>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<2>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<2>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<2>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<2>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<3>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<3>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<3>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<3>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<3>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<3>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<3>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<4>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<4>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<4>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<4>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<4>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<4>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<4>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<5>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<5>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<5>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<5>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<5>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<5>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<5>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<6>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<6>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<6>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<6>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<6>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<6>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<6>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<7>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<7>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<7>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<7>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<7>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<7>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<7>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<8>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<8>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<8>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<8>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<8>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<8>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<8>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<9>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<9>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<9>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<9>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<9>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<9>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<9>.CE 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q DelayTimer/Counter<18>.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q DelayTimer/Counter<18>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q DelayTimer/Counter<18>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q DelayTimer/Counter<18>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q DelayTimer/Counter<18>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q DelayTimer/Counter<18>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q DelayTimer/Counter<18>.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q statesTraffic/state_FSM_FFd4.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q statesTraffic/state_FSM_FFd4.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q statesTraffic/state_FSM_FFd4.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q statesTraffic/state_FSM_FFd4.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q statesTraffic/state_FSM_FFd4.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedNS.Q statesTraffic/state_FSM_FFd4.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q statesTraffic/state_FSM_FFd4.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q statesTraffic/state_FSM_FFd2.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q statesTraffic/state_FSM_FFd2.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q statesTraffic/state_FSM_FFd2.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q statesTraffic/state_FSM_FFd2.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q statesTraffic/state_FSM_FFd2.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedNS.Q statesTraffic/state_FSM_FFd2.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q statesTraffic/state_FSM_FFd3.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q statesTraffic/state_FSM_FFd3.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q statesTraffic/state_FSM_FFd3.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q statesTraffic/state_FSM_FFd3.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q statesTraffic/state_FSM_FFd3.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q statesTraffic/state_FSM_FFd3.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<0>.Q count_LED<0>.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q count_LED<0>.CE 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<3>.Q count_LED<3>.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q count_LED<3>.CE 1886.000000'; 
+xpla property 'timespec  delayFinal.Q statesTraffic/state_FSM_FFd1.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q statesTraffic/state_FSM_FFd1.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q statesTraffic/state_FSM_FFd1.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q statesTraffic/state_FSM_FFd1.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q statesTraffic/state_FSM_FFd1.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedNS.Q statesTraffic/state_FSM_FFd1.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q statesTraffic/state_FSM_FFd1.D 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<1>.Q count_LED<1>.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q count_LED<1>.CE 1886.000000'; 
+xpla property 'timespec  Clocksec/lagTime<2>.Q count_LED<2>.D 1886.000000'; 
+xpla property 'timespec  start_Count.Q count_LED<2>.CE 1886.000000'; 
+xpla property 'timespec  start_Count.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<10>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<12>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<14>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<0>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<11>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<2>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<3>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<4>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<6>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<7>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<9>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<13>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<15>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<5>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<8>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<1>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<18>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<16>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  DelayTimer/Counter<17>.Q start_Count.D 1886.000000'; 
+xpla property 'timespec  delayFinal.Q start_Count.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q start_Count.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q start_Count.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q start_Count.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/temp_PedEW.Q start_Count.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q start_Count.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q statesTraffic/temp_PedEW.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q statesTraffic/temp_PedEW.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q statesTraffic/temp_PedEW.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q statesTraffic/temp_PedEW.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q statesTraffic/temp_PedEW.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q statesTraffic/temp_PedEW.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q statesTraffic/temp_PedEW.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q statesTraffic/temp_PedEW.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q statesTraffic/temp_PedNS.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q statesTraffic/temp_PedNS.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q statesTraffic/temp_PedNS.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q statesTraffic/temp_PedNS.D 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd4.Q statesTraffic/temp_PedNS.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd3.Q statesTraffic/temp_PedNS.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd1.Q statesTraffic/temp_PedNS.CE 1886.000000'; 
+xpla property 'timespec  statesTraffic/state_FSM_FFd2.Q statesTraffic/temp_PedNS.CE 1886.000000'; 
+xpla property 'IOSTD Clock 0 -1';
+xpla property 'IOSTD Reset 0 -1';
+xpla property 'IOSTD CarNS 0 -1';
+xpla property 'IOSTD LEDs<0> 0 -1';
+xpla property 'IOSTD LEDs<1> 0 -1';
+xpla property 'IOSTD LEDs<2> 0 -1';
+xpla property 'IOSTD LEDs<3> 0 -1';
+xpla property 'IOSTD LEDs<6> 0 -1';
+xpla property 'IOSTD CarEW 0 -1';
+xpla property 'IOSTD PedEW 0 -1';
+xpla property 'IOSTD PedNS 0 -1';
+xpla property 'IOSTD LightsEW<1> 0 -1';
+xpla property 'IOSTD LEDs<4> 0 -1';
+xpla property 'IOSTD LEDs<5> 0 -1';
+xpla property 'IOSTD LEDs<7> 0 -1';
+xpla property 'IOSTD LightsEW<0> 0 -1';
+xpla property 'IOSTD LightsNS<0> 0 -1';
+xpla property 'IOSTD LightsNS<1> 0 -1';
+EQUATIONS 
+
+ Clocksec/lagTime<0>.AP = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ Clocksec/lagTime<0>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ Clocksec/lagTime<0>.T = !Clocksec/lagTime<3>.Q & start_Count.Q & N_PZ_324
+    
+      # start_Count.Q & N_PZ_286
+      # !Clocksec/lagTime<0>.Q & start_Count.Q;		"--- [PT=3, FI=5, LVL=6] ---
+ Clocksec/lagTime<1>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ Clocksec/lagTime<1>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+! Clocksec/lagTime<1>.D = !statesTraffic/state_FSM_FFd4.Q & !
+    statesTraffic/state_FSM_FFd1.Q & N_PZ_315
+      # statesTraffic/state_FSM_FFd4.Q & start_Count.Q & N_PZ_268
+      # start_Count.Q & N_PZ_318
+      # !Clocksec/lagTime<1>.Q & N_PZ_284
+      # !N_PZ_313;		"--- [PT=5, FI=9, LVL=6] ---
+ Clocksec/lagTime<2>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ Clocksec/lagTime<2>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+! Clocksec/lagTime<2>.D = Clocksec/lagTime<2>.Q & Clocksec/lagTime<3>.Q & 
+    statesTraffic/state_FSM_FFd4.Q & !N_PZ_284
+      # !statesTraffic/state_FSM_FFd4.Q & !statesTraffic/state_FSM_FFd1.Q & 
+    N_PZ_323
+      # Clocksec/lagTime<2>.Q & N_PZ_305 & N_PZ_315
+      # start_Count.Q & N_PZ_319
+      # Clocksec/lagTime<2>.Q & !N_PZ_313
+      # !Clocksec/lagTime<2>.Q & N_PZ_313;		"--- [PT=6, FI=11, LVL=5] ---
+ Clocksec/lagTime<3>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ Clocksec/lagTime<3>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ Clocksec/lagTime<3>.D = !Clocksec/lagTime<0>.Q & 
+    statesTraffic/state_FSM_FFd1.Q & !N_PZ_305 & N_PZ_315
+      # Clocksec/lagTime<2>.Q & !Clocksec/lagTime<3>.Q & N_PZ_287 & !N_PZ_313
+    
+      # N_PZ_286 & N_PZ_315
+      # Clocksec/lagTime<3>.Q & !start_Count.Q
+    ;		"--- [PT=4, FI=10, LVL=5] ---
+ DelayTimer/Counter<0>.AP = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<0>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<0>.T = N_PZ_265;		"--- [PT=1, FI=1, LVL=6] ---
+ DelayTimer/Counter<10>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<10>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<10>.T = N_PZ_269 & N_PZ_289
+    ;		"--- [PT=1, FI=2, LVL=8] ---
+ DelayTimer/Counter<11>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<11>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<11>.T = N_PZ_269 & N_PZ_304
+    ;		"--- [PT=1, FI=2, LVL=9] ---
+ DelayTimer/Counter<12>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<12>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<12>.T = N_PZ_269 & N_PZ_308
+    ;		"--- [PT=1, FI=2, LVL=10] ---
+ DelayTimer/Counter<13>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<13>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<13>.T = N_PZ_269 & N_PZ_310
+      # N_PZ_303;		"--- [PT=2, FI=3, LVL=24] ---
+ DelayTimer/Counter<14>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<14>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<14>.T = N_PZ_278 & N_PZ_310
+    ;		"--- [PT=1, FI=2, LVL=11] ---
+ DelayTimer/Counter<15>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<15>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<15>.T = N_PZ_278 & N_PZ_320
+      # N_PZ_303;		"--- [PT=2, FI=3, LVL=24] ---
+ DelayTimer/Counter<16>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<16>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<16>.T = N_PZ_283 & N_PZ_320
+      # N_PZ_303;		"--- [PT=2, FI=3, LVL=24] ---
+ DelayTimer/Counter<17>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<17>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<17>.T = N_PZ_285 & N_PZ_320
+      # N_PZ_303;		"--- [PT=2, FI=3, LVL=24] ---
+ DelayTimer/Counter<18>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<18>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<18>.T = N_PZ_288 & N_PZ_320
+      # N_PZ_303;		"--- [PT=2, FI=3, LVL=24] ---
+ DelayTimer/Counter<1>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<1>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<1>.T = DelayTimer/Counter<0>.Q & N_PZ_265
+    ;		"--- [PT=1, FI=2, LVL=6] ---
+ DelayTimer/Counter<2>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<2>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<2>.T = N_PZ_265 & N_PZ_271;		"--- [PT=1, FI=2, LVL=6] ---
+ DelayTimer/Counter<3>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<3>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<3>.T = N_PZ_265 & N_PZ_272;		"--- [PT=1, FI=2, LVL=6] ---
+ DelayTimer/Counter<4>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<4>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<4>.T = N_PZ_265 & N_PZ_274;		"--- [PT=1, FI=2, LVL=6] ---
+ DelayTimer/Counter<5>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<5>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<5>.T = N_PZ_265 & N_PZ_276
+      # N_PZ_303;		"--- [PT=2, FI=3, LVL=24] ---
+ DelayTimer/Counter<6>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<6>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<6>.T = N_PZ_267 & N_PZ_276;		"--- [PT=1, FI=2, LVL=7] ---
+ DelayTimer/Counter<7>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<7>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<7>.T = N_PZ_267 & N_PZ_280;		"--- [PT=1, FI=2, LVL=7] ---
+ DelayTimer/Counter<8>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<8>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<8>.T = N_PZ_267 & N_PZ_282
+      # N_PZ_303;		"--- [PT=2, FI=3, LVL=24] ---
+ DelayTimer/Counter<9>.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<9>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ DelayTimer/Counter<9>.T = N_PZ_269 & N_PZ_282;		"--- [PT=1, FI=2, LVL=8] ---
+! LEDs<0> = !count_LED<3>.Q & !N_PZ_317
+      # count_LED<3>.Q & N_PZ_317
+      # N_PZ_311
+      # !N_PZ_275
+      # N_PZ_261
+      # delayFinal.Q;		"--- [PT=6, FI=6, LVL=4] ---
+! LEDs<1> = !N_PZ_317
+      # N_PZ_311
+      # N_PZ_277
+      # !N_PZ_275
+      # N_PZ_261;		"--- [PT=5, FI=5, LVL=4] ---
+ LEDs<2> = !count_LED<0>.Q & N_PZ_325
+      # N_PZ_314;		"--- [PT=2, FI=3, LVL=7] ---
+ LEDs<3> = !count_LED<1>.Q & N_PZ_325
+      # N_PZ_314;		"--- [PT=2, FI=3, LVL=7] ---
+ LEDs<4> = !N_PZ_273 & N_PZ_325
+      # N_PZ_273 & N_PZ_307;		"--- [PT=2, FI=3, LVL=6] ---
+ LEDs<5> = N_PZ_273 & N_PZ_307;		"--- [PT=1, FI=2, LVL=6] ---
+ LEDs<6> = !count_LED<0>.Q & count_LED<1>.Q & N_PZ_307
+      # N_PZ_307 & N_PZ_328;		"--- [PT=2, FI=4, LVL=6] ---
+ LEDs<7> = N_PZ_307 & N_PZ_328;		"--- [PT=1, FI=2, LVL=6] ---
+ LightsEW<0> = !statesTraffic/state_FSM_FFd4.Q & !
+    statesTraffic/state_FSM_FFd2.Q & statesTraffic/state_FSM_FFd3.Q
+      # !N_PZ_266 & N_PZ_321;		"--- [PT=2, FI=5, LVL=2] ---
+ LightsEW<1> = !statesTraffic/state_FSM_FFd3.Q & N_PZ_321
+      # !statesTraffic/state_FSM_FFd2.Q & !N_PZ_261
+    ;		"--- [PT=2, FI=4, LVL=2] ---
+ LightsNS<0> = statesTraffic/state_FSM_FFd2.Q & N_PZ_312
+    ;		"--- [PT=1, FI=2, LVL=3] ---
+ LightsNS<1> = statesTraffic/state_FSM_FFd2.Q & !
+    statesTraffic/state_FSM_FFd1.Q & !N_PZ_266
+      # statesTraffic/state_FSM_FFd4.Q & statesTraffic/state_FSM_FFd3.Q & 
+    statesTraffic/state_FSM_FFd1.Q
+      # statesTraffic/state_FSM_FFd4.Q & !N_PZ_275
+      # statesTraffic/state_FSM_FFd2.Q & !N_PZ_261
+    ;		"--- [PT=4, FI=7, LVL=2] ---
+ N_PZ_259 = statesTraffic/temp_PedEW.Q
+      # CarEW;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_260 = N_PZ_327
+      # N_PZ_326;		"--- [PT=2, FI=2, LVL=3] ---
+ N_PZ_261 = statesTraffic/state_FSM_FFd3.Q
+      # statesTraffic/state_FSM_FFd4.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_262 = N_PZ_261
+      # statesTraffic/state_FSM_FFd1.Q;		"--- [PT=2, FI=2, LVL=2] ---
+ N_PZ_263 = N_PZ_262
+      # !N_PZ_260;		"--- [PT=2, FI=2, LVL=4] ---
+ N_PZ_264 = statesTraffic/state_FSM_FFd2.Q & N_PZ_259 & !N_PZ_261
+      # CarNS & !statesTraffic/state_FSM_FFd2.Q & !N_PZ_262
+    ;		"--- [PT=2, FI=5, LVL=3] ---
+ N_PZ_265 = !delayFinal.Q & N_PZ_263;		"--- [PT=1, FI=2, LVL=5] ---
+ N_PZ_266 = statesTraffic/state_FSM_FFd3.Q
+      # !statesTraffic/state_FSM_FFd4.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_267 = DelayTimer/Counter<5>.Q & N_PZ_265;		"--- [PT=1, FI=2, LVL=6] ---
+ N_PZ_268 = Clocksec/lagTime<2>.Q & Clocksec/lagTime<3>.Q
+      # N_PZ_319;		"--- [PT=2, FI=3, LVL=2] ---
+ N_PZ_269 = DelayTimer/Counter<8>.Q & N_PZ_267;		"--- [PT=1, FI=2, LVL=7] ---
+ N_PZ_270 = !N_PZ_266
+      # statesTraffic/state_FSM_FFd1.Q;		"--- [PT=2, FI=2, LVL=2] ---
+ N_PZ_271 = DelayTimer/Counter<0>.Q & DelayTimer/Counter<1>.Q
+    ;		"--- [PT=1, FI=2, LVL=1] ---
+ N_PZ_272 = DelayTimer/Counter<2>.Q & N_PZ_271;		"--- [PT=1, FI=2, LVL=2] ---
+ N_PZ_273 = count_LED<1>.Q
+      # count_LED<0>.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_274 = DelayTimer/Counter<3>.Q & N_PZ_272;		"--- [PT=1, FI=2, LVL=3] ---
+ N_PZ_275 = !statesTraffic/state_FSM_FFd1.Q
+      # statesTraffic/state_FSM_FFd2.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_276 = DelayTimer/Counter<4>.Q & N_PZ_274;		"--- [PT=1, FI=2, LVL=4] ---
+ N_PZ_277 = count_LED<3>.Q
+      # delayFinal.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_278 = DelayTimer/Counter<13>.Q & N_PZ_269
+    ;		"--- [PT=1, FI=2, LVL=8] ---
+ N_PZ_279 = N_PZ_264 & !N_PZ_277;		"--- [PT=1, FI=2, LVL=4] ---
+ N_PZ_280 = DelayTimer/Counter<6>.Q & N_PZ_276;		"--- [PT=1, FI=2, LVL=5] ---
+ N_PZ_281 = !N_PZ_275
+      # N_PZ_266;		"--- [PT=2, FI=2, LVL=2] ---
+ N_PZ_282 = DelayTimer/Counter<7>.Q & N_PZ_280;		"--- [PT=1, FI=2, LVL=6] ---
+ N_PZ_283 = DelayTimer/Counter<15>.Q & N_PZ_278
+    ;		"--- [PT=1, FI=2, LVL=9] ---
+ N_PZ_284 = !start_Count.Q
+      # !Clocksec/lagTime<0>.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_285 = DelayTimer/Counter<16>.Q & N_PZ_283
+    ;		"--- [PT=1, FI=2, LVL=10] ---
+ N_PZ_286 = !statesTraffic/state_FSM_FFd4.Q & statesTraffic/state_FSM_FFd1.Q
+     & !N_PZ_305
+      # !Clocksec/lagTime<2>.Q & N_PZ_270;		"--- [PT=2, FI=5, LVL=3] ---
+ N_PZ_287 = !statesTraffic/state_FSM_FFd3.Q & !N_PZ_260
+      # N_PZ_270;		"--- [PT=2, FI=3, LVL=4] ---
+ N_PZ_288 = DelayTimer/Counter<17>.Q & N_PZ_285
+    ;		"--- [PT=1, FI=2, LVL=11] ---
+ N_PZ_289 = DelayTimer/Counter<9>.Q & N_PZ_282;		"--- [PT=1, FI=2, LVL=7] ---
+ N_PZ_290 = Clocksec/lagTime<3>.Q & !statesTraffic/state_FSM_FFd3.Q
+      # N_PZ_319;		"--- [PT=2, FI=3, LVL=2] ---
+ N_PZ_291 = !DelayTimer/Counter<2>.Q & !DelayTimer/Counter<7>.Q
+    ;		"--- [PT=1, FI=2, LVL=1] ---
+ N_PZ_292 = N_PZ_288 & N_PZ_291;		"--- [PT=1, FI=2, LVL=12] ---
+ N_PZ_293 = !DelayTimer/Counter<0>.Q & N_PZ_292
+    ;		"--- [PT=1, FI=2, LVL=13] ---
+ N_PZ_294 = !DelayTimer/Counter<4>.Q & N_PZ_293
+    ;		"--- [PT=1, FI=2, LVL=14] ---
+ N_PZ_295 = !DelayTimer/Counter<6>.Q & N_PZ_294
+    ;		"--- [PT=1, FI=2, LVL=15] ---
+ N_PZ_296 = !DelayTimer/Counter<9>.Q & N_PZ_295
+    ;		"--- [PT=1, FI=2, LVL=16] ---
+ N_PZ_297 = DelayTimer/Counter<18>.Q & N_PZ_296
+    ;		"--- [PT=1, FI=2, LVL=17] ---
+ N_PZ_298 = !DelayTimer/Counter<10>.Q & N_PZ_297
+    ;		"--- [PT=1, FI=2, LVL=18] ---
+ N_PZ_299 = !DelayTimer/Counter<3>.Q & N_PZ_298
+    ;		"--- [PT=1, FI=2, LVL=19] ---
+ N_PZ_300 = !DelayTimer/Counter<11>.Q & N_PZ_299
+    ;		"--- [PT=1, FI=2, LVL=20] ---
+ N_PZ_301 = !DelayTimer/Counter<12>.Q & N_PZ_300
+    ;		"--- [PT=1, FI=2, LVL=21] ---
+ N_PZ_302 = !DelayTimer/Counter<14>.Q & N_PZ_301
+    ;		"--- [PT=1, FI=2, LVL=22] ---
+ N_PZ_303 = !DelayTimer/Counter<1>.Q & N_PZ_302
+    ;		"--- [PT=1, FI=2, LVL=23] ---
+ N_PZ_304 = DelayTimer/Counter<10>.Q & N_PZ_289
+    ;		"--- [PT=1, FI=2, LVL=8] ---
+ N_PZ_305 = !statesTraffic/state_FSM_FFd3.Q
+      # Clocksec/lagTime<1>.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_306 = !statesTraffic/state_FSM_FFd4.Q
+      # !delayFinal.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_307 = !count_LED<2>.Q & N_PZ_279;		"--- [PT=1, FI=2, LVL=5] ---
+ N_PZ_308 = DelayTimer/Counter<11>.Q & N_PZ_304
+    ;		"--- [PT=1, FI=2, LVL=9] ---
+ N_PZ_309 = Clocksec/lagTime<2>.Q & N_PZ_290
+      # Clocksec/lagTime<1>.Q & N_PZ_268;		"--- [PT=2, FI=4, LVL=3] ---
+ N_PZ_310 = DelayTimer/Counter<12>.Q & N_PZ_308
+    ;		"--- [PT=1, FI=2, LVL=10] ---
+ N_PZ_311 = !N_PZ_262 & N_PZ_326
+      # N_PZ_327;		"--- [PT=2, FI=3, LVL=3] ---
+ N_PZ_312 = !statesTraffic/state_FSM_FFd4.Q & statesTraffic/state_FSM_FFd3.Q
+    
+      # !N_PZ_266;		"--- [PT=2, FI=3, LVL=2] ---
+ N_PZ_313 = N_PZ_284
+      # !Clocksec/lagTime<1>.Q;		"--- [PT=2, FI=2, LVL=2] ---
+ N_PZ_314 = N_PZ_279 & N_PZ_328
+      # count_LED<1>.Q & N_PZ_307;		"--- [PT=2, FI=4, LVL=6] ---
+ N_PZ_315 = Clocksec/lagTime<3>.Q & start_Count.Q
+    ;		"--- [PT=1, FI=2, LVL=1] ---
+ N_PZ_316 = !Reset & start_Count.Q;		"--- [PT=1, FI=2, LVL=1] ---
+ N_PZ_317 = N_PZ_273
+      # count_LED<2>.Q;		"--- [PT=2, FI=2, LVL=2] ---
+ N_PZ_318 = N_PZ_309
+      # !N_PZ_263;		"--- [PT=2, FI=2, LVL=5] ---
+ N_PZ_319 = statesTraffic/state_FSM_FFd3.Q & !statesTraffic/state_FSM_FFd1.Q
+    ;		"--- [PT=1, FI=2, LVL=1] ---
+ N_PZ_320 = DelayTimer/Counter<14>.Q & N_PZ_310
+    ;		"--- [PT=1, FI=2, LVL=11] ---
+ N_PZ_321 = !statesTraffic/state_FSM_FFd2.Q & !statesTraffic/state_FSM_FFd1.Q
+    ;		"--- [PT=1, FI=2, LVL=1] ---
+ N_PZ_322 = !statesTraffic/state_FSM_FFd2.Q & !statesTraffic/temp_PedNS.Q
+    
+      # statesTraffic/state_FSM_FFd2.Q & !statesTraffic/temp_PedEW.Q
+    ;		"--- [PT=2, FI=3, LVL=1] ---
+ N_PZ_323 = start_Count.Q & N_PZ_260
+      # !Clocksec/lagTime<2>.Q & Clocksec/lagTime<3>.Q
+    ;		"--- [PT=2, FI=4, LVL=4] ---
+ N_PZ_324 = !Clocksec/lagTime<2>.Q & !statesTraffic/state_FSM_FFd4.Q & !
+    N_PZ_305
+      # N_PZ_287;		"--- [PT=2, FI=4, LVL=5] ---
+ N_PZ_325 = count_LED<2>.Q & N_PZ_279;		"--- [PT=1, FI=2, LVL=5] ---
+ N_PZ_326 = !CarNS & !statesTraffic/state_FSM_FFd2.Q
+    ;		"--- [PT=1, FI=2, LVL=1] ---
+ N_PZ_327 = statesTraffic/state_FSM_FFd2.Q & !N_PZ_259
+    ;		"--- [PT=1, FI=2, LVL=2] ---
+ N_PZ_328 = count_LED<0>.Q & !count_LED<1>.Q;		"--- [PT=1, FI=2, LVL=1] ---
+ count_LED<0>.CE = N_PZ_316;		"--- [PT=1, FI=1, LVL=2] ---
+ count_LED<0>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ count_LED<0>.D = Clocksec/lagTime<0>.Q;		"--- [PT=1, FI=1, LVL=1] ---
+ count_LED<1>.CE = N_PZ_316;		"--- [PT=1, FI=1, LVL=2] ---
+ count_LED<1>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ count_LED<1>.D = Clocksec/lagTime<1>.Q;		"--- [PT=1, FI=1, LVL=1] ---
+ count_LED<2>.CE = N_PZ_316;		"--- [PT=1, FI=1, LVL=2] ---
+ count_LED<2>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ count_LED<2>.D = Clocksec/lagTime<2>.Q;		"--- [PT=1, FI=1, LVL=1] ---
+ count_LED<3>.CE = N_PZ_316;		"--- [PT=1, FI=1, LVL=2] ---
+ count_LED<3>.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ count_LED<3>.D = Clocksec/lagTime<3>.Q;		"--- [PT=1, FI=1, LVL=1] ---
+ delayFinal.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ delayFinal.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ delayFinal.D = statesTraffic/state_FSM_FFd4.Q & N_PZ_268 & !N_PZ_284
+      # start_Count.Q & N_PZ_318
+      # !N_PZ_270 & N_PZ_315
+      # delayFinal.Q & !start_Count.Q;		"--- [PT=4, FI=8, LVL=6] ---
+ start_Count.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ start_Count.T = N_PZ_265 & N_PZ_316
+      # !Reset & N_PZ_303;		"--- [PT=2, FI=4, LVL=24] ---
+ statesTraffic/state_FSM_FFd1.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ statesTraffic/state_FSM_FFd1.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ statesTraffic/state_FSM_FFd1.D = statesTraffic/state_FSM_FFd3.Q & !N_PZ_306
+     & N_PZ_322
+      # !delayFinal.Q & statesTraffic/state_FSM_FFd1.Q
+    ;		"--- [PT=2, FI=5, LVL=2] ---
+ statesTraffic/state_FSM_FFd2.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ statesTraffic/state_FSM_FFd2.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+! statesTraffic/state_FSM_FFd2.D = statesTraffic/state_FSM_FFd2.Q & !N_PZ_306
+     & N_PZ_319
+      # !statesTraffic/temp_PedNS.Q & N_PZ_321
+      # !statesTraffic/state_FSM_FFd3.Q & N_PZ_321
+      # !statesTraffic/state_FSM_FFd2.Q & N_PZ_306
+    ;		"--- [PT=4, FI=6, LVL=2] ---
+ statesTraffic/state_FSM_FFd3.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ statesTraffic/state_FSM_FFd3.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+! statesTraffic/state_FSM_FFd3.D = !statesTraffic/state_FSM_FFd3.Q & !N_PZ_275
+    
+      # !statesTraffic/state_FSM_FFd3.Q & N_PZ_260
+      # !delayFinal.Q & !statesTraffic/state_FSM_FFd3.Q
+      # !N_PZ_306;		"--- [PT=4, FI=5, LVL=4] ---
+ statesTraffic/state_FSM_FFd4.AR = Reset;		"--- [PT=1, FI=1, LVL=1] ---
+ statesTraffic/state_FSM_FFd4.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ statesTraffic/state_FSM_FFd4.T = statesTraffic/temp_PedNS.Q & !N_PZ_261 & 
+    N_PZ_327
+      # statesTraffic/temp_PedEW.Q & !N_PZ_262 & N_PZ_326
+      # statesTraffic/state_FSM_FFd2.Q & !statesTraffic/temp_PedEW.Q & !
+    N_PZ_306
+      # delayFinal.Q & N_PZ_312;		"--- [PT=4, FI=10, LVL=3] ---
+ statesTraffic/temp_PedEW.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ statesTraffic/temp_PedEW.T = !Reset & PedEW & !statesTraffic/temp_PedEW.Q & 
+    N_PZ_281
+      # !Reset & statesTraffic/temp_PedEW.Q & !N_PZ_281
+    ;		"--- [PT=2, FI=4, LVL=3] ---
+ statesTraffic/temp_PedNS.CLK = Clock;		"--- [PT=1, FI=1, LVL=1] ---
+ statesTraffic/temp_PedNS.T = !Reset & !PedEW & PedNS & !
+    statesTraffic/temp_PedNS.Q & N_PZ_281
+      # !Reset & statesTraffic/temp_PedNS.Q & !N_PZ_281
+    ;		"--- [PT=2, FI=5, LVL=3] ---
+END

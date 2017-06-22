@@ -1,0 +1,129 @@
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+taengine -intstyle ise -f TrafficLevel -w --format html1 -l TrafficLevel_html/tim/timing_report.htm 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 
+xst -intstyle ise -ifn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.xst" -ofn "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/TrafficLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc C:/Users/Y510P/Desktop/TrafficVHDL/TopLevel.ucf -p xc2c64a-VQ44-7 TrafficLevel.ngc TrafficLevel.ngd  
+cpldfit -intstyle ise -p xc2c64a-7-VQ44 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused keeper -terminate keeper -iostd LVCMOS18 TrafficLevel.ngd 
+XSLTProcess TrafficLevel_build.xml 
+tsim -intstyle ise TrafficLevel TrafficLevel.nga 
+hprep6 -s IEEE1149 -i TrafficLevel 

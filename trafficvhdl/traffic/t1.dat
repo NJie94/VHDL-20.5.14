@@ -1,0 +1,1892 @@
+assert111.........
+name = ddddddd..
+assert333.........
+NDEBUG is not defined
+__STDC__ is not defined
+__MSVC__ is defined
+XPLA_BORLANDC is defined
+
+---------------------
+|  D E F A U L T S  |
+---------------------
+max_pt=28, min_pt=3
+max_fi=32, min_fi=4
+
+-----------------
+|  H E A D E R  |
+-----------------
+#$ MODULE TrafficLevel
+#$ PINS 5 "Clock":1 "Reset":30 "CarNS":34 "LEDs<0>":18 "LEDs<1>":19 
+#$ PINS 5 "LEDs<2>":20 "LEDs<3>":21 "LEDs<6>":27 "CarEW":33 "PedEW":36 
+#$ PINS 5 "PedNS":37 "LightsEW<1>":39 "LEDs<4>":22 "LEDs<5>":23 "LEDs<7>":28 
+#$ PINS 3 "LightsEW<0>":40 "LightsNS<0>":42 "LightsNS<1>":41 
+#$ NODES 2 "DelayTimer/Counter<0>" "DelayTimer/Counter<11>" 
+#$ NODES 2 "DelayTimer/Counter<2>" "DelayTimer/Counter<3>" 
+#$ NODES 2 "DelayTimer/Counter<4>" "DelayTimer/Counter<6>" 
+#$ NODES 3 "DelayTimer/Counter<7>" "DelayTimer/Counter<9>" "delayFinal" 
+#$ NODES 3 "start_Count" "Clocksec/lagTime<0>" "Clocksec/lagTime<1>" 
+#$ NODES 2 "Clocksec/lagTime<2>" "Clocksec/lagTime<3>" 
+#$ NODES 2 "DelayTimer/Counter<10>" "DelayTimer/Counter<12>" 
+#$ NODES 2 "DelayTimer/Counter<13>" "DelayTimer/Counter<14>" 
+#$ NODES 2 "DelayTimer/Counter<15>" "DelayTimer/Counter<16>" 
+#$ NODES 2 "DelayTimer/Counter<17>" "DelayTimer/Counter<1>" 
+#$ NODES 2 "DelayTimer/Counter<5>" "DelayTimer/Counter<8>" 
+#$ NODES 2 "DelayTimer/Counter<18>" "statesTraffic/state_FSM_FFd2" 
+#$ NODES 2 "statesTraffic/state_FSM_FFd1" "statesTraffic/temp_PedEW" 
+#$ NODES 2 "statesTraffic/state_FSM_FFd4" "statesTraffic/state_FSM_FFd3" 
+#$ NODES 4 "count_LED<0>" "count_LED<3>" "count_LED<1>" "count_LED<2>" 
+#$ NODES 3 "statesTraffic/temp_PedNS" "N_PZ_259"'co' "N_PZ_260"'co' 
+#$ NODES 4 "N_PZ_261"'co' "N_PZ_262"'co' "N_PZ_263"'co' "N_PZ_264"'co' 
+#$ NODES 4 "N_PZ_265"'co' "N_PZ_266"'co' "N_PZ_267"'co' "N_PZ_268"'co' 
+#$ NODES 4 "N_PZ_269"'co' "N_PZ_270"'co' "N_PZ_271"'co' "N_PZ_272"'co' 
+#$ NODES 4 "N_PZ_273"'co' "N_PZ_274"'co' "N_PZ_275"'co' "N_PZ_276"'co' 
+#$ NODES 4 "N_PZ_277"'co' "N_PZ_278"'co' "N_PZ_279"'co' "N_PZ_280"'co' 
+#$ NODES 4 "N_PZ_281"'co' "N_PZ_282"'co' "N_PZ_283"'co' "N_PZ_284"'co' 
+#$ NODES 4 "N_PZ_285"'co' "N_PZ_286"'co' "N_PZ_287"'co' "N_PZ_288"'co' 
+#$ NODES 4 "N_PZ_289"'co' "N_PZ_290"'co' "N_PZ_291"'co' "N_PZ_292"'co' 
+#$ NODES 4 "N_PZ_293"'co' "N_PZ_294"'co' "N_PZ_295"'co' "N_PZ_296"'co' 
+#$ NODES 4 "N_PZ_297"'co' "N_PZ_298"'co' "N_PZ_299"'co' "N_PZ_300"'co' 
+#$ NODES 4 "N_PZ_301"'co' "N_PZ_302"'co' "N_PZ_303"'co' "N_PZ_304"'co' 
+#$ NODES 4 "N_PZ_305"'co' "N_PZ_306"'co' "N_PZ_307"'co' "N_PZ_308"'co' 
+#$ NODES 4 "N_PZ_309"'co' "N_PZ_310"'co' "N_PZ_311"'co' "N_PZ_312"'co' 
+#$ NODES 4 "N_PZ_313"'co' "N_PZ_314"'co' "N_PZ_315"'co' "N_PZ_316"'co' 
+#$ NODES 4 "N_PZ_317"'co' "N_PZ_318"'co' "N_PZ_319"'co' "N_PZ_320"'co' 
+#$ NODES 4 "N_PZ_321"'co' "N_PZ_322"'co' "N_PZ_323"'co' "N_PZ_324"'co' 
+#$ NODES 4 "N_PZ_325"'co' "N_PZ_326"'co' "N_PZ_327"'co' "N_PZ_328"'co' 
+
+---------------------------------------
+|  P I N    T a b l e    [count=123]  |
+---------------------------------------
+ N_PZ_309 N_PZ_308 CarEW LightsEW<1> N_PZ_328 N_PZ_307 N_PZ_327 N_PZ_306 LEDs<0> 
+ N_PZ_326 N_PZ_305 LEDs<2> statesTraffic/state_FSM_FFd4 N_PZ_325 N_PZ_304 
+ statesTraffic/state_FSM_FFd3 LEDs<4> N_PZ_324 N_PZ_303 LEDs<6> 
+ statesTraffic/state_FSM_FFd2 N_PZ_323 N_PZ_302 statesTraffic/state_FSM_FFd1 N_PZ_322 
+ N_PZ_301 N_PZ_321 N_PZ_300 N_PZ_320 statesTraffic/temp_PedEW count_LED<2> count_LED<0> 
+ PedNS DelayTimer/Counter<1> delayFinal DelayTimer/Counter<3> DelayTimer/Counter<5> 
+ DelayTimer/Counter<7> DelayTimer/Counter<9> LightsNS<1> Clocksec/lagTime<2> N_PZ_269 
+ Clocksec/lagTime<0> N_PZ_289 N_PZ_268 N_PZ_288 N_PZ_267 DelayTimer/Counter<11> 
+ N_PZ_287 N_PZ_266 DelayTimer/Counter<13> N_PZ_286 N_PZ_265 DelayTimer/Counter<15> 
+ N_PZ_285 N_PZ_264 DelayTimer/Counter<17> N_PZ_284 N_PZ_263 N_PZ_283 N_PZ_262 N_PZ_282 
+ N_PZ_261 N_PZ_281 N_PZ_260 N_PZ_280 N_PZ_319 LightsEW<0> N_PZ_318 N_PZ_317 start_Count 
+ N_PZ_316 LEDs<1> N_PZ_315 statesTraffic/temp_PedNS LEDs<3> N_PZ_314 LEDs<5> N_PZ_313 
+ LEDs<7> N_PZ_312 N_PZ_311 N_PZ_310 CarNS count_LED<3> count_LED<1> Clock 
+ DelayTimer/Counter<0> DelayTimer/Counter<2> DelayTimer/Counter<4> 
+ DelayTimer/Counter<6> DelayTimer/Counter<8> PedEW Reset LightsNS<0> 
+ Clocksec/lagTime<3> N_PZ_259 Clocksec/lagTime<1> N_PZ_279 N_PZ_299 N_PZ_278 
+ DelayTimer/Counter<10> N_PZ_298 N_PZ_277 DelayTimer/Counter<12> N_PZ_297 N_PZ_276 
+ DelayTimer/Counter<14> N_PZ_296 N_PZ_275 DelayTimer/Counter<16> N_PZ_295 N_PZ_274 
+ DelayTimer/Counter<18> N_PZ_294 N_PZ_273 N_PZ_293 N_PZ_272 N_PZ_292 N_PZ_271 N_PZ_291 
+ N_PZ_270 N_PZ_290
+
+------------------------------------------
+|  P I N    E q n l i s t    [count=18]  |
+------------------------------------------
+Clock (fi=0): 
+Reset (fi=0): 
+CarNS (fi=0): 
+LEDs<0> (fi=6): (LEDs<0>/N_PZ_129, net=TrafficLevel) 
+LEDs<1> (fi=5): (LEDs<1>/N_PZ_130, net=TrafficLevel) 
+LEDs<2> (fi=3): (LEDs<2>/N_PZ_131, net=TrafficLevel) 
+LEDs<3> (fi=3): (LEDs<3>/N_PZ_132, net=TrafficLevel) 
+LEDs<6> (fi=4): (LEDs<6>/N_PZ_133, net=TrafficLevel) 
+CarEW (fi=0): 
+PedEW (fi=0): 
+PedNS (fi=0): 
+LightsEW<1> (fi=4): (LightsEW<1>/N_PZ_134, net=TrafficLevel) 
+LEDs<4> (fi=3): (LEDs<4>/N_PZ_135, net=TrafficLevel) 
+LEDs<5> (fi=2): (LEDs<5>/N_PZ_136, net=TrafficLevel) 
+LEDs<7> (fi=2): (LEDs<7>/N_PZ_137, net=TrafficLevel) 
+LightsEW<0> (fi=5): (LightsEW<0>/N_PZ_138, net=TrafficLevel) 
+LightsNS<0> (fi=2): (LightsNS<0>/N_PZ_139, net=TrafficLevel) 
+LightsNS<1> (fi=7): (LightsNS<1>/N_PZ_140, net=TrafficLevel) 
+
+---------------------------------------------
+|  N O D E    E q n l i s t    [count=105]  |
+---------------------------------------------
+DelayTimer/Counter<0> (fi=3): DelayTimer/Counter<0>.CLK/N_PZ_21 DelayTimer/Counter<0>.AP/N_PZ_22 DelayTimer/Counter<0>.T/N_PZ_150 
+DelayTimer/Counter<11> (fi=4): DelayTimer/Counter<11>.CLK/N_PZ_29 DelayTimer/Counter<11>.AR/N_PZ_30 DelayTimer/Counter<11>.T/N_PZ_177 
+DelayTimer/Counter<2> (fi=4): DelayTimer/Counter<2>.CLK/N_PZ_61 DelayTimer/Counter<2>.AR/N_PZ_62 DelayTimer/Counter<2>.T/N_PZ_185 
+DelayTimer/Counter<3> (fi=4): DelayTimer/Counter<3>.CLK/N_PZ_65 DelayTimer/Counter<3>.AR/N_PZ_66 DelayTimer/Counter<3>.T/N_PZ_186 
+DelayTimer/Counter<4> (fi=4): DelayTimer/Counter<4>.CLK/N_PZ_69 DelayTimer/Counter<4>.AR/N_PZ_70 DelayTimer/Counter<4>.T/N_PZ_187 
+DelayTimer/Counter<6> (fi=4): DelayTimer/Counter<6>.CLK/N_PZ_77 DelayTimer/Counter<6>.AR/N_PZ_78 DelayTimer/Counter<6>.T/N_PZ_189 
+DelayTimer/Counter<7> (fi=4): DelayTimer/Counter<7>.CLK/N_PZ_81 DelayTimer/Counter<7>.AR/N_PZ_82 DelayTimer/Counter<7>.T/N_PZ_190 
+DelayTimer/Counter<9> (fi=4): DelayTimer/Counter<9>.CLK/N_PZ_89 DelayTimer/Counter<9>.AR/N_PZ_90 DelayTimer/Counter<9>.T/N_PZ_192 
+delayFinal (fi=10): delayFinal.D/N_PZ_0 delayFinal.CLK/N_PZ_1 delayFinal.AR/N_PZ_2 
+start_Count (fi=5): start_Count.CLK/N_PZ_121 start_Count.T/N_PZ_169 
+Clocksec/lagTime<0> (fi=7): Clocksec/lagTime<0>.CLK/N_PZ_5 Clocksec/lagTime<0>.AP/N_PZ_6 Clocksec/lagTime<0>.T/N_PZ_146 
+Clocksec/lagTime<1> (fi=11): Clocksec/lagTime<1>.D/N_PZ_8 Clocksec/lagTime<1>.CLK/N_PZ_9 Clocksec/lagTime<1>.AR/N_PZ_10 
+Clocksec/lagTime<2> (fi=13): Clocksec/lagTime<2>.D/N_PZ_12 Clocksec/lagTime<2>.CLK/N_PZ_13 Clocksec/lagTime<2>.AR/N_PZ_14 
+Clocksec/lagTime<3> (fi=12): Clocksec/lagTime<3>.D/N_PZ_16 Clocksec/lagTime<3>.CLK/N_PZ_17 Clocksec/lagTime<3>.AR/N_PZ_18 
+DelayTimer/Counter<10> (fi=4): DelayTimer/Counter<10>.CLK/N_PZ_25 DelayTimer/Counter<10>.AR/N_PZ_26 DelayTimer/Counter<10>.T/N_PZ_176 
+DelayTimer/Counter<12> (fi=4): DelayTimer/Counter<12>.CLK/N_PZ_33 DelayTimer/Counter<12>.AR/N_PZ_34 DelayTimer/Counter<12>.T/N_PZ_178 
+DelayTimer/Counter<13> (fi=5): DelayTimer/Counter<13>.CLK/N_PZ_37 DelayTimer/Counter<13>.AR/N_PZ_38 DelayTimer/Counter<13>.T/N_PZ_179 
+DelayTimer/Counter<14> (fi=4): DelayTimer/Counter<14>.CLK/N_PZ_41 DelayTimer/Counter<14>.AR/N_PZ_42 DelayTimer/Counter<14>.T/N_PZ_180 
+DelayTimer/Counter<15> (fi=5): DelayTimer/Counter<15>.CLK/N_PZ_45 DelayTimer/Counter<15>.AR/N_PZ_46 DelayTimer/Counter<15>.T/N_PZ_181 
+DelayTimer/Counter<16> (fi=5): DelayTimer/Counter<16>.CLK/N_PZ_49 DelayTimer/Counter<16>.AR/N_PZ_50 DelayTimer/Counter<16>.T/N_PZ_182 
+DelayTimer/Counter<17> (fi=5): DelayTimer/Counter<17>.CLK/N_PZ_53 DelayTimer/Counter<17>.AR/N_PZ_54 DelayTimer/Counter<17>.T/N_PZ_183 
+DelayTimer/Counter<1> (fi=4): DelayTimer/Counter<1>.CLK/N_PZ_57 DelayTimer/Counter<1>.AR/N_PZ_58 DelayTimer/Counter<1>.T/N_PZ_184 
+DelayTimer/Counter<5> (fi=5): DelayTimer/Counter<5>.CLK/N_PZ_73 DelayTimer/Counter<5>.AR/N_PZ_74 DelayTimer/Counter<5>.T/N_PZ_188 
+DelayTimer/Counter<8> (fi=5): DelayTimer/Counter<8>.CLK/N_PZ_85 DelayTimer/Counter<8>.AR/N_PZ_86 DelayTimer/Counter<8>.T/N_PZ_191 
+DelayTimer/Counter<18> (fi=5): DelayTimer/Counter<18>.CLK/N_PZ_93 DelayTimer/Counter<18>.AR/N_PZ_94 DelayTimer/Counter<18>.T/N_PZ_193 
+statesTraffic/state_FSM_FFd2 (fi=8): statesTraffic/state_FSM_FFd2.D/N_PZ_99 statesTraffic/state_FSM_FFd2.CLK/N_PZ_100 statesTraffic/state_FSM_FFd2.AR/N_PZ_101 
+statesTraffic/state_FSM_FFd1 (fi=7): statesTraffic/state_FSM_FFd1.D/N_PZ_111 statesTraffic/state_FSM_FFd1.CLK/N_PZ_112 statesTraffic/state_FSM_FFd1.AR/N_PZ_113 
+statesTraffic/temp_PedEW (fi=5): statesTraffic/temp_PedEW.CLK/N_PZ_124 statesTraffic/temp_PedEW.T/N_PZ_170 
+statesTraffic/state_FSM_FFd4 (fi=12): statesTraffic/state_FSM_FFd4.CLK/N_PZ_97 statesTraffic/state_FSM_FFd4.AR/N_PZ_98 statesTraffic/state_FSM_FFd4.T/N_PZ_194 
+statesTraffic/state_FSM_FFd3 (fi=7): statesTraffic/state_FSM_FFd3.D/N_PZ_102 statesTraffic/state_FSM_FFd3.CLK/N_PZ_103 statesTraffic/state_FSM_FFd3.AR/N_PZ_104 
+count_LED<0> (fi=3): count_LED<0>.D/N_PZ_105 count_LED<0>.CLK/N_PZ_106 count_LED<0>.CE/N_PZ_107 
+count_LED<3> (fi=3): count_LED<3>.D/N_PZ_108 count_LED<3>.CLK/N_PZ_109 count_LED<3>.CE/N_PZ_110 
+count_LED<1> (fi=3): count_LED<1>.D/N_PZ_114 count_LED<1>.CLK/N_PZ_115 count_LED<1>.CE/N_PZ_116 
+count_LED<2> (fi=3): count_LED<2>.D/N_PZ_117 count_LED<2>.CLK/N_PZ_118 count_LED<2>.CE/N_PZ_119 
+statesTraffic/temp_PedNS (fi=6): statesTraffic/temp_PedNS.CLK/N_PZ_127 statesTraffic/temp_PedNS.T/N_PZ_171 
+N_PZ_259 (fi=2): N_PZ_259 
+N_PZ_260 (fi=2): N_PZ_260 
+N_PZ_261 (fi=2): N_PZ_261 
+N_PZ_262 (fi=2): N_PZ_262 
+N_PZ_263 (fi=2): N_PZ_263 
+N_PZ_264 (fi=5): N_PZ_264 
+N_PZ_265 (fi=2): N_PZ_265 
+N_PZ_266 (fi=2): N_PZ_266 
+N_PZ_267 (fi=2): N_PZ_267 
+N_PZ_268 (fi=3): N_PZ_268 
+N_PZ_269 (fi=2): N_PZ_269 
+N_PZ_270 (fi=2): N_PZ_270 
+N_PZ_271 (fi=2): N_PZ_271 
+N_PZ_272 (fi=2): N_PZ_272 
+N_PZ_273 (fi=2): N_PZ_273 
+N_PZ_274 (fi=2): N_PZ_274 
+N_PZ_275 (fi=2): N_PZ_275 
+N_PZ_276 (fi=2): N_PZ_276 
+N_PZ_277 (fi=2): N_PZ_277 
+N_PZ_278 (fi=2): N_PZ_278 
+N_PZ_279 (fi=2): N_PZ_279 
+N_PZ_280 (fi=2): N_PZ_280 
+N_PZ_281 (fi=2): N_PZ_281 
+N_PZ_282 (fi=2): N_PZ_282 
+N_PZ_283 (fi=2): N_PZ_283 
+N_PZ_284 (fi=2): N_PZ_284 
+N_PZ_285 (fi=2): N_PZ_285 
+N_PZ_286 (fi=5): N_PZ_286 
+N_PZ_287 (fi=3): N_PZ_287 
+N_PZ_288 (fi=2): N_PZ_288 
+N_PZ_289 (fi=2): N_PZ_289 
+N_PZ_290 (fi=3): N_PZ_290 
+N_PZ_291 (fi=2): N_PZ_291 
+N_PZ_292 (fi=2): N_PZ_292 
+N_PZ_293 (fi=2): N_PZ_293 
+N_PZ_294 (fi=2): N_PZ_294 
+N_PZ_295 (fi=2): N_PZ_295 
+N_PZ_296 (fi=2): N_PZ_296 
+N_PZ_297 (fi=2): N_PZ_297 
+N_PZ_298 (fi=2): N_PZ_298 
+N_PZ_299 (fi=2): N_PZ_299 
+N_PZ_300 (fi=2): N_PZ_300 
+N_PZ_301 (fi=2): N_PZ_301 
+N_PZ_302 (fi=2): N_PZ_302 
+N_PZ_303 (fi=2): N_PZ_303 
+N_PZ_304 (fi=2): N_PZ_304 
+N_PZ_305 (fi=2): N_PZ_305 
+N_PZ_306 (fi=2): N_PZ_306 
+N_PZ_307 (fi=2): N_PZ_307 
+N_PZ_308 (fi=2): N_PZ_308 
+N_PZ_309 (fi=4): N_PZ_309 
+N_PZ_310 (fi=2): N_PZ_310 
+N_PZ_311 (fi=3): N_PZ_311 
+N_PZ_312 (fi=3): N_PZ_312 
+N_PZ_313 (fi=2): N_PZ_313 
+N_PZ_314 (fi=4): N_PZ_314 
+N_PZ_315 (fi=2): N_PZ_315 
+N_PZ_316 (fi=2): N_PZ_316 
+N_PZ_317 (fi=2): N_PZ_317 
+N_PZ_318 (fi=2): N_PZ_318 
+N_PZ_319 (fi=2): N_PZ_319 
+N_PZ_320 (fi=2): N_PZ_320 
+N_PZ_321 (fi=2): N_PZ_321 
+N_PZ_322 (fi=3): N_PZ_322 
+N_PZ_323 (fi=4): N_PZ_323 
+N_PZ_324 (fi=4): N_PZ_324 
+N_PZ_325 (fi=2): N_PZ_325 
+N_PZ_326 (fi=2): N_PZ_326 
+N_PZ_327 (fi=2): N_PZ_327 
+N_PZ_328 (fi=2): N_PZ_328 
+
+---------------------------------
+|  D a t a   S t r u c t u r e  |
+---------------------------------
+PI ( 41) =  Clock Reset CarNS CarEW PedEW PedNS delayFinal.Q Clocksec/lagTime<0>.Q 
+            Clocksec/lagTime<1>.Q Clocksec/lagTime<2>.Q Clocksec/lagTime<3>.Q 
+            DelayTimer/Counter<0>.Q DelayTimer/Counter<10>.Q DelayTimer/Counter<11>.Q 
+            DelayTimer/Counter<12>.Q DelayTimer/Counter<13>.Q DelayTimer/Counter<14>.Q 
+            DelayTimer/Counter<15>.Q DelayTimer/Counter<16>.Q DelayTimer/Counter<17>.Q 
+            DelayTimer/Counter<1>.Q DelayTimer/Counter<2>.Q DelayTimer/Counter<3>.Q 
+            DelayTimer/Counter<4>.Q DelayTimer/Counter<5>.Q DelayTimer/Counter<6>.Q 
+            DelayTimer/Counter<7>.Q DelayTimer/Counter<8>.Q DelayTimer/Counter<9>.Q 
+            DelayTimer/Counter<18>.Q statesTraffic/state_FSM_FFd4.Q 
+            statesTraffic/state_FSM_FFd2.Q statesTraffic/state_FSM_FFd3.Q 
+            count_LED<0>.Q count_LED<3>.Q statesTraffic/state_FSM_FFd1.Q count_LED<1>.Q 
+            count_LED<2>.Q start_Count.Q statesTraffic/temp_PedEW.Q 
+            statesTraffic/temp_PedNS.Q
+
+PO (114) =  delayFinal.D delayFinal.CLK delayFinal.AR Clocksec/lagTime<0>.CLK 
+            Clocksec/lagTime<0>.AP Clocksec/lagTime<1>.D Clocksec/lagTime<1>.CLK 
+            Clocksec/lagTime<1>.AR Clocksec/lagTime<2>.D Clocksec/lagTime<2>.CLK 
+            Clocksec/lagTime<2>.AR Clocksec/lagTime<3>.D Clocksec/lagTime<3>.CLK 
+            Clocksec/lagTime<3>.AR DelayTimer/Counter<0>.CLK DelayTimer/Counter<0>.AP 
+            DelayTimer/Counter<10>.CLK DelayTimer/Counter<10>.AR 
+            DelayTimer/Counter<11>.CLK DelayTimer/Counter<11>.AR 
+            DelayTimer/Counter<12>.CLK DelayTimer/Counter<12>.AR 
+            DelayTimer/Counter<13>.CLK DelayTimer/Counter<13>.AR 
+            DelayTimer/Counter<14>.CLK DelayTimer/Counter<14>.AR 
+            DelayTimer/Counter<15>.CLK DelayTimer/Counter<15>.AR 
+            DelayTimer/Counter<16>.CLK DelayTimer/Counter<16>.AR 
+            DelayTimer/Counter<17>.CLK DelayTimer/Counter<17>.AR 
+            DelayTimer/Counter<1>.CLK DelayTimer/Counter<1>.AR 
+            DelayTimer/Counter<2>.CLK DelayTimer/Counter<2>.AR 
+            DelayTimer/Counter<3>.CLK DelayTimer/Counter<3>.AR 
+            DelayTimer/Counter<4>.CLK DelayTimer/Counter<4>.AR 
+            DelayTimer/Counter<5>.CLK DelayTimer/Counter<5>.AR 
+            DelayTimer/Counter<6>.CLK DelayTimer/Counter<6>.AR 
+            DelayTimer/Counter<7>.CLK DelayTimer/Counter<7>.AR 
+            DelayTimer/Counter<8>.CLK DelayTimer/Counter<8>.AR 
+            DelayTimer/Counter<9>.CLK DelayTimer/Counter<9>.AR 
+            DelayTimer/Counter<18>.CLK DelayTimer/Counter<18>.AR 
+            statesTraffic/state_FSM_FFd4.CLK statesTraffic/state_FSM_FFd4.AR 
+            statesTraffic/state_FSM_FFd2.D statesTraffic/state_FSM_FFd2.CLK 
+            statesTraffic/state_FSM_FFd2.AR statesTraffic/state_FSM_FFd3.D 
+            statesTraffic/state_FSM_FFd3.CLK statesTraffic/state_FSM_FFd3.AR 
+            count_LED<0>.D count_LED<0>.CLK count_LED<0>.CE count_LED<3>.D 
+            count_LED<3>.CLK count_LED<3>.CE statesTraffic/state_FSM_FFd1.D 
+            statesTraffic/state_FSM_FFd1.CLK statesTraffic/state_FSM_FFd1.AR 
+            count_LED<1>.D count_LED<1>.CLK count_LED<1>.CE count_LED<2>.D 
+            count_LED<2>.CLK count_LED<2>.CE start_Count.CLK 
+            statesTraffic/temp_PedEW.CLK statesTraffic/temp_PedNS.CLK LEDs<0> LEDs<1> 
+            LEDs<2> LEDs<3> LEDs<6> LightsEW<1> LEDs<4> LEDs<5> LEDs<7> LightsEW<0> 
+            LightsNS<0> LightsNS<1> Clocksec/lagTime<0>.T DelayTimer/Counter<0>.T 
+            start_Count.T statesTraffic/temp_PedEW.T statesTraffic/temp_PedNS.T 
+            DelayTimer/Counter<10>.T DelayTimer/Counter<11>.T DelayTimer/Counter<12>.T 
+            DelayTimer/Counter<13>.T DelayTimer/Counter<14>.T DelayTimer/Counter<15>.T 
+            DelayTimer/Counter<16>.T DelayTimer/Counter<17>.T DelayTimer/Counter<1>.T 
+            DelayTimer/Counter<2>.T DelayTimer/Counter<3>.T DelayTimer/Counter<4>.T 
+            DelayTimer/Counter<5>.T DelayTimer/Counter<6>.T DelayTimer/Counter<7>.T 
+            DelayTimer/Counter<8>.T DelayTimer/Counter<9>.T DelayTimer/Counter<18>.T 
+            statesTraffic/state_FSM_FFd4.T
+
+INT = (184) N_PZ_0 N_PZ_1 N_PZ_2 N_PZ_5 N_PZ_6 N_PZ_8 N_PZ_9 N_PZ_10 N_PZ_12 N_PZ_13 
+            N_PZ_14 N_PZ_16 N_PZ_17 N_PZ_18 N_PZ_21 N_PZ_22 N_PZ_25 N_PZ_26 N_PZ_29 
+            N_PZ_30 N_PZ_33 N_PZ_34 N_PZ_37 N_PZ_38 N_PZ_41 N_PZ_42 N_PZ_45 N_PZ_46 
+            N_PZ_49 N_PZ_50 N_PZ_53 N_PZ_54 N_PZ_57 N_PZ_58 N_PZ_61 N_PZ_62 N_PZ_65 
+            N_PZ_66 N_PZ_69 N_PZ_70 N_PZ_73 N_PZ_74 N_PZ_77 N_PZ_78 N_PZ_81 N_PZ_82 
+            N_PZ_85 N_PZ_86 N_PZ_89 N_PZ_90 N_PZ_93 N_PZ_94 N_PZ_97 N_PZ_98 N_PZ_99 
+            N_PZ_100 N_PZ_101 N_PZ_102 N_PZ_103 N_PZ_104 N_PZ_105 N_PZ_106 N_PZ_107 
+            N_PZ_108 N_PZ_109 N_PZ_110 N_PZ_111 N_PZ_112 N_PZ_113 N_PZ_114 N_PZ_115 
+            N_PZ_116 N_PZ_117 N_PZ_118 N_PZ_119 N_PZ_121 N_PZ_124 N_PZ_127 N_PZ_129 
+            N_PZ_130 N_PZ_131 N_PZ_132 N_PZ_133 N_PZ_134 N_PZ_135 N_PZ_136 N_PZ_137 
+            N_PZ_138 N_PZ_139 N_PZ_140 N_PZ_146 N_PZ_150 N_PZ_169 N_PZ_170 N_PZ_171 
+            N_PZ_176 N_PZ_177 N_PZ_178 N_PZ_179 N_PZ_180 N_PZ_181 N_PZ_182 N_PZ_183 
+            N_PZ_184 N_PZ_185 N_PZ_186 N_PZ_187 N_PZ_188 N_PZ_189 N_PZ_190 N_PZ_191 
+            N_PZ_192 N_PZ_193 N_PZ_194 N_PZ_259 N_PZ_260 N_PZ_261 N_PZ_262 N_PZ_263 
+            N_PZ_264 N_PZ_265 N_PZ_266 N_PZ_267 N_PZ_268 N_PZ_269 N_PZ_270 N_PZ_271 
+            N_PZ_272 N_PZ_273 N_PZ_274 N_PZ_275 N_PZ_276 N_PZ_277 N_PZ_278 N_PZ_279 
+            N_PZ_280 N_PZ_281 N_PZ_282 N_PZ_283 N_PZ_284 N_PZ_285 N_PZ_286 N_PZ_287 
+            N_PZ_288 N_PZ_289 N_PZ_290 N_PZ_291 N_PZ_292 N_PZ_293 N_PZ_294 N_PZ_295 
+            N_PZ_296 N_PZ_297 N_PZ_298 N_PZ_299 N_PZ_300 N_PZ_301 N_PZ_302 N_PZ_303 
+            N_PZ_304 N_PZ_305 N_PZ_306 N_PZ_307 N_PZ_308 N_PZ_309 N_PZ_310 N_PZ_311 
+            N_PZ_312 N_PZ_313 N_PZ_314 N_PZ_315 N_PZ_316 N_PZ_317 N_PZ_318 N_PZ_319 
+            N_PZ_320 N_PZ_321 N_PZ_322 N_PZ_323 N_PZ_324 N_PZ_325 N_PZ_326 N_PZ_327 
+            N_PZ_328
+
+PINT= ( 70) N_PZ_259 N_PZ_260 N_PZ_261 N_PZ_262 N_PZ_263 N_PZ_264 N_PZ_265 N_PZ_266 
+            N_PZ_267 N_PZ_268 N_PZ_269 N_PZ_270 N_PZ_271 N_PZ_272 N_PZ_273 N_PZ_274 
+            N_PZ_275 N_PZ_276 N_PZ_277 N_PZ_278 N_PZ_279 N_PZ_280 N_PZ_281 N_PZ_282 
+            N_PZ_283 N_PZ_284 N_PZ_285 N_PZ_286 N_PZ_287 N_PZ_288 N_PZ_289 N_PZ_290 
+            N_PZ_291 N_PZ_292 N_PZ_293 N_PZ_294 N_PZ_295 N_PZ_296 N_PZ_297 N_PZ_298 
+            N_PZ_299 N_PZ_300 N_PZ_301 N_PZ_302 N_PZ_303 N_PZ_304 N_PZ_305 N_PZ_306 
+            N_PZ_307 N_PZ_308 N_PZ_309 N_PZ_310 N_PZ_311 N_PZ_312 N_PZ_313 N_PZ_314 
+            N_PZ_315 N_PZ_316 N_PZ_317 N_PZ_318 N_PZ_319 N_PZ_320 N_PZ_321 N_PZ_322 
+            N_PZ_323 N_PZ_324 N_PZ_325 N_PZ_326 N_PZ_327 N_PZ_328
+
+AINT= (114) N_PZ_0 N_PZ_1 N_PZ_2 N_PZ_5 N_PZ_6 N_PZ_8 N_PZ_9 N_PZ_10 N_PZ_12 N_PZ_13 
+            N_PZ_14 N_PZ_16 N_PZ_17 N_PZ_18 N_PZ_21 N_PZ_22 N_PZ_25 N_PZ_26 N_PZ_29 
+            N_PZ_30 N_PZ_33 N_PZ_34 N_PZ_37 N_PZ_38 N_PZ_41 N_PZ_42 N_PZ_45 N_PZ_46 
+            N_PZ_49 N_PZ_50 N_PZ_53 N_PZ_54 N_PZ_57 N_PZ_58 N_PZ_61 N_PZ_62 N_PZ_65 
+            N_PZ_66 N_PZ_69 N_PZ_70 N_PZ_73 N_PZ_74 N_PZ_77 N_PZ_78 N_PZ_81 N_PZ_82 
+            N_PZ_85 N_PZ_86 N_PZ_89 N_PZ_90 N_PZ_93 N_PZ_94 N_PZ_97 N_PZ_98 N_PZ_99 
+            N_PZ_100 N_PZ_101 N_PZ_102 N_PZ_103 N_PZ_104 N_PZ_105 N_PZ_106 N_PZ_107 
+            N_PZ_108 N_PZ_109 N_PZ_110 N_PZ_111 N_PZ_112 N_PZ_113 N_PZ_114 N_PZ_115 
+            N_PZ_116 N_PZ_117 N_PZ_118 N_PZ_119 N_PZ_121 N_PZ_124 N_PZ_127 N_PZ_129 
+            N_PZ_130 N_PZ_131 N_PZ_132 N_PZ_133 N_PZ_134 N_PZ_135 N_PZ_136 N_PZ_137 
+            N_PZ_138 N_PZ_139 N_PZ_140 N_PZ_146 N_PZ_150 N_PZ_169 N_PZ_170 N_PZ_171 
+            N_PZ_176 N_PZ_177 N_PZ_178 N_PZ_179 N_PZ_180 N_PZ_181 N_PZ_182 N_PZ_183 
+            N_PZ_184 N_PZ_185 N_PZ_186 N_PZ_187 N_PZ_188 N_PZ_189 N_PZ_190 N_PZ_191 
+            N_PZ_192 N_PZ_193 N_PZ_194
+
+
+----------------------------
+|  D F S    N e t w o r k  |
+----------------------------
+delayFinal.Q statesTraffic/state_FSM_FFd4.Q start_Count.Q Clocksec/lagTime<2>.Q  
+Clocksec/lagTime<3>.Q statesTraffic/state_FSM_FFd3.Q statesTraffic/state_FSM_FFd1.Q  
+N_PZ_319 N_PZ_268 N_PZ_266 N_PZ_270 Clocksec/lagTime<0>.Q N_PZ_284 N_PZ_315 CarNS  
+statesTraffic/state_FSM_FFd2.Q N_PZ_326 CarEW statesTraffic/temp_PedEW.Q N_PZ_259  
+N_PZ_327 N_PZ_260 N_PZ_261 N_PZ_262 N_PZ_263 Clocksec/lagTime<1>.Q N_PZ_290 N_PZ_309  
+N_PZ_318 N_PZ_0 delayFinal.D Clock N_PZ_1 delayFinal.CLK Reset N_PZ_2 delayFinal.AR  
+N_PZ_5 Clocksec/lagTime<0>.CLK N_PZ_6 Clocksec/lagTime<0>.AP N_PZ_313 N_PZ_8  
+Clocksec/lagTime<1>.D N_PZ_9 Clocksec/lagTime<1>.CLK N_PZ_10 Clocksec/lagTime<1>.AR  
+N_PZ_305 N_PZ_323 N_PZ_12 Clocksec/lagTime<2>.D N_PZ_13 Clocksec/lagTime<2>.CLK  
+N_PZ_14 Clocksec/lagTime<2>.AR N_PZ_286 N_PZ_287 N_PZ_16 Clocksec/lagTime<3>.D N_PZ_17  
+Clocksec/lagTime<3>.CLK N_PZ_18 Clocksec/lagTime<3>.AR N_PZ_21  
+DelayTimer/Counter<0>.CLK N_PZ_22 DelayTimer/Counter<0>.AP N_PZ_25  
+DelayTimer/Counter<10>.CLK N_PZ_26 DelayTimer/Counter<10>.AR N_PZ_29  
+DelayTimer/Counter<11>.CLK N_PZ_30 DelayTimer/Counter<11>.AR N_PZ_33  
+DelayTimer/Counter<12>.CLK N_PZ_34 DelayTimer/Counter<12>.AR N_PZ_37  
+DelayTimer/Counter<13>.CLK N_PZ_38 DelayTimer/Counter<13>.AR N_PZ_41  
+DelayTimer/Counter<14>.CLK N_PZ_42 DelayTimer/Counter<14>.AR N_PZ_45  
+DelayTimer/Counter<15>.CLK N_PZ_46 DelayTimer/Counter<15>.AR N_PZ_49  
+DelayTimer/Counter<16>.CLK N_PZ_50 DelayTimer/Counter<16>.AR N_PZ_53  
+DelayTimer/Counter<17>.CLK N_PZ_54 DelayTimer/Counter<17>.AR N_PZ_57  
+DelayTimer/Counter<1>.CLK N_PZ_58 DelayTimer/Counter<1>.AR N_PZ_61  
+DelayTimer/Counter<2>.CLK N_PZ_62 DelayTimer/Counter<2>.AR N_PZ_65  
+DelayTimer/Counter<3>.CLK N_PZ_66 DelayTimer/Counter<3>.AR N_PZ_69  
+DelayTimer/Counter<4>.CLK N_PZ_70 DelayTimer/Counter<4>.AR N_PZ_73  
+DelayTimer/Counter<5>.CLK N_PZ_74 DelayTimer/Counter<5>.AR N_PZ_77  
+DelayTimer/Counter<6>.CLK N_PZ_78 DelayTimer/Counter<6>.AR N_PZ_81  
+DelayTimer/Counter<7>.CLK N_PZ_82 DelayTimer/Counter<7>.AR N_PZ_85  
+DelayTimer/Counter<8>.CLK N_PZ_86 DelayTimer/Counter<8>.AR N_PZ_89  
+DelayTimer/Counter<9>.CLK N_PZ_90 DelayTimer/Counter<9>.AR N_PZ_93  
+DelayTimer/Counter<18>.CLK N_PZ_94 DelayTimer/Counter<18>.AR N_PZ_97  
+statesTraffic/state_FSM_FFd4.CLK N_PZ_98 statesTraffic/state_FSM_FFd4.AR  
+statesTraffic/temp_PedNS.Q N_PZ_306 N_PZ_321 N_PZ_99 statesTraffic/state_FSM_FFd2.D  
+N_PZ_100 statesTraffic/state_FSM_FFd2.CLK N_PZ_101 statesTraffic/state_FSM_FFd2.AR  
+N_PZ_275 N_PZ_102 statesTraffic/state_FSM_FFd3.D N_PZ_103  
+statesTraffic/state_FSM_FFd3.CLK N_PZ_104 statesTraffic/state_FSM_FFd3.AR N_PZ_105  
+count_LED<0>.D N_PZ_106 count_LED<0>.CLK N_PZ_316 N_PZ_107 count_LED<0>.CE N_PZ_108  
+count_LED<3>.D N_PZ_109 count_LED<3>.CLK N_PZ_110 count_LED<3>.CE N_PZ_322 N_PZ_111  
+statesTraffic/state_FSM_FFd1.D N_PZ_112 statesTraffic/state_FSM_FFd1.CLK N_PZ_113  
+statesTraffic/state_FSM_FFd1.AR N_PZ_114 count_LED<1>.D N_PZ_115 count_LED<1>.CLK  
+N_PZ_116 count_LED<1>.CE N_PZ_117 count_LED<2>.D N_PZ_118 count_LED<2>.CLK N_PZ_119  
+count_LED<2>.CE N_PZ_121 start_Count.CLK N_PZ_124 statesTraffic/temp_PedEW.CLK  
+N_PZ_127 statesTraffic/temp_PedNS.CLK count_LED<3>.Q N_PZ_311 count_LED<2>.Q  
+count_LED<0>.Q count_LED<1>.Q N_PZ_273 N_PZ_317 N_PZ_129 LEDs<0> N_PZ_277 N_PZ_130  
+LEDs<1> N_PZ_264 N_PZ_279 N_PZ_307 N_PZ_328 N_PZ_314 N_PZ_325 N_PZ_131 LEDs<2>  
+N_PZ_132 LEDs<3> N_PZ_133 LEDs<6> N_PZ_134 LightsEW<1> N_PZ_135 LEDs<4> N_PZ_136  
+LEDs<5> N_PZ_137 LEDs<7> N_PZ_138 LightsEW<0> N_PZ_312 N_PZ_139 LightsNS<0> N_PZ_140  
+LightsNS<1> N_PZ_324 N_PZ_146 Clocksec/lagTime<0>.T N_PZ_265 N_PZ_150  
+DelayTimer/Counter<0>.T DelayTimer/Counter<1>.Q DelayTimer/Counter<14>.Q  
+DelayTimer/Counter<12>.Q DelayTimer/Counter<11>.Q DelayTimer/Counter<3>.Q  
+DelayTimer/Counter<10>.Q DelayTimer/Counter<18>.Q DelayTimer/Counter<9>.Q  
+DelayTimer/Counter<6>.Q DelayTimer/Counter<4>.Q DelayTimer/Counter<0>.Q  
+DelayTimer/Counter<17>.Q DelayTimer/Counter<16>.Q DelayTimer/Counter<15>.Q  
+DelayTimer/Counter<13>.Q DelayTimer/Counter<8>.Q DelayTimer/Counter<5>.Q N_PZ_267  
+N_PZ_269 N_PZ_278 N_PZ_283 N_PZ_285 N_PZ_288 DelayTimer/Counter<2>.Q  
+DelayTimer/Counter<7>.Q N_PZ_291 N_PZ_292 N_PZ_293 N_PZ_294 N_PZ_295 N_PZ_296 N_PZ_297  
+N_PZ_298 N_PZ_299 N_PZ_300 N_PZ_301 N_PZ_302 N_PZ_303 N_PZ_169 start_Count.T PedEW  
+N_PZ_281 N_PZ_170 statesTraffic/temp_PedEW.T PedNS N_PZ_171 statesTraffic/temp_PedNS.T  
+N_PZ_271 N_PZ_272 N_PZ_274 N_PZ_276 N_PZ_280 N_PZ_282 N_PZ_289 N_PZ_176  
+DelayTimer/Counter<10>.T N_PZ_304 N_PZ_177 DelayTimer/Counter<11>.T N_PZ_308 N_PZ_178  
+DelayTimer/Counter<12>.T N_PZ_310 N_PZ_179 DelayTimer/Counter<13>.T N_PZ_180  
+DelayTimer/Counter<14>.T N_PZ_320 N_PZ_181 DelayTimer/Counter<15>.T N_PZ_182  
+DelayTimer/Counter<16>.T N_PZ_183 DelayTimer/Counter<17>.T N_PZ_184  
+DelayTimer/Counter<1>.T N_PZ_185 DelayTimer/Counter<2>.T N_PZ_186  
+DelayTimer/Counter<3>.T N_PZ_187 DelayTimer/Counter<4>.T N_PZ_188  
+DelayTimer/Counter<5>.T N_PZ_189 DelayTimer/Counter<6>.T N_PZ_190  
+DelayTimer/Counter<7>.T N_PZ_191 DelayTimer/Counter<8>.T N_PZ_192  
+DelayTimer/Counter<9>.T N_PZ_193 DelayTimer/Counter<18>.T N_PZ_194  
+statesTraffic/state_FSM_FFd4.T 
+
+                                  Short Name                 Collapsible
+          Name       Base   Ext   | TypePolOld pt/th fi/FI fo | min          Pair        pxapin
+         Clock      Clock         k   PI  -  -  -| -  -| - 35 -   -             -             -
+         Reset      Reset         l   PI  -  -  -| -  -| - 32 -   -             -             -
+         CarNS      CarNS        q0   PI  -  -  -| -  -| -  2 -   -             -             -
+         CarEW      CarEW        g3   PI  -  -  -| -  -| -  1 -   -             -             -
+         PedEW      PedEW        f7   PI  -  -  -| -  -| -  2 -   -             -             -
+         PedNS      PedNS        h7   PI  -  -  -| -  -| -  1 -   -             -             -
+        N_PZ_0     N_PZ_0     - v14 AINT  -  -  4|28  8|32  1 -   -  delayFinal.D             -
+        N_PZ_1     N_PZ_1     - w14 AINT  -  -  1|28  1|32  1 -   -delayFinal.CLK             -
+        N_PZ_2     N_PZ_2     - x14 AINT  -  -  1|28  1|32  1 -   - delayFinal.AR             -
+        N_PZ_5     N_PZ_5     - a15 AINT  -  -  1|28  1|32  1 -   -Clocksec/lagTime<0>.CLK             -
+        N_PZ_6     N_PZ_6     - b15 AINT  -  -  1|28  1|32  1 -   -Clocksec/lagTime<0>.AP             -
+        N_PZ_8     N_PZ_8     - d15 AINT  L  -  5|28  9|32  1 -   -Clocksec/lagTime<1>.D             -
+        N_PZ_9     N_PZ_9     - e15 AINT  -  -  1|28  1|32  1 -   -Clocksec/lagTime<1>.CLK             -
+       N_PZ_10    N_PZ_10     - f15 AINT  -  -  1|28  1|32  1 -   -Clocksec/lagTime<1>.AR             -
+       N_PZ_12    N_PZ_12     - h15 AINT  L  -  6|28 11|32  1 -   -Clocksec/lagTime<2>.D             -
+       N_PZ_13    N_PZ_13     - i15 AINT  -  -  1|28  1|32  1 -   -Clocksec/lagTime<2>.CLK             -
+       N_PZ_14    N_PZ_14     - j15 AINT  -  -  1|28  1|32  1 -   -Clocksec/lagTime<2>.AR             -
+       N_PZ_16    N_PZ_16     - l15 AINT  -  -  4|28 10|32  1 -   -Clocksec/lagTime<3>.D             -
+       N_PZ_17    N_PZ_17     - m15 AINT  -  -  1|28  1|32  1 -   -Clocksec/lagTime<3>.CLK             -
+       N_PZ_18    N_PZ_18     - n15 AINT  -  -  1|28  1|32  1 -   -Clocksec/lagTime<3>.AR             -
+       N_PZ_21    N_PZ_21     - q15 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<0>.CLK             -
+       N_PZ_22    N_PZ_22     - r15 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<0>.AP             -
+       N_PZ_25    N_PZ_25     - u15 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<10>.CLK             -
+       N_PZ_26    N_PZ_26     - v15 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<10>.AR             -
+       N_PZ_29    N_PZ_29     - y15 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<11>.CLK             -
+       N_PZ_30    N_PZ_30     - z15 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<11>.AR             -
+       N_PZ_33    N_PZ_33     - c16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<12>.CLK             -
+       N_PZ_34    N_PZ_34     - d16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<12>.AR             -
+       N_PZ_37    N_PZ_37     - g16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<13>.CLK             -
+       N_PZ_38    N_PZ_38     - h16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<13>.AR             -
+       N_PZ_41    N_PZ_41     - k16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<14>.CLK             -
+       N_PZ_42    N_PZ_42     - l16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<14>.AR             -
+       N_PZ_45    N_PZ_45     - o16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<15>.CLK             -
+       N_PZ_46    N_PZ_46     - p16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<15>.AR             -
+       N_PZ_49    N_PZ_49     - s16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<16>.CLK             -
+       N_PZ_50    N_PZ_50     - t16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<16>.AR             -
+       N_PZ_53    N_PZ_53     - w16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<17>.CLK             -
+       N_PZ_54    N_PZ_54     - x16 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<17>.AR             -
+       N_PZ_57    N_PZ_57     - a17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<1>.CLK             -
+       N_PZ_58    N_PZ_58     - b17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<1>.AR             -
+       N_PZ_61    N_PZ_61     - e17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<2>.CLK             -
+       N_PZ_62    N_PZ_62     - f17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<2>.AR             -
+       N_PZ_65    N_PZ_65     - i17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<3>.CLK             -
+       N_PZ_66    N_PZ_66     - j17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<3>.AR             -
+       N_PZ_69    N_PZ_69     - m17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<4>.CLK             -
+       N_PZ_70    N_PZ_70     - n17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<4>.AR             -
+       N_PZ_73    N_PZ_73     - q17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<5>.CLK             -
+       N_PZ_74    N_PZ_74     - r17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<5>.AR             -
+       N_PZ_77    N_PZ_77     - u17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<6>.CLK             -
+       N_PZ_78    N_PZ_78     - v17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<6>.AR             -
+       N_PZ_81    N_PZ_81     - y17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<7>.CLK             -
+       N_PZ_82    N_PZ_82     - z17 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<7>.AR             -
+       N_PZ_85    N_PZ_85     - c18 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<8>.CLK             -
+       N_PZ_86    N_PZ_86     - d18 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<8>.AR             -
+       N_PZ_89    N_PZ_89     - g18 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<9>.CLK             -
+       N_PZ_90    N_PZ_90     - h18 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<9>.AR             -
+       N_PZ_93    N_PZ_93     - k18 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<18>.CLK             -
+       N_PZ_94    N_PZ_94     - l18 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<18>.AR             -
+       N_PZ_97    N_PZ_97     - o18 AINT  -  -  1|28  1|32  1 -   -statesTraffic/state_FSM_FFd4.CLK             -
+       N_PZ_98    N_PZ_98     - p18 AINT  -  -  1|28  1|32  1 -   -statesTraffic/state_FSM_FFd4.AR             -
+       N_PZ_99    N_PZ_99     - q18 AINT  L  -  4|28  6|32  1 -   -statesTraffic/state_FSM_FFd2.D             -
+      N_PZ_100   N_PZ_100     - r18 AINT  -  -  1|28  1|32  1 -   -statesTraffic/state_FSM_FFd2.CLK             -
+      N_PZ_101   N_PZ_101     - s18 AINT  -  -  1|28  1|32  1 -   -statesTraffic/state_FSM_FFd2.AR             -
+      N_PZ_102   N_PZ_102     - t18 AINT  L  -  4|28  5|32  1 -   -statesTraffic/state_FSM_FFd3.D             -
+      N_PZ_103   N_PZ_103     - u18 AINT  -  -  1|28  1|32  1 -   -statesTraffic/state_FSM_FFd3.CLK             -
+      N_PZ_104   N_PZ_104     - v18 AINT  -  -  1|28  1|32  1 -   -statesTraffic/state_FSM_FFd3.AR             -
+      N_PZ_105   N_PZ_105     - w18 AINT  -  -  1|28  1|32  1 -   -count_LED<0>.D             -
+      N_PZ_106   N_PZ_106     - x18 AINT  -  -  1|28  1|32  1 -   -count_LED<0>.CLK             -
+      N_PZ_107   N_PZ_107     - y18 AINT  -  -  1|28  1|32  1 -   -count_LED<0>.CE             -
+      N_PZ_108   N_PZ_108     - z18 AINT  -  -  1|28  1|32  1 -   -count_LED<3>.D             -
+      N_PZ_109   N_PZ_109     - a19 AINT  -  -  1|28  1|32  1 -   -count_LED<3>.CLK             -
+      N_PZ_110   N_PZ_110     - b19 AINT  -  -  1|28  1|32  1 -   -count_LED<3>.CE             -
+      N_PZ_111   N_PZ_111     - c19 AINT  -  -  2|28  5|32  1 -   -statesTraffic/state_FSM_FFd1.D             -
+      N_PZ_112   N_PZ_112     - d19 AINT  -  -  1|28  1|32  1 -   -statesTraffic/state_FSM_FFd1.CLK             -
+      N_PZ_113   N_PZ_113     - e19 AINT  -  -  1|28  1|32  1 -   -statesTraffic/state_FSM_FFd1.AR             -
+      N_PZ_114   N_PZ_114     - f19 AINT  -  -  1|28  1|32  1 -   -count_LED<1>.D             -
+      N_PZ_115   N_PZ_115     - g19 AINT  -  -  1|28  1|32  1 -   -count_LED<1>.CLK             -
+      N_PZ_116   N_PZ_116     - h19 AINT  -  -  1|28  1|32  1 -   -count_LED<1>.CE             -
+      N_PZ_117   N_PZ_117     - i19 AINT  -  -  1|28  1|32  1 -   -count_LED<2>.D             -
+      N_PZ_118   N_PZ_118     - j19 AINT  -  -  1|28  1|32  1 -   -count_LED<2>.CLK             -
+      N_PZ_119   N_PZ_119     - k19 AINT  -  -  1|28  1|32  1 -   -count_LED<2>.CE             -
+      N_PZ_121   N_PZ_121     - m19 AINT  -  -  1|28  1|32  1 -   -start_Count.CLK             -
+      N_PZ_124   N_PZ_124     - p19 AINT  -  -  1|28  1|32  1 -   -statesTraffic/temp_PedEW.CLK             -
+      N_PZ_127   N_PZ_127     - s19 AINT  -  -  1|28  1|32  1 -   -statesTraffic/temp_PedNS.CLK             -
+      N_PZ_129   N_PZ_129     - u19 AINT  L  -  6|28  6|32  1 -   -       LEDs<0>             -
+      N_PZ_130   N_PZ_130     - v19 AINT  L  -  5|28  5|32  1 -   -       LEDs<1>             -
+      N_PZ_131   N_PZ_131     - w19 AINT  -  -  2|28  3|32  1 -   -       LEDs<2>             -
+      N_PZ_132   N_PZ_132     - x19 AINT  -  -  2|28  3|32  1 -   -       LEDs<3>             -
+      N_PZ_133   N_PZ_133     - y19 AINT  -  -  2|28  4|32  1 -   -       LEDs<6>             -
+      N_PZ_134   N_PZ_134     - z19 AINT  -  -  2|28  4|32  1 -   -   LightsEW<1>             -
+      N_PZ_135   N_PZ_135     - a20 AINT  -  -  2|28  3|32  1 -   -       LEDs<4>             -
+      N_PZ_136   N_PZ_136     - b20 AINT  -  -  1|28  2|32  1 -   -       LEDs<5>             -
+      N_PZ_137   N_PZ_137     - c20 AINT  -  -  1|28  2|32  1 -   -       LEDs<7>             -
+      N_PZ_138   N_PZ_138     - d20 AINT  -  -  2|28  5|32  1 -   -   LightsEW<0>             -
+      N_PZ_139   N_PZ_139     - e20 AINT  -  -  1|28  2|32  1 -   -   LightsNS<0>             -
+      N_PZ_140   N_PZ_140     - f20 AINT  -  -  4|28  7|32  1 -   -   LightsNS<1>             -
+  delayFinal.D delayFinal    .D  u7   PO  -  -  -| -  -| -  0 -   -        N_PZ_0    delayFinal
+delayFinal.CLK delayFinal  .CLK  v7   PO  -  -  -| -  -| -  0 -   -        N_PZ_1    delayFinal
+ delayFinal.AR delayFinal   .AR  w7   PO  -  -  -| -  -| -  0 -   -        N_PZ_2    delayFinal
+Clocksec/lagTime<0>.CLKClocksec/lagTime<0>  .CLK  z7   PO  -  -  -| -  -| -  0 -   -        N_PZ_5Clocksec/lagTime<0>
+Clocksec/lagTime<0>.APClocksec/lagTime<0>   .AP  a8   PO  -  -  -| -  -| -  0 -   -        N_PZ_6Clocksec/lagTime<0>
+Clocksec/lagTime<1>.DClocksec/lagTime<1>    .D  c8   PO  -  -  -| -  -| -  0 -   -        N_PZ_8Clocksec/lagTime<1>
+Clocksec/lagTime<1>.CLKClocksec/lagTime<1>  .CLK  d8   PO  -  -  -| -  -| -  0 -   -        N_PZ_9Clocksec/lagTime<1>
+Clocksec/lagTime<1>.ARClocksec/lagTime<1>   .AR  e8   PO  -  -  -| -  -| -  0 -   -       N_PZ_10Clocksec/lagTime<1>
+Clocksec/lagTime<2>.DClocksec/lagTime<2>    .D  g8   PO  -  -  -| -  -| -  0 -   -       N_PZ_12Clocksec/lagTime<2>
+Clocksec/lagTime<2>.CLKClocksec/lagTime<2>  .CLK  h8   PO  -  -  -| -  -| -  0 -   -       N_PZ_13Clocksec/lagTime<2>
+Clocksec/lagTime<2>.ARClocksec/lagTime<2>   .AR  i8   PO  -  -  -| -  -| -  0 -   -       N_PZ_14Clocksec/lagTime<2>
+Clocksec/lagTime<3>.DClocksec/lagTime<3>    .D  k8   PO  -  -  -| -  -| -  0 -   -       N_PZ_16Clocksec/lagTime<3>
+Clocksec/lagTime<3>.CLKClocksec/lagTime<3>  .CLK  l8   PO  -  -  -| -  -| -  0 -   -       N_PZ_17Clocksec/lagTime<3>
+Clocksec/lagTime<3>.ARClocksec/lagTime<3>   .AR  m8   PO  -  -  -| -  -| -  0 -   -       N_PZ_18Clocksec/lagTime<3>
+DelayTimer/Counter<0>.CLKDelayTimer/Counter<0>  .CLK  p8   PO  -  -  -| -  -| -  0 -   -       N_PZ_21DelayTimer/Counter<0>
+DelayTimer/Counter<0>.APDelayTimer/Counter<0>   .AP  q8   PO  -  -  -| -  -| -  0 -   -       N_PZ_22DelayTimer/Counter<0>
+DelayTimer/Counter<10>.CLKDelayTimer/Counter<10>  .CLK  t8   PO  -  -  -| -  -| -  0 -   -       N_PZ_25DelayTimer/Counter<10>
+DelayTimer/Counter<10>.ARDelayTimer/Counter<10>   .AR  u8   PO  -  -  -| -  -| -  0 -   -       N_PZ_26DelayTimer/Counter<10>
+DelayTimer/Counter<11>.CLKDelayTimer/Counter<11>  .CLK  x8   PO  -  -  -| -  -| -  0 -   -       N_PZ_29DelayTimer/Counter<11>
+DelayTimer/Counter<11>.ARDelayTimer/Counter<11>   .AR  y8   PO  -  -  -| -  -| -  0 -   -       N_PZ_30DelayTimer/Counter<11>
+DelayTimer/Counter<12>.CLKDelayTimer/Counter<12>  .CLK  b9   PO  -  -  -| -  -| -  0 -   -       N_PZ_33DelayTimer/Counter<12>
+DelayTimer/Counter<12>.ARDelayTimer/Counter<12>   .AR  c9   PO  -  -  -| -  -| -  0 -   -       N_PZ_34DelayTimer/Counter<12>
+DelayTimer/Counter<13>.CLKDelayTimer/Counter<13>  .CLK  f9   PO  -  -  -| -  -| -  0 -   -       N_PZ_37DelayTimer/Counter<13>
+DelayTimer/Counter<13>.ARDelayTimer/Counter<13>   .AR  g9   PO  -  -  -| -  -| -  0 -   -       N_PZ_38DelayTimer/Counter<13>
+DelayTimer/Counter<14>.CLKDelayTimer/Counter<14>  .CLK  j9   PO  -  -  -| -  -| -  0 -   -       N_PZ_41DelayTimer/Counter<14>
+DelayTimer/Counter<14>.ARDelayTimer/Counter<14>   .AR  k9   PO  -  -  -| -  -| -  0 -   -       N_PZ_42DelayTimer/Counter<14>
+DelayTimer/Counter<15>.CLKDelayTimer/Counter<15>  .CLK  n9   PO  -  -  -| -  -| -  0 -   -       N_PZ_45DelayTimer/Counter<15>
+DelayTimer/Counter<15>.ARDelayTimer/Counter<15>   .AR  o9   PO  -  -  -| -  -| -  0 -   -       N_PZ_46DelayTimer/Counter<15>
+DelayTimer/Counter<16>.CLKDelayTimer/Counter<16>  .CLK  r9   PO  -  -  -| -  -| -  0 -   -       N_PZ_49DelayTimer/Counter<16>
+DelayTimer/Counter<16>.ARDelayTimer/Counter<16>   .AR  s9   PO  -  -  -| -  -| -  0 -   -       N_PZ_50DelayTimer/Counter<16>
+DelayTimer/Counter<17>.CLKDelayTimer/Counter<17>  .CLK  v9   PO  -  -  -| -  -| -  0 -   -       N_PZ_53DelayTimer/Counter<17>
+DelayTimer/Counter<17>.ARDelayTimer/Counter<17>   .AR  w9   PO  -  -  -| -  -| -  0 -   -       N_PZ_54DelayTimer/Counter<17>
+DelayTimer/Counter<1>.CLKDelayTimer/Counter<1>  .CLK  z9   PO  -  -  -| -  -| -  0 -   -       N_PZ_57DelayTimer/Counter<1>
+DelayTimer/Counter<1>.ARDelayTimer/Counter<1>   .AR a10   PO  -  -  -| -  -| -  0 -   -       N_PZ_58DelayTimer/Counter<1>
+DelayTimer/Counter<2>.CLKDelayTimer/Counter<2>  .CLK d10   PO  -  -  -| -  -| -  0 -   -       N_PZ_61DelayTimer/Counter<2>
+DelayTimer/Counter<2>.ARDelayTimer/Counter<2>   .AR e10   PO  -  -  -| -  -| -  0 -   -       N_PZ_62DelayTimer/Counter<2>
+DelayTimer/Counter<3>.CLKDelayTimer/Counter<3>  .CLK h10   PO  -  -  -| -  -| -  0 -   -       N_PZ_65DelayTimer/Counter<3>
+DelayTimer/Counter<3>.ARDelayTimer/Counter<3>   .AR i10   PO  -  -  -| -  -| -  0 -   -       N_PZ_66DelayTimer/Counter<3>
+DelayTimer/Counter<4>.CLKDelayTimer/Counter<4>  .CLK l10   PO  -  -  -| -  -| -  0 -   -       N_PZ_69DelayTimer/Counter<4>
+DelayTimer/Counter<4>.ARDelayTimer/Counter<4>   .AR m10   PO  -  -  -| -  -| -  0 -   -       N_PZ_70DelayTimer/Counter<4>
+DelayTimer/Counter<5>.CLKDelayTimer/Counter<5>  .CLK p10   PO  -  -  -| -  -| -  0 -   -       N_PZ_73DelayTimer/Counter<5>
+DelayTimer/Counter<5>.ARDelayTimer/Counter<5>   .AR q10   PO  -  -  -| -  -| -  0 -   -       N_PZ_74DelayTimer/Counter<5>
+DelayTimer/Counter<6>.CLKDelayTimer/Counter<6>  .CLK t10   PO  -  -  -| -  -| -  0 -   -       N_PZ_77DelayTimer/Counter<6>
+DelayTimer/Counter<6>.ARDelayTimer/Counter<6>   .AR u10   PO  -  -  -| -  -| -  0 -   -       N_PZ_78DelayTimer/Counter<6>
+DelayTimer/Counter<7>.CLKDelayTimer/Counter<7>  .CLK x10   PO  -  -  -| -  -| -  0 -   -       N_PZ_81DelayTimer/Counter<7>
+DelayTimer/Counter<7>.ARDelayTimer/Counter<7>   .AR y10   PO  -  -  -| -  -| -  0 -   -       N_PZ_82DelayTimer/Counter<7>
+DelayTimer/Counter<8>.CLKDelayTimer/Counter<8>  .CLK b11   PO  -  -  -| -  -| -  0 -   -       N_PZ_85DelayTimer/Counter<8>
+DelayTimer/Counter<8>.ARDelayTimer/Counter<8>   .AR c11   PO  -  -  -| -  -| -  0 -   -       N_PZ_86DelayTimer/Counter<8>
+DelayTimer/Counter<9>.CLKDelayTimer/Counter<9>  .CLK f11   PO  -  -  -| -  -| -  0 -   -       N_PZ_89DelayTimer/Counter<9>
+DelayTimer/Counter<9>.ARDelayTimer/Counter<9>   .AR g11   PO  -  -  -| -  -| -  0 -   -       N_PZ_90DelayTimer/Counter<9>
+DelayTimer/Counter<18>.CLKDelayTimer/Counter<18>  .CLK j11   PO  -  -  -| -  -| -  0 -   -       N_PZ_93DelayTimer/Counter<18>
+DelayTimer/Counter<18>.ARDelayTimer/Counter<18>   .AR k11   PO  -  -  -| -  -| -  0 -   -       N_PZ_94DelayTimer/Counter<18>
+statesTraffic/state_FSM_FFd4.CLKstatesTraffic/state_FSM_FFd4  .CLK n11   PO  -  -  -| -  -| -  0 -   -       N_PZ_97statesTraffic/state_FSM_FFd4
+statesTraffic/state_FSM_FFd4.ARstatesTraffic/state_FSM_FFd4   .AR o11   PO  -  -  -| -  -| -  0 -   -       N_PZ_98statesTraffic/state_FSM_FFd4
+statesTraffic/state_FSM_FFd2.DstatesTraffic/state_FSM_FFd2    .D p11   PO  -  -  -| -  -| -  0 -   -       N_PZ_99statesTraffic/state_FSM_FFd2
+statesTraffic/state_FSM_FFd2.CLKstatesTraffic/state_FSM_FFd2  .CLK q11   PO  -  -  -| -  -| -  0 -   -      N_PZ_100statesTraffic/state_FSM_FFd2
+statesTraffic/state_FSM_FFd2.ARstatesTraffic/state_FSM_FFd2   .AR r11   PO  -  -  -| -  -| -  0 -   -      N_PZ_101statesTraffic/state_FSM_FFd2
+statesTraffic/state_FSM_FFd3.DstatesTraffic/state_FSM_FFd3    .D s11   PO  -  -  -| -  -| -  0 -   -      N_PZ_102statesTraffic/state_FSM_FFd3
+statesTraffic/state_FSM_FFd3.CLKstatesTraffic/state_FSM_FFd3  .CLK t11   PO  -  -  -| -  -| -  0 -   -      N_PZ_103statesTraffic/state_FSM_FFd3
+statesTraffic/state_FSM_FFd3.ARstatesTraffic/state_FSM_FFd3   .AR u11   PO  -  -  -| -  -| -  0 -   -      N_PZ_104statesTraffic/state_FSM_FFd3
+count_LED<0>.Dcount_LED<0>    .D v11   PO  -  -  -| -  -| -  0 -   -      N_PZ_105  count_LED<0>
+count_LED<0>.CLKcount_LED<0>  .CLK w11   PO  -  -  -| -  -| -  0 -   -      N_PZ_106  count_LED<0>
+count_LED<0>.CEcount_LED<0>   .CE x11   PO  -  -  -| -  -| -  0 -   -      N_PZ_107  count_LED<0>
+count_LED<3>.Dcount_LED<3>    .D y11   PO  -  -  -| -  -| -  0 -   -      N_PZ_108  count_LED<3>
+count_LED<3>.CLKcount_LED<3>  .CLK z11   PO  -  -  -| -  -| -  0 -   -      N_PZ_109  count_LED<3>
+count_LED<3>.CEcount_LED<3>   .CE a12   PO  -  -  -| -  -| -  0 -   -      N_PZ_110  count_LED<3>
+statesTraffic/state_FSM_FFd1.DstatesTraffic/state_FSM_FFd1    .D b12   PO  -  -  -| -  -| -  0 -   -      N_PZ_111statesTraffic/state_FSM_FFd1
+statesTraffic/state_FSM_FFd1.CLKstatesTraffic/state_FSM_FFd1  .CLK c12   PO  -  -  -| -  -| -  0 -   -      N_PZ_112statesTraffic/state_FSM_FFd1
+statesTraffic/state_FSM_FFd1.ARstatesTraffic/state_FSM_FFd1   .AR d12   PO  -  -  -| -  -| -  0 -   -      N_PZ_113statesTraffic/state_FSM_FFd1
+count_LED<1>.Dcount_LED<1>    .D e12   PO  -  -  -| -  -| -  0 -   -      N_PZ_114  count_LED<1>
+count_LED<1>.CLKcount_LED<1>  .CLK f12   PO  -  -  -| -  -| -  0 -   -      N_PZ_115  count_LED<1>
+count_LED<1>.CEcount_LED<1>   .CE g12   PO  -  -  -| -  -| -  0 -   -      N_PZ_116  count_LED<1>
+count_LED<2>.Dcount_LED<2>    .D h12   PO  -  -  -| -  -| -  0 -   -      N_PZ_117  count_LED<2>
+count_LED<2>.CLKcount_LED<2>  .CLK i12   PO  -  -  -| -  -| -  0 -   -      N_PZ_118  count_LED<2>
+count_LED<2>.CEcount_LED<2>   .CE j12   PO  -  -  -| -  -| -  0 -   -      N_PZ_119  count_LED<2>
+start_Count.CLKstart_Count  .CLK l12   PO  -  -  -| -  -| -  0 -   -      N_PZ_121   start_Count
+statesTraffic/temp_PedEW.CLKstatesTraffic/temp_PedEW  .CLK o12   PO  -  -  -| -  -| -  0 -   -      N_PZ_124statesTraffic/temp_PedEW
+statesTraffic/temp_PedNS.CLKstatesTraffic/temp_PedNS  .CLK r12   PO  -  -  -| -  -| -  0 -   -      N_PZ_127statesTraffic/temp_PedNS
+       LEDs<0>    LEDs<0>       t12   PO  -  -  -| -  -| -  0 -   -      N_PZ_129       LEDs<0>
+       LEDs<1>    LEDs<1>       u12   PO  -  -  -| -  -| -  0 -   -      N_PZ_130       LEDs<1>
+       LEDs<2>    LEDs<2>       v12   PO  -  -  -| -  -| -  0 -   -      N_PZ_131       LEDs<2>
+       LEDs<3>    LEDs<3>       w12   PO  -  -  -| -  -| -  0 -   -      N_PZ_132       LEDs<3>
+       LEDs<6>    LEDs<6>       x12   PO  -  -  -| -  -| -  0 -   -      N_PZ_133       LEDs<6>
+   LightsEW<1>LightsEW<1>       o14   PO  -  -  -| -  -| -  0 -   -      N_PZ_134   LightsEW<1>
+       LEDs<4>    LEDs<4>       p14   PO  -  -  -| -  -| -  0 -   -      N_PZ_135       LEDs<4>
+       LEDs<5>    LEDs<5>       q14   PO  -  -  -| -  -| -  0 -   -      N_PZ_136       LEDs<5>
+       LEDs<7>    LEDs<7>       r14   PO  -  -  -| -  -| -  0 -   -      N_PZ_137       LEDs<7>
+   LightsEW<0>LightsEW<0>       s14   PO  -  -  -| -  -| -  0 -   -      N_PZ_138   LightsEW<0>
+   LightsNS<0>LightsNS<0>       t14   PO  -  -  -| -  -| -  0 -   -      N_PZ_139   LightsNS<0>
+   LightsNS<1>LightsNS<1>       u14   PO  -  -  -| -  -| -  0 -   -      N_PZ_140   LightsNS<1>
+  delayFinal.Q delayFinal    .Q g20   PI  -  -  -| -  -| -  8 -   -             -             -
+Clocksec/lagTime<0>.QClocksec/lagTime<0>    .Q h20   PI  -  -  -| -  -| -  4 -   -             -             -
+Clocksec/lagTime<1>.QClocksec/lagTime<1>    .Q i20   PI  -  -  -| -  -| -  5 -   -             -             -
+Clocksec/lagTime<2>.QClocksec/lagTime<2>    .Q j20   PI  -  -  -| -  -| -  8 -   -             -             -
+Clocksec/lagTime<3>.QClocksec/lagTime<3>    .Q k20   PI  -  -  -| -  -| -  8 -   -             -             -
+DelayTimer/Counter<0>.QDelayTimer/Counter<0>    .Q l20   PI  -  -  -| -  -| -  3 -   -             -             -
+DelayTimer/Counter<10>.QDelayTimer/Counter<10>    .Q m20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<11>.QDelayTimer/Counter<11>    .Q n20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<12>.QDelayTimer/Counter<12>    .Q o20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<13>.QDelayTimer/Counter<13>    .Q p20   PI  -  -  -| -  -| -  1 -   -             -             -
+DelayTimer/Counter<14>.QDelayTimer/Counter<14>    .Q q20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<15>.QDelayTimer/Counter<15>    .Q r20   PI  -  -  -| -  -| -  1 -   -             -             -
+DelayTimer/Counter<16>.QDelayTimer/Counter<16>    .Q s20   PI  -  -  -| -  -| -  1 -   -             -             -
+DelayTimer/Counter<17>.QDelayTimer/Counter<17>    .Q t20   PI  -  -  -| -  -| -  1 -   -             -             -
+DelayTimer/Counter<1>.QDelayTimer/Counter<1>    .Q u20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<2>.QDelayTimer/Counter<2>    .Q v20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<3>.QDelayTimer/Counter<3>    .Q w20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<4>.QDelayTimer/Counter<4>    .Q x20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<5>.QDelayTimer/Counter<5>    .Q y20   PI  -  -  -| -  -| -  1 -   -             -             -
+DelayTimer/Counter<6>.QDelayTimer/Counter<6>    .Q z20   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<7>.QDelayTimer/Counter<7>    .Q a21   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<8>.QDelayTimer/Counter<8>    .Q b21   PI  -  -  -| -  -| -  1 -   -             -             -
+DelayTimer/Counter<9>.QDelayTimer/Counter<9>    .Q c21   PI  -  -  -| -  -| -  2 -   -             -             -
+DelayTimer/Counter<18>.QDelayTimer/Counter<18>    .Q d21   PI  -  -  -| -  -| -  1 -   -             -             -
+statesTraffic/state_FSM_FFd4.QstatesTraffic/state_FSM_FFd4    .Q e21   PI  -  -  -| -  -| - 11 -   -             -             -
+statesTraffic/state_FSM_FFd2.QstatesTraffic/state_FSM_FFd2    .Q f21   PI  -  -  -| -  -| - 12 -   -             -             -
+statesTraffic/state_FSM_FFd3.QstatesTraffic/state_FSM_FFd3    .Q g21   PI  -  -  -| -  -| - 13 -   -             -             -
+count_LED<0>.Qcount_LED<0>    .Q h21   PI  -  -  -| -  -| -  4 -   -             -             -
+count_LED<3>.Qcount_LED<3>    .Q i21   PI  -  -  -| -  -| -  2 -   -             -             -
+statesTraffic/state_FSM_FFd1.QstatesTraffic/state_FSM_FFd1    .Q j21   PI  -  -  -| -  -| - 11 -   -             -             -
+count_LED<1>.Qcount_LED<1>    .Q k21   PI  -  -  -| -  -| -  5 -   -             -             -
+count_LED<2>.Qcount_LED<2>    .Q l21   PI  -  -  -| -  -| -  3 -   -             -             -
+ start_Count.Qstart_Count    .Q m21   PI  -  -  -| -  -| -  9 -   -             -             -
+statesTraffic/temp_PedEW.QstatesTraffic/temp_PedEW    .Q n21   PI  -  -  -| -  -| -  4 -   -             -             -
+statesTraffic/temp_PedNS.QstatesTraffic/temp_PedNS    .Q o21   PI  -  -  -| -  -| -  4 -   -             -             -
+      N_PZ_146   N_PZ_146     - a22 AINT  -  -  3|28  5|32  1 -   -Clocksec/lagTime<0>.T             -
+Clocksec/lagTime<0>.TClocksec/lagTime<0>    .T z21   PO  -  -  -| -  -| -  0 -   -      N_PZ_146Clocksec/lagTime<0>
+      N_PZ_150   N_PZ_150     - i22 AINT  -  -  1|28  1|32  1 -   -DelayTimer/Counter<0>.T             -
+DelayTimer/Counter<0>.TDelayTimer/Counter<0>    .T h22   PO  -  -  -| -  -| -  0 -   -      N_PZ_150DelayTimer/Counter<0>
+      N_PZ_169   N_PZ_169     - u23 AINT  -  -  2|28  4|32  1 -   - start_Count.T             -
+ start_Count.Tstart_Count    .T t23   PO  -  -  -| -  -| -  0 -   -      N_PZ_169   start_Count
+      N_PZ_170   N_PZ_170     - w23 AINT  -  -  2|28  4|32  1 -   -statesTraffic/temp_PedEW.T             -
+statesTraffic/temp_PedEW.TstatesTraffic/temp_PedEW    .T v23   PO  -  -  -| -  -| -  0 -   -      N_PZ_170statesTraffic/temp_PedEW
+      N_PZ_171   N_PZ_171     - y23 AINT  -  -  2|28  5|32  1 -   -statesTraffic/temp_PedNS.T             -
+statesTraffic/temp_PedNS.TstatesTraffic/temp_PedNS    .T x23   PO  -  -  -| -  -| -  0 -   -      N_PZ_171statesTraffic/temp_PedNS
+      N_PZ_176   N_PZ_176     - i25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<10>.T             -
+      N_PZ_177   N_PZ_177     - j25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<11>.T             -
+      N_PZ_178   N_PZ_178     - k25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<12>.T             -
+      N_PZ_179   N_PZ_179     - l25 AINT  -  -  2|28  3|32  1 -   -DelayTimer/Counter<13>.T             -
+      N_PZ_180   N_PZ_180     - m25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<14>.T             -
+      N_PZ_181   N_PZ_181     - n25 AINT  -  -  2|28  3|32  1 -   -DelayTimer/Counter<15>.T             -
+      N_PZ_182   N_PZ_182     - o25 AINT  -  -  2|28  3|32  1 -   -DelayTimer/Counter<16>.T             -
+      N_PZ_183   N_PZ_183     - p25 AINT  -  -  2|28  3|32  1 -   -DelayTimer/Counter<17>.T             -
+      N_PZ_184   N_PZ_184     - q25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<1>.T             -
+      N_PZ_185   N_PZ_185     - r25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<2>.T             -
+      N_PZ_186   N_PZ_186     - s25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<3>.T             -
+      N_PZ_187   N_PZ_187     - t25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<4>.T             -
+      N_PZ_188   N_PZ_188     - u25 AINT  -  -  2|28  3|32  1 -   -DelayTimer/Counter<5>.T             -
+      N_PZ_189   N_PZ_189     - v25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<6>.T             -
+      N_PZ_190   N_PZ_190     - w25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<7>.T             -
+      N_PZ_191   N_PZ_191     - x25 AINT  -  -  2|28  3|32  1 -   -DelayTimer/Counter<8>.T             -
+      N_PZ_192   N_PZ_192     - y25 AINT  -  -  1|28  2|32  1 -   -DelayTimer/Counter<9>.T             -
+      N_PZ_193   N_PZ_193     - z25 AINT  -  -  2|28  3|32  1 -   -DelayTimer/Counter<18>.T             -
+      N_PZ_194   N_PZ_194     - a26 AINT  -  -  4|28 10|32  1 -   -statesTraffic/state_FSM_FFd4.T             -
+DelayTimer/Counter<10>.TDelayTimer/Counter<10>    .T d24   PO  -  -  -| -  -| -  0 -   -      N_PZ_176DelayTimer/Counter<10>
+DelayTimer/Counter<11>.TDelayTimer/Counter<11>    .T e24   PO  -  -  -| -  -| -  0 -   -      N_PZ_177DelayTimer/Counter<11>
+DelayTimer/Counter<12>.TDelayTimer/Counter<12>    .T f24   PO  -  -  -| -  -| -  0 -   -      N_PZ_178DelayTimer/Counter<12>
+DelayTimer/Counter<13>.TDelayTimer/Counter<13>    .T g24   PO  -  -  -| -  -| -  0 -   -      N_PZ_179DelayTimer/Counter<13>
+DelayTimer/Counter<14>.TDelayTimer/Counter<14>    .T h24   PO  -  -  -| -  -| -  0 -   -      N_PZ_180DelayTimer/Counter<14>
+DelayTimer/Counter<15>.TDelayTimer/Counter<15>    .T i24   PO  -  -  -| -  -| -  0 -   -      N_PZ_181DelayTimer/Counter<15>
+DelayTimer/Counter<16>.TDelayTimer/Counter<16>    .T j24   PO  -  -  -| -  -| -  0 -   -      N_PZ_182DelayTimer/Counter<16>
+DelayTimer/Counter<17>.TDelayTimer/Counter<17>    .T k24   PO  -  -  -| -  -| -  0 -   -      N_PZ_183DelayTimer/Counter<17>
+DelayTimer/Counter<1>.TDelayTimer/Counter<1>    .T l24   PO  -  -  -| -  -| -  0 -   -      N_PZ_184DelayTimer/Counter<1>
+DelayTimer/Counter<2>.TDelayTimer/Counter<2>    .T m24   PO  -  -  -| -  -| -  0 -   -      N_PZ_185DelayTimer/Counter<2>
+DelayTimer/Counter<3>.TDelayTimer/Counter<3>    .T n24   PO  -  -  -| -  -| -  0 -   -      N_PZ_186DelayTimer/Counter<3>
+DelayTimer/Counter<4>.TDelayTimer/Counter<4>    .T o24   PO  -  -  -| -  -| -  0 -   -      N_PZ_187DelayTimer/Counter<4>
+DelayTimer/Counter<5>.TDelayTimer/Counter<5>    .T p24   PO  -  -  -| -  -| -  0 -   -      N_PZ_188DelayTimer/Counter<5>
+DelayTimer/Counter<6>.TDelayTimer/Counter<6>    .T q24   PO  -  -  -| -  -| -  0 -   -      N_PZ_189DelayTimer/Counter<6>
+DelayTimer/Counter<7>.TDelayTimer/Counter<7>    .T r24   PO  -  -  -| -  -| -  0 -   -      N_PZ_190DelayTimer/Counter<7>
+DelayTimer/Counter<8>.TDelayTimer/Counter<8>    .T s24   PO  -  -  -| -  -| -  0 -   -      N_PZ_191DelayTimer/Counter<8>
+DelayTimer/Counter<9>.TDelayTimer/Counter<9>    .T t24   PO  -  -  -| -  -| -  0 -   -      N_PZ_192DelayTimer/Counter<9>
+DelayTimer/Counter<18>.TDelayTimer/Counter<18>    .T u24   PO  -  -  -| -  -| -  0 -   -      N_PZ_193DelayTimer/Counter<18>
+statesTraffic/state_FSM_FFd4.TstatesTraffic/state_FSM_FFd4    .T v24   PO  -  -  -| -  -| -  0 -   -      N_PZ_194statesTraffic/state_FSM_FFd4
+      N_PZ_259   N_PZ_259     - n28 PINT  -  -  2|28  2|32  2 Y   -             -      N_PZ_259
+      N_PZ_260   N_PZ_260     - o28 PINT  -  -  2|28  2|32  4 Y   -             -      N_PZ_260
+      N_PZ_261   N_PZ_261     - p28 PINT  -  -  2|28  2|32  7 Y   -             -      N_PZ_261
+      N_PZ_262   N_PZ_262     - q28 PINT  -  -  2|28  2|32  4 Y   -             -      N_PZ_262
+      N_PZ_263   N_PZ_263     - r28 PINT  -  -  2|28  2|32  2 Y   -             -      N_PZ_263
+      N_PZ_264   N_PZ_264     - s28 PINT  -  -  2|28  5|32  1 Y   -             -      N_PZ_264
+      N_PZ_265   N_PZ_265     - t28 PINT  -  -  1|28  2|32  8 Y   -             -      N_PZ_265
+      N_PZ_266   N_PZ_266     - u28 PINT  -  -  2|28  2|32  5 Y   -             -      N_PZ_266
+      N_PZ_267   N_PZ_267     - v28 PINT  -  -  1|28  2|32  4 Y   -             -      N_PZ_267
+      N_PZ_268   N_PZ_268     - w28 PINT  -  -  2|28  3|32  3 Y   -             -      N_PZ_268
+      N_PZ_269   N_PZ_269     - x28 PINT  -  -  1|28  2|32  6 Y   -             -      N_PZ_269
+      N_PZ_270   N_PZ_270     - y28 PINT  -  -  2|28  2|32  3 Y   -             -      N_PZ_270
+      N_PZ_271   N_PZ_271     - z28 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_271
+      N_PZ_272   N_PZ_272     - a29 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_272
+      N_PZ_273   N_PZ_273     - b29 PINT  -  -  2|28  2|32  3 Y   -             -      N_PZ_273
+      N_PZ_274   N_PZ_274     - c29 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_274
+      N_PZ_275   N_PZ_275     - d29 PINT  -  -  2|28  2|32  5 Y   -             -      N_PZ_275
+      N_PZ_276   N_PZ_276     - e29 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_276
+      N_PZ_277   N_PZ_277     - f29 PINT  -  -  2|28  2|32  2 Y   -             -      N_PZ_277
+      N_PZ_278   N_PZ_278     - g29 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_278
+      N_PZ_279   N_PZ_279     - h29 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_279
+      N_PZ_280   N_PZ_280     - i29 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_280
+      N_PZ_281   N_PZ_281     - j29 PINT  -  -  2|28  2|32  2 Y   -             -      N_PZ_281
+      N_PZ_282   N_PZ_282     - k29 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_282
+      N_PZ_283   N_PZ_283     - l29 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_283
+      N_PZ_284   N_PZ_284     - m29 PINT  -  -  2|28  2|32  4 Y   -             -      N_PZ_284
+      N_PZ_285   N_PZ_285     - n29 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_285
+      N_PZ_286   N_PZ_286     - o29 PINT  -  -  2|28  5|32  2 Y   -             -      N_PZ_286
+      N_PZ_287   N_PZ_287     - p29 PINT  -  -  2|28  3|32  2 Y   -             -      N_PZ_287
+      N_PZ_288   N_PZ_288     - q29 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_288
+      N_PZ_289   N_PZ_289     - r29 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_289
+      N_PZ_290   N_PZ_290     - s29 PINT  -  -  2|28  3|32  1 Y   -             -      N_PZ_290
+      N_PZ_291   N_PZ_291     - t29 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_291
+      N_PZ_292   N_PZ_292     - u29 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_292
+      N_PZ_293   N_PZ_293     - v29 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_293
+      N_PZ_294   N_PZ_294     - w29 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_294
+      N_PZ_295   N_PZ_295     - x29 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_295
+      N_PZ_296   N_PZ_296     - y29 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_296
+      N_PZ_297   N_PZ_297     - z29 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_297
+      N_PZ_298   N_PZ_298     - a30 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_298
+      N_PZ_299   N_PZ_299     - b30 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_299
+      N_PZ_300   N_PZ_300     - c30 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_300
+      N_PZ_301   N_PZ_301     - d30 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_301
+      N_PZ_302   N_PZ_302     - e30 PINT  -  -  1|28  2|32  1 Y   -             -      N_PZ_302
+      N_PZ_303   N_PZ_303     - f30 PINT  -  -  1|28  2|32  8 Y   -             -      N_PZ_303
+      N_PZ_304   N_PZ_304     - g30 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_304
+      N_PZ_305   N_PZ_305     - h30 PINT  -  -  2|28  2|32  4 Y   -             -      N_PZ_305
+      N_PZ_306   N_PZ_306     - i30 PINT  -  -  2|28  2|32  4 Y   -             -      N_PZ_306
+      N_PZ_307   N_PZ_307     - j30 PINT  -  -  1|28  2|32  5 Y   -             -      N_PZ_307
+      N_PZ_308   N_PZ_308     - k30 PINT  -  -  1|28  2|32  2 Y   -             -      N_PZ_308
+      N_PZ_309   N_PZ_309     - l30 PINT  -  -  2|28  4|32  1 Y   -             -      N_PZ_309
+      N_PZ_310   N_PZ_310     - m30 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_310
+      N_PZ_311   N_PZ_311     - n30 PINT  -  -  2|28  3|32  2 Y   -             -      N_PZ_311
+      N_PZ_312   N_PZ_312     - o30 PINT  -  -  2|28  3|32  2 Y   -             -      N_PZ_312
+      N_PZ_313   N_PZ_313     - p30 PINT  -  -  2|28  2|32  3 Y   -             -      N_PZ_313
+      N_PZ_314   N_PZ_314     - q30 PINT  -  -  2|28  4|32  2 Y   -             -      N_PZ_314
+      N_PZ_315   N_PZ_315     - r30 PINT  -  -  1|28  2|32  4 Y   -             -      N_PZ_315
+      N_PZ_316   N_PZ_316     - s30 PINT  -  -  1|28  2|32  5 Y   -             -      N_PZ_316
+      N_PZ_317   N_PZ_317     - t30 PINT  -  -  2|28  2|32  2 Y   -             -      N_PZ_317
+      N_PZ_318   N_PZ_318     - u30 PINT  -  -  2|28  2|32  2 Y   -             -      N_PZ_318
+      N_PZ_319   N_PZ_319     - v30 PINT  -  -  1|28  2|32  4 Y   -             -      N_PZ_319
+      N_PZ_320   N_PZ_320     - w30 PINT  -  -  1|28  2|32  4 Y   -             -      N_PZ_320
+      N_PZ_321   N_PZ_321     - x30 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_321
+      N_PZ_322   N_PZ_322     - y30 PINT  -  -  2|28  3|32  1 Y   -             -      N_PZ_322
+      N_PZ_323   N_PZ_323     - z30 PINT  -  -  2|28  4|32  1 Y   -             -      N_PZ_323
+      N_PZ_324   N_PZ_324     - a31 PINT  -  -  2|28  4|32  1 Y   -             -      N_PZ_324
+      N_PZ_325   N_PZ_325     - b31 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_325
+      N_PZ_326   N_PZ_326     - c31 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_326
+      N_PZ_327   N_PZ_327     - d31 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_327
+      N_PZ_328   N_PZ_328     - e31 PINT  -  -  1|28  2|32  3 Y   -             -      N_PZ_328
+
+-----------------------------------------------------------
+|  PinCnt = 18, NodeCnt = 105, Total = 123, TotalPt = 268 |
+-----------------------------------------------------------
+Clock,net=TrafficLevel: PI
+  <--0-- 
+  --35--> (N_PZ_1, TrafficLevel) (N_PZ_5, TrafficLevel) (N_PZ_9, TrafficLevel)  
+          (N_PZ_13, TrafficLevel) (N_PZ_17, TrafficLevel) (N_PZ_21, TrafficLevel)  
+          (N_PZ_25, TrafficLevel) (N_PZ_29, TrafficLevel) (N_PZ_33, TrafficLevel)  
+          (N_PZ_37, TrafficLevel) (N_PZ_41, TrafficLevel) (N_PZ_45, TrafficLevel)  
+          (N_PZ_49, TrafficLevel) (N_PZ_53, TrafficLevel) (N_PZ_57, TrafficLevel)  
+          (N_PZ_61, TrafficLevel) (N_PZ_65, TrafficLevel) (N_PZ_69, TrafficLevel)  
+          (N_PZ_73, TrafficLevel) (N_PZ_77, TrafficLevel) (N_PZ_81, TrafficLevel)  
+          (N_PZ_85, TrafficLevel) (N_PZ_89, TrafficLevel) (N_PZ_93, TrafficLevel)  
+          (N_PZ_97, TrafficLevel) (N_PZ_100, TrafficLevel) (N_PZ_103, TrafficLevel)  
+          (N_PZ_106, TrafficLevel) (N_PZ_109, TrafficLevel) (N_PZ_112, TrafficLevel)  
+          (N_PZ_115, TrafficLevel) (N_PZ_118, TrafficLevel) (N_PZ_121, TrafficLevel)  
+          (N_PZ_124, TrafficLevel) (N_PZ_127, TrafficLevel) 
+Reset,net=TrafficLevel: PI
+  <--0-- 
+  --32--> (N_PZ_2, TrafficLevel) (N_PZ_6, TrafficLevel) (N_PZ_10, TrafficLevel)  
+          (N_PZ_14, TrafficLevel) (N_PZ_18, TrafficLevel) (N_PZ_22, TrafficLevel)  
+          (N_PZ_26, TrafficLevel) (N_PZ_30, TrafficLevel) (N_PZ_34, TrafficLevel)  
+          (N_PZ_38, TrafficLevel) (N_PZ_42, TrafficLevel) (N_PZ_46, TrafficLevel)  
+          (N_PZ_50, TrafficLevel) (N_PZ_54, TrafficLevel) (N_PZ_58, TrafficLevel)  
+          (N_PZ_62, TrafficLevel) (N_PZ_66, TrafficLevel) (N_PZ_70, TrafficLevel)  
+          (N_PZ_74, TrafficLevel) (N_PZ_78, TrafficLevel) (N_PZ_82, TrafficLevel)  
+          (N_PZ_86, TrafficLevel) (N_PZ_90, TrafficLevel) (N_PZ_94, TrafficLevel)  
+          (N_PZ_98, TrafficLevel) (N_PZ_101, TrafficLevel) (N_PZ_104, TrafficLevel)  
+          (N_PZ_113, TrafficLevel) (N_PZ_170, TrafficLevel) (N_PZ_171, TrafficLevel)  
+          (N_PZ_169, TrafficLevel) (N_PZ_316, TrafficLevel) 
+CarNS,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_264, TrafficLevel) (N_PZ_326, TrafficLevel) 
+CarEW,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_259, TrafficLevel) 
+PedEW,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_170, TrafficLevel) (N_PZ_171, TrafficLevel) 
+PedNS,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_171, TrafficLevel) 
+N_PZ_0,net=TrafficLevel: PINT ( delayFinal.D )
+  <--8--  (delayFinal.Q, TrafficLevel) (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+          (start_Count.Q, TrafficLevel) (N_PZ_268, TrafficLevel) 
+          (N_PZ_270, TrafficLevel) (N_PZ_284, TrafficLevel) (N_PZ_315, TrafficLevel) 
+          (N_PZ_318, TrafficLevel)
+  --1--> (delayFinal.D, TrafficLevel) 
+N_PZ_1,net=TrafficLevel: PINT ( delayFinal.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (delayFinal.CLK, TrafficLevel) 
+N_PZ_2,net=TrafficLevel: PINT ( delayFinal.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (delayFinal.AR, TrafficLevel) 
+N_PZ_5,net=TrafficLevel: PINT ( Clocksec/lagTime<0>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (Clocksec/lagTime<0>.CLK, TrafficLevel) 
+N_PZ_6,net=TrafficLevel: PINT ( Clocksec/lagTime<0>.AP )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (Clocksec/lagTime<0>.AP, TrafficLevel) 
+N_PZ_8,net=TrafficLevel: PINT ( Clocksec/lagTime<1>.D )
+  <--9--  (Clocksec/lagTime<1>.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd1.Q, TrafficLevel) (start_Count.Q, TrafficLevel) 
+          (N_PZ_268, TrafficLevel) (N_PZ_284, TrafficLevel) (N_PZ_313, TrafficLevel) 
+          (N_PZ_315, TrafficLevel) (N_PZ_318, TrafficLevel)
+  --1--> (Clocksec/lagTime<1>.D, TrafficLevel) 
+N_PZ_9,net=TrafficLevel: PINT ( Clocksec/lagTime<1>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (Clocksec/lagTime<1>.CLK, TrafficLevel) 
+N_PZ_10,net=TrafficLevel: PINT ( Clocksec/lagTime<1>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (Clocksec/lagTime<1>.AR, TrafficLevel) 
+N_PZ_12,net=TrafficLevel: PINT ( Clocksec/lagTime<2>.D )
+  <--11--  (Clocksec/lagTime<2>.Q, TrafficLevel) (Clocksec/lagTime<3>.Q, TrafficLevel) 
+           (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+           (statesTraffic/state_FSM_FFd1.Q, TrafficLevel) (start_Count.Q, TrafficLevel) 
+           (N_PZ_284, TrafficLevel) (N_PZ_305, TrafficLevel) (N_PZ_313, TrafficLevel) 
+           (N_PZ_315, TrafficLevel) (N_PZ_319, TrafficLevel) (N_PZ_323, TrafficLevel)
+  --1--> (Clocksec/lagTime<2>.D, TrafficLevel) 
+N_PZ_13,net=TrafficLevel: PINT ( Clocksec/lagTime<2>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (Clocksec/lagTime<2>.CLK, TrafficLevel) 
+N_PZ_14,net=TrafficLevel: PINT ( Clocksec/lagTime<2>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (Clocksec/lagTime<2>.AR, TrafficLevel) 
+N_PZ_16,net=TrafficLevel: PINT ( Clocksec/lagTime<3>.D )
+  <--10--  (Clocksec/lagTime<0>.Q, TrafficLevel) (Clocksec/lagTime<2>.Q, TrafficLevel) 
+           (Clocksec/lagTime<3>.Q, TrafficLevel) 
+           (statesTraffic/state_FSM_FFd1.Q, TrafficLevel) (start_Count.Q, TrafficLevel) 
+           (N_PZ_286, TrafficLevel) (N_PZ_287, TrafficLevel) (N_PZ_305, TrafficLevel) 
+           (N_PZ_313, TrafficLevel) (N_PZ_315, TrafficLevel)
+  --1--> (Clocksec/lagTime<3>.D, TrafficLevel) 
+N_PZ_17,net=TrafficLevel: PINT ( Clocksec/lagTime<3>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (Clocksec/lagTime<3>.CLK, TrafficLevel) 
+N_PZ_18,net=TrafficLevel: PINT ( Clocksec/lagTime<3>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (Clocksec/lagTime<3>.AR, TrafficLevel) 
+N_PZ_21,net=TrafficLevel: PINT ( DelayTimer/Counter<0>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<0>.CLK, TrafficLevel) 
+N_PZ_22,net=TrafficLevel: PINT ( DelayTimer/Counter<0>.AP )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<0>.AP, TrafficLevel) 
+N_PZ_25,net=TrafficLevel: PINT ( DelayTimer/Counter<10>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<10>.CLK, TrafficLevel) 
+N_PZ_26,net=TrafficLevel: PINT ( DelayTimer/Counter<10>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<10>.AR, TrafficLevel) 
+N_PZ_29,net=TrafficLevel: PINT ( DelayTimer/Counter<11>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<11>.CLK, TrafficLevel) 
+N_PZ_30,net=TrafficLevel: PINT ( DelayTimer/Counter<11>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<11>.AR, TrafficLevel) 
+N_PZ_33,net=TrafficLevel: PINT ( DelayTimer/Counter<12>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<12>.CLK, TrafficLevel) 
+N_PZ_34,net=TrafficLevel: PINT ( DelayTimer/Counter<12>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<12>.AR, TrafficLevel) 
+N_PZ_37,net=TrafficLevel: PINT ( DelayTimer/Counter<13>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<13>.CLK, TrafficLevel) 
+N_PZ_38,net=TrafficLevel: PINT ( DelayTimer/Counter<13>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<13>.AR, TrafficLevel) 
+N_PZ_41,net=TrafficLevel: PINT ( DelayTimer/Counter<14>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<14>.CLK, TrafficLevel) 
+N_PZ_42,net=TrafficLevel: PINT ( DelayTimer/Counter<14>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<14>.AR, TrafficLevel) 
+N_PZ_45,net=TrafficLevel: PINT ( DelayTimer/Counter<15>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<15>.CLK, TrafficLevel) 
+N_PZ_46,net=TrafficLevel: PINT ( DelayTimer/Counter<15>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<15>.AR, TrafficLevel) 
+N_PZ_49,net=TrafficLevel: PINT ( DelayTimer/Counter<16>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<16>.CLK, TrafficLevel) 
+N_PZ_50,net=TrafficLevel: PINT ( DelayTimer/Counter<16>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<16>.AR, TrafficLevel) 
+N_PZ_53,net=TrafficLevel: PINT ( DelayTimer/Counter<17>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<17>.CLK, TrafficLevel) 
+N_PZ_54,net=TrafficLevel: PINT ( DelayTimer/Counter<17>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<17>.AR, TrafficLevel) 
+N_PZ_57,net=TrafficLevel: PINT ( DelayTimer/Counter<1>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<1>.CLK, TrafficLevel) 
+N_PZ_58,net=TrafficLevel: PINT ( DelayTimer/Counter<1>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<1>.AR, TrafficLevel) 
+N_PZ_61,net=TrafficLevel: PINT ( DelayTimer/Counter<2>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<2>.CLK, TrafficLevel) 
+N_PZ_62,net=TrafficLevel: PINT ( DelayTimer/Counter<2>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<2>.AR, TrafficLevel) 
+N_PZ_65,net=TrafficLevel: PINT ( DelayTimer/Counter<3>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<3>.CLK, TrafficLevel) 
+N_PZ_66,net=TrafficLevel: PINT ( DelayTimer/Counter<3>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<3>.AR, TrafficLevel) 
+N_PZ_69,net=TrafficLevel: PINT ( DelayTimer/Counter<4>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<4>.CLK, TrafficLevel) 
+N_PZ_70,net=TrafficLevel: PINT ( DelayTimer/Counter<4>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<4>.AR, TrafficLevel) 
+N_PZ_73,net=TrafficLevel: PINT ( DelayTimer/Counter<5>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<5>.CLK, TrafficLevel) 
+N_PZ_74,net=TrafficLevel: PINT ( DelayTimer/Counter<5>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<5>.AR, TrafficLevel) 
+N_PZ_77,net=TrafficLevel: PINT ( DelayTimer/Counter<6>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<6>.CLK, TrafficLevel) 
+N_PZ_78,net=TrafficLevel: PINT ( DelayTimer/Counter<6>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<6>.AR, TrafficLevel) 
+N_PZ_81,net=TrafficLevel: PINT ( DelayTimer/Counter<7>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<7>.CLK, TrafficLevel) 
+N_PZ_82,net=TrafficLevel: PINT ( DelayTimer/Counter<7>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<7>.AR, TrafficLevel) 
+N_PZ_85,net=TrafficLevel: PINT ( DelayTimer/Counter<8>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<8>.CLK, TrafficLevel) 
+N_PZ_86,net=TrafficLevel: PINT ( DelayTimer/Counter<8>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<8>.AR, TrafficLevel) 
+N_PZ_89,net=TrafficLevel: PINT ( DelayTimer/Counter<9>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<9>.CLK, TrafficLevel) 
+N_PZ_90,net=TrafficLevel: PINT ( DelayTimer/Counter<9>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<9>.AR, TrafficLevel) 
+N_PZ_93,net=TrafficLevel: PINT ( DelayTimer/Counter<18>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (DelayTimer/Counter<18>.CLK, TrafficLevel) 
+N_PZ_94,net=TrafficLevel: PINT ( DelayTimer/Counter<18>.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (DelayTimer/Counter<18>.AR, TrafficLevel) 
+N_PZ_97,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd4.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd4.CLK, TrafficLevel) 
+N_PZ_98,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd4.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd4.AR, TrafficLevel) 
+N_PZ_99,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd2.D )
+  <--6--  (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) 
+          (statesTraffic/temp_PedNS.Q, TrafficLevel) (N_PZ_306, TrafficLevel) 
+          (N_PZ_319, TrafficLevel) (N_PZ_321, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd2.D, TrafficLevel) 
+N_PZ_100,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd2.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd2.CLK, TrafficLevel) 
+N_PZ_101,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd2.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd2.AR, TrafficLevel) 
+N_PZ_102,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd3.D )
+  <--5--  (delayFinal.Q, TrafficLevel) (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) 
+          (N_PZ_260, TrafficLevel) (N_PZ_275, TrafficLevel) (N_PZ_306, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd3.D, TrafficLevel) 
+N_PZ_103,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd3.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd3.CLK, TrafficLevel) 
+N_PZ_104,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd3.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd3.AR, TrafficLevel) 
+N_PZ_105,net=TrafficLevel: PINT ( count_LED<0>.D )
+  <--1--  (Clocksec/lagTime<0>.Q, TrafficLevel)
+  --1--> (count_LED<0>.D, TrafficLevel) 
+N_PZ_106,net=TrafficLevel: PINT ( count_LED<0>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (count_LED<0>.CLK, TrafficLevel) 
+N_PZ_107,net=TrafficLevel: PINT ( count_LED<0>.CE )
+  <--1--  (N_PZ_316, TrafficLevel)
+  --1--> (count_LED<0>.CE, TrafficLevel) 
+N_PZ_108,net=TrafficLevel: PINT ( count_LED<3>.D )
+  <--1--  (Clocksec/lagTime<3>.Q, TrafficLevel)
+  --1--> (count_LED<3>.D, TrafficLevel) 
+N_PZ_109,net=TrafficLevel: PINT ( count_LED<3>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (count_LED<3>.CLK, TrafficLevel) 
+N_PZ_110,net=TrafficLevel: PINT ( count_LED<3>.CE )
+  <--1--  (N_PZ_316, TrafficLevel)
+  --1--> (count_LED<3>.CE, TrafficLevel) 
+N_PZ_111,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd1.D )
+  <--5--  (delayFinal.Q, TrafficLevel) (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd1.Q, TrafficLevel) (N_PZ_306, TrafficLevel) 
+          (N_PZ_322, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd1.D, TrafficLevel) 
+N_PZ_112,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd1.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd1.CLK, TrafficLevel) 
+N_PZ_113,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd1.AR )
+  <--1--  (Reset, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd1.AR, TrafficLevel) 
+N_PZ_114,net=TrafficLevel: PINT ( count_LED<1>.D )
+  <--1--  (Clocksec/lagTime<1>.Q, TrafficLevel)
+  --1--> (count_LED<1>.D, TrafficLevel) 
+N_PZ_115,net=TrafficLevel: PINT ( count_LED<1>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (count_LED<1>.CLK, TrafficLevel) 
+N_PZ_116,net=TrafficLevel: PINT ( count_LED<1>.CE )
+  <--1--  (N_PZ_316, TrafficLevel)
+  --1--> (count_LED<1>.CE, TrafficLevel) 
+N_PZ_117,net=TrafficLevel: PINT ( count_LED<2>.D )
+  <--1--  (Clocksec/lagTime<2>.Q, TrafficLevel)
+  --1--> (count_LED<2>.D, TrafficLevel) 
+N_PZ_118,net=TrafficLevel: PINT ( count_LED<2>.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (count_LED<2>.CLK, TrafficLevel) 
+N_PZ_119,net=TrafficLevel: PINT ( count_LED<2>.CE )
+  <--1--  (N_PZ_316, TrafficLevel)
+  --1--> (count_LED<2>.CE, TrafficLevel) 
+N_PZ_121,net=TrafficLevel: PINT ( start_Count.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (start_Count.CLK, TrafficLevel) 
+N_PZ_124,net=TrafficLevel: PINT ( statesTraffic/temp_PedEW.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (statesTraffic/temp_PedEW.CLK, TrafficLevel) 
+N_PZ_127,net=TrafficLevel: PINT ( statesTraffic/temp_PedNS.CLK )
+  <--1--  (Clock, TrafficLevel)
+  --1--> (statesTraffic/temp_PedNS.CLK, TrafficLevel) 
+N_PZ_129,net=TrafficLevel: PINT ( LEDs<0> )
+  <--6--  (delayFinal.Q, TrafficLevel) (count_LED<3>.Q, TrafficLevel) 
+          (N_PZ_261, TrafficLevel) (N_PZ_275, TrafficLevel) (N_PZ_311, TrafficLevel) 
+          (N_PZ_317, TrafficLevel)
+  --1--> (LEDs<0>, TrafficLevel) 
+N_PZ_130,net=TrafficLevel: PINT ( LEDs<1> )
+  <--5--  (N_PZ_261, TrafficLevel) (N_PZ_275, TrafficLevel) (N_PZ_277, TrafficLevel) 
+          (N_PZ_311, TrafficLevel) (N_PZ_317, TrafficLevel)
+  --1--> (LEDs<1>, TrafficLevel) 
+N_PZ_131,net=TrafficLevel: PINT ( LEDs<2> )
+  <--3--  (count_LED<0>.Q, TrafficLevel) (N_PZ_314, TrafficLevel) 
+          (N_PZ_325, TrafficLevel)
+  --1--> (LEDs<2>, TrafficLevel) 
+N_PZ_132,net=TrafficLevel: PINT ( LEDs<3> )
+  <--3--  (count_LED<1>.Q, TrafficLevel) (N_PZ_314, TrafficLevel) 
+          (N_PZ_325, TrafficLevel)
+  --1--> (LEDs<3>, TrafficLevel) 
+N_PZ_133,net=TrafficLevel: PINT ( LEDs<6> )
+  <--4--  (count_LED<0>.Q, TrafficLevel) (count_LED<1>.Q, TrafficLevel) 
+          (N_PZ_307, TrafficLevel) (N_PZ_328, TrafficLevel)
+  --1--> (LEDs<6>, TrafficLevel) 
+N_PZ_134,net=TrafficLevel: PINT ( LightsEW<1> )
+  <--4--  (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) (N_PZ_261, TrafficLevel) 
+          (N_PZ_321, TrafficLevel)
+  --1--> (LightsEW<1>, TrafficLevel) 
+N_PZ_135,net=TrafficLevel: PINT ( LEDs<4> )
+  <--3--  (N_PZ_273, TrafficLevel) (N_PZ_307, TrafficLevel) (N_PZ_325, TrafficLevel)
+  --1--> (LEDs<4>, TrafficLevel) 
+N_PZ_136,net=TrafficLevel: PINT ( LEDs<5> )
+  <--2--  (N_PZ_273, TrafficLevel) (N_PZ_307, TrafficLevel)
+  --1--> (LEDs<5>, TrafficLevel) 
+N_PZ_137,net=TrafficLevel: PINT ( LEDs<7> )
+  <--2--  (N_PZ_307, TrafficLevel) (N_PZ_328, TrafficLevel)
+  --1--> (LEDs<7>, TrafficLevel) 
+N_PZ_138,net=TrafficLevel: PINT ( LightsEW<0> )
+  <--5--  (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) (N_PZ_266, TrafficLevel) 
+          (N_PZ_321, TrafficLevel)
+  --1--> (LightsEW<0>, TrafficLevel) 
+N_PZ_139,net=TrafficLevel: PINT ( LightsNS<0> )
+  <--2--  (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) (N_PZ_312, TrafficLevel)
+  --1--> (LightsNS<0>, TrafficLevel) 
+N_PZ_140,net=TrafficLevel: PINT ( LightsNS<1> )
+  <--7--  (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd1.Q, TrafficLevel) (N_PZ_261, TrafficLevel) 
+          (N_PZ_266, TrafficLevel) (N_PZ_275, TrafficLevel)
+  --1--> (LightsNS<1>, TrafficLevel) 
+delayFinal.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_0, TrafficLevel)
+  --0--> 
+delayFinal.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_1, TrafficLevel)
+  --0--> 
+delayFinal.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_2, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<0>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_5, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<0>.AP,net=TrafficLevel: PO
+  <--1--  (N_PZ_6, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<1>.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_8, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<1>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_9, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<1>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_10, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<2>.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_12, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<2>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_13, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<2>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_14, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<3>.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_16, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<3>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_17, TrafficLevel)
+  --0--> 
+Clocksec/lagTime<3>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_18, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<0>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_21, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<0>.AP,net=TrafficLevel: PO
+  <--1--  (N_PZ_22, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<10>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_25, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<10>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_26, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<11>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_29, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<11>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_30, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<12>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_33, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<12>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_34, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<13>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_37, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<13>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_38, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<14>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_41, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<14>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_42, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<15>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_45, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<15>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_46, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<16>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_49, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<16>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_50, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<17>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_53, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<17>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_54, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<1>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_57, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<1>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_58, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<2>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_61, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<2>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_62, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<3>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_65, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<3>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_66, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<4>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_69, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<4>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_70, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<5>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_73, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<5>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_74, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<6>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_77, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<6>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_78, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<7>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_81, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<7>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_82, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<8>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_85, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<8>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_86, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<9>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_89, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<9>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_90, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<18>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_93, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<18>.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_94, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd4.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_97, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd4.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_98, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd2.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_99, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd2.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_100, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd2.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_101, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd3.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_102, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd3.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_103, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd3.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_104, TrafficLevel)
+  --0--> 
+count_LED<0>.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_105, TrafficLevel)
+  --0--> 
+count_LED<0>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_106, TrafficLevel)
+  --0--> 
+count_LED<0>.CE,net=TrafficLevel: PO
+  <--1--  (N_PZ_107, TrafficLevel)
+  --0--> 
+count_LED<3>.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_108, TrafficLevel)
+  --0--> 
+count_LED<3>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_109, TrafficLevel)
+  --0--> 
+count_LED<3>.CE,net=TrafficLevel: PO
+  <--1--  (N_PZ_110, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd1.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_111, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd1.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_112, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd1.AR,net=TrafficLevel: PO
+  <--1--  (N_PZ_113, TrafficLevel)
+  --0--> 
+count_LED<1>.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_114, TrafficLevel)
+  --0--> 
+count_LED<1>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_115, TrafficLevel)
+  --0--> 
+count_LED<1>.CE,net=TrafficLevel: PO
+  <--1--  (N_PZ_116, TrafficLevel)
+  --0--> 
+count_LED<2>.D,net=TrafficLevel: PO
+  <--1--  (N_PZ_117, TrafficLevel)
+  --0--> 
+count_LED<2>.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_118, TrafficLevel)
+  --0--> 
+count_LED<2>.CE,net=TrafficLevel: PO
+  <--1--  (N_PZ_119, TrafficLevel)
+  --0--> 
+start_Count.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_121, TrafficLevel)
+  --0--> 
+statesTraffic/temp_PedEW.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_124, TrafficLevel)
+  --0--> 
+statesTraffic/temp_PedNS.CLK,net=TrafficLevel: PO
+  <--1--  (N_PZ_127, TrafficLevel)
+  --0--> 
+LEDs<0>,net=TrafficLevel: PO
+  <--1--  (N_PZ_129, TrafficLevel)
+  --0--> 
+LEDs<1>,net=TrafficLevel: PO
+  <--1--  (N_PZ_130, TrafficLevel)
+  --0--> 
+LEDs<2>,net=TrafficLevel: PO
+  <--1--  (N_PZ_131, TrafficLevel)
+  --0--> 
+LEDs<3>,net=TrafficLevel: PO
+  <--1--  (N_PZ_132, TrafficLevel)
+  --0--> 
+LEDs<6>,net=TrafficLevel: PO
+  <--1--  (N_PZ_133, TrafficLevel)
+  --0--> 
+LightsEW<1>,net=TrafficLevel: PO
+  <--1--  (N_PZ_134, TrafficLevel)
+  --0--> 
+LEDs<4>,net=TrafficLevel: PO
+  <--1--  (N_PZ_135, TrafficLevel)
+  --0--> 
+LEDs<5>,net=TrafficLevel: PO
+  <--1--  (N_PZ_136, TrafficLevel)
+  --0--> 
+LEDs<7>,net=TrafficLevel: PO
+  <--1--  (N_PZ_137, TrafficLevel)
+  --0--> 
+LightsEW<0>,net=TrafficLevel: PO
+  <--1--  (N_PZ_138, TrafficLevel)
+  --0--> 
+LightsNS<0>,net=TrafficLevel: PO
+  <--1--  (N_PZ_139, TrafficLevel)
+  --0--> 
+LightsNS<1>,net=TrafficLevel: PO
+  <--1--  (N_PZ_140, TrafficLevel)
+  --0--> 
+delayFinal.Q,net=TrafficLevel: PI
+  <--0-- 
+  --8--> (N_PZ_265, TrafficLevel) (N_PZ_277, TrafficLevel) (N_PZ_306, TrafficLevel)  
+         (N_PZ_102, TrafficLevel) (N_PZ_129, TrafficLevel) (N_PZ_0, TrafficLevel)  
+         (N_PZ_111, TrafficLevel) (N_PZ_194, TrafficLevel) 
+Clocksec/lagTime<0>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --4--> (N_PZ_105, TrafficLevel) (N_PZ_284, TrafficLevel) (N_PZ_16, TrafficLevel)  
+         (N_PZ_146, TrafficLevel) 
+Clocksec/lagTime<1>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --5--> (N_PZ_114, TrafficLevel) (N_PZ_305, TrafficLevel) (N_PZ_309, TrafficLevel)  
+         (N_PZ_313, TrafficLevel) (N_PZ_8, TrafficLevel) 
+Clocksec/lagTime<2>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --8--> (N_PZ_117, TrafficLevel) (N_PZ_286, TrafficLevel) (N_PZ_309, TrafficLevel)  
+         (N_PZ_16, TrafficLevel) (N_PZ_268, TrafficLevel) (N_PZ_12, TrafficLevel)  
+         (N_PZ_323, TrafficLevel) (N_PZ_324, TrafficLevel) 
+Clocksec/lagTime<3>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --8--> (N_PZ_108, TrafficLevel) (N_PZ_16, TrafficLevel) (N_PZ_315, TrafficLevel)  
+         (N_PZ_290, TrafficLevel) (N_PZ_268, TrafficLevel) (N_PZ_12, TrafficLevel)  
+         (N_PZ_323, TrafficLevel) (N_PZ_146, TrafficLevel) 
+DelayTimer/Counter<0>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --3--> (N_PZ_184, TrafficLevel) (N_PZ_271, TrafficLevel) (N_PZ_293, TrafficLevel) 
+DelayTimer/Counter<10>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_298, TrafficLevel) (N_PZ_304, TrafficLevel) 
+DelayTimer/Counter<11>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_300, TrafficLevel) (N_PZ_308, TrafficLevel) 
+DelayTimer/Counter<12>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_301, TrafficLevel) (N_PZ_310, TrafficLevel) 
+DelayTimer/Counter<13>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_278, TrafficLevel) 
+DelayTimer/Counter<14>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_302, TrafficLevel) (N_PZ_320, TrafficLevel) 
+DelayTimer/Counter<15>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_283, TrafficLevel) 
+DelayTimer/Counter<16>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_285, TrafficLevel) 
+DelayTimer/Counter<17>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_288, TrafficLevel) 
+DelayTimer/Counter<1>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_271, TrafficLevel) (N_PZ_303, TrafficLevel) 
+DelayTimer/Counter<2>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_272, TrafficLevel) (N_PZ_291, TrafficLevel) 
+DelayTimer/Counter<3>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_274, TrafficLevel) (N_PZ_299, TrafficLevel) 
+DelayTimer/Counter<4>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_276, TrafficLevel) (N_PZ_294, TrafficLevel) 
+DelayTimer/Counter<5>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_267, TrafficLevel) 
+DelayTimer/Counter<6>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_280, TrafficLevel) (N_PZ_295, TrafficLevel) 
+DelayTimer/Counter<7>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_282, TrafficLevel) (N_PZ_291, TrafficLevel) 
+DelayTimer/Counter<8>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_269, TrafficLevel) 
+DelayTimer/Counter<9>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_289, TrafficLevel) (N_PZ_296, TrafficLevel) 
+DelayTimer/Counter<18>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --1--> (N_PZ_297, TrafficLevel) 
+statesTraffic/state_FSM_FFd4.Q,net=TrafficLevel: PI
+  <--0-- 
+  --11--> (N_PZ_261, TrafficLevel) (N_PZ_266, TrafficLevel) (N_PZ_140, TrafficLevel)  
+          (N_PZ_286, TrafficLevel) (N_PZ_306, TrafficLevel) (N_PZ_312, TrafficLevel)  
+          (N_PZ_8, TrafficLevel) (N_PZ_0, TrafficLevel) (N_PZ_138, TrafficLevel)  
+          (N_PZ_12, TrafficLevel) (N_PZ_324, TrafficLevel) 
+statesTraffic/state_FSM_FFd2.Q,net=TrafficLevel: PI
+  <--0-- 
+  --12--> (N_PZ_264, TrafficLevel) (N_PZ_275, TrafficLevel) (N_PZ_140, TrafficLevel)  
+          (N_PZ_139, TrafficLevel) (N_PZ_134, TrafficLevel) (N_PZ_138, TrafficLevel)  
+          (N_PZ_99, TrafficLevel) (N_PZ_321, TrafficLevel) (N_PZ_322, TrafficLevel)  
+          (N_PZ_326, TrafficLevel) (N_PZ_194, TrafficLevel) (N_PZ_327, TrafficLevel) 
+statesTraffic/state_FSM_FFd3.Q,net=TrafficLevel: PI
+  <--0-- 
+  --13--> (N_PZ_261, TrafficLevel) (N_PZ_266, TrafficLevel) (N_PZ_140, TrafficLevel)  
+          (N_PZ_287, TrafficLevel) (N_PZ_305, TrafficLevel) (N_PZ_102, TrafficLevel)  
+          (N_PZ_312, TrafficLevel) (N_PZ_290, TrafficLevel) (N_PZ_319, TrafficLevel)  
+          (N_PZ_134, TrafficLevel) (N_PZ_138, TrafficLevel) (N_PZ_99, TrafficLevel)  
+          (N_PZ_111, TrafficLevel) 
+count_LED<0>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --4--> (N_PZ_273, TrafficLevel) (N_PZ_131, TrafficLevel) (N_PZ_133, TrafficLevel)  
+         (N_PZ_328, TrafficLevel) 
+count_LED<3>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --2--> (N_PZ_277, TrafficLevel) (N_PZ_129, TrafficLevel) 
+statesTraffic/state_FSM_FFd1.Q,net=TrafficLevel: PI
+  <--0-- 
+  --11--> (N_PZ_262, TrafficLevel) (N_PZ_270, TrafficLevel) (N_PZ_275, TrafficLevel)  
+          (N_PZ_140, TrafficLevel) (N_PZ_286, TrafficLevel) (N_PZ_16, TrafficLevel)  
+          (N_PZ_8, TrafficLevel) (N_PZ_319, TrafficLevel) (N_PZ_321, TrafficLevel)  
+          (N_PZ_111, TrafficLevel) (N_PZ_12, TrafficLevel) 
+count_LED<1>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --5--> (N_PZ_273, TrafficLevel) (N_PZ_132, TrafficLevel) (N_PZ_133, TrafficLevel)  
+         (N_PZ_314, TrafficLevel) (N_PZ_328, TrafficLevel) 
+count_LED<2>.Q,net=TrafficLevel: PI
+  <--0-- 
+  --3--> (N_PZ_307, TrafficLevel) (N_PZ_317, TrafficLevel) (N_PZ_325, TrafficLevel) 
+start_Count.Q,net=TrafficLevel: PI
+  <--0-- 
+  --9--> (N_PZ_284, TrafficLevel) (N_PZ_16, TrafficLevel) (N_PZ_315, TrafficLevel)  
+         (N_PZ_316, TrafficLevel) (N_PZ_8, TrafficLevel) (N_PZ_0, TrafficLevel)  
+         (N_PZ_12, TrafficLevel) (N_PZ_323, TrafficLevel) (N_PZ_146, TrafficLevel) 
+statesTraffic/temp_PedEW.Q,net=TrafficLevel: PI
+  <--0-- 
+  --4--> (N_PZ_259, TrafficLevel) (N_PZ_170, TrafficLevel) (N_PZ_322, TrafficLevel)  
+         (N_PZ_194, TrafficLevel) 
+statesTraffic/temp_PedNS.Q,net=TrafficLevel: PI
+  <--0-- 
+  --4--> (N_PZ_171, TrafficLevel) (N_PZ_99, TrafficLevel) (N_PZ_322, TrafficLevel)  
+         (N_PZ_194, TrafficLevel) 
+N_PZ_146,net=TrafficLevel: PINT ( Clocksec/lagTime<0>.T )
+  <--5--  (Clocksec/lagTime<0>.Q, TrafficLevel) (Clocksec/lagTime<3>.Q, TrafficLevel) 
+          (start_Count.Q, TrafficLevel) (N_PZ_286, TrafficLevel) 
+          (N_PZ_324, TrafficLevel)
+  --1--> (Clocksec/lagTime<0>.T, TrafficLevel) 
+Clocksec/lagTime<0>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_146, TrafficLevel)
+  --0--> 
+N_PZ_150,net=TrafficLevel: PINT ( DelayTimer/Counter<0>.T )
+  <--1--  (N_PZ_265, TrafficLevel)
+  --1--> (DelayTimer/Counter<0>.T, TrafficLevel) 
+DelayTimer/Counter<0>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_150, TrafficLevel)
+  --0--> 
+N_PZ_169,net=TrafficLevel: PINT ( start_Count.T )
+  <--4--  (Reset, TrafficLevel) (N_PZ_265, TrafficLevel) (N_PZ_303, TrafficLevel) 
+          (N_PZ_316, TrafficLevel)
+  --1--> (start_Count.T, TrafficLevel) 
+start_Count.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_169, TrafficLevel)
+  --0--> 
+N_PZ_170,net=TrafficLevel: PINT ( statesTraffic/temp_PedEW.T )
+  <--4--  (Reset, TrafficLevel) (PedEW, TrafficLevel) 
+          (statesTraffic/temp_PedEW.Q, TrafficLevel) (N_PZ_281, TrafficLevel)
+  --1--> (statesTraffic/temp_PedEW.T, TrafficLevel) 
+statesTraffic/temp_PedEW.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_170, TrafficLevel)
+  --0--> 
+N_PZ_171,net=TrafficLevel: PINT ( statesTraffic/temp_PedNS.T )
+  <--5--  (Reset, TrafficLevel) (PedEW, TrafficLevel) (PedNS, TrafficLevel) 
+          (statesTraffic/temp_PedNS.Q, TrafficLevel) (N_PZ_281, TrafficLevel)
+  --1--> (statesTraffic/temp_PedNS.T, TrafficLevel) 
+statesTraffic/temp_PedNS.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_171, TrafficLevel)
+  --0--> 
+N_PZ_176,net=TrafficLevel: PINT ( DelayTimer/Counter<10>.T )
+  <--2--  (N_PZ_269, TrafficLevel) (N_PZ_289, TrafficLevel)
+  --1--> (DelayTimer/Counter<10>.T, TrafficLevel) 
+N_PZ_177,net=TrafficLevel: PINT ( DelayTimer/Counter<11>.T )
+  <--2--  (N_PZ_269, TrafficLevel) (N_PZ_304, TrafficLevel)
+  --1--> (DelayTimer/Counter<11>.T, TrafficLevel) 
+N_PZ_178,net=TrafficLevel: PINT ( DelayTimer/Counter<12>.T )
+  <--2--  (N_PZ_269, TrafficLevel) (N_PZ_308, TrafficLevel)
+  --1--> (DelayTimer/Counter<12>.T, TrafficLevel) 
+N_PZ_179,net=TrafficLevel: PINT ( DelayTimer/Counter<13>.T )
+  <--3--  (N_PZ_269, TrafficLevel) (N_PZ_303, TrafficLevel) (N_PZ_310, TrafficLevel)
+  --1--> (DelayTimer/Counter<13>.T, TrafficLevel) 
+N_PZ_180,net=TrafficLevel: PINT ( DelayTimer/Counter<14>.T )
+  <--2--  (N_PZ_278, TrafficLevel) (N_PZ_310, TrafficLevel)
+  --1--> (DelayTimer/Counter<14>.T, TrafficLevel) 
+N_PZ_181,net=TrafficLevel: PINT ( DelayTimer/Counter<15>.T )
+  <--3--  (N_PZ_278, TrafficLevel) (N_PZ_303, TrafficLevel) (N_PZ_320, TrafficLevel)
+  --1--> (DelayTimer/Counter<15>.T, TrafficLevel) 
+N_PZ_182,net=TrafficLevel: PINT ( DelayTimer/Counter<16>.T )
+  <--3--  (N_PZ_283, TrafficLevel) (N_PZ_303, TrafficLevel) (N_PZ_320, TrafficLevel)
+  --1--> (DelayTimer/Counter<16>.T, TrafficLevel) 
+N_PZ_183,net=TrafficLevel: PINT ( DelayTimer/Counter<17>.T )
+  <--3--  (N_PZ_285, TrafficLevel) (N_PZ_303, TrafficLevel) (N_PZ_320, TrafficLevel)
+  --1--> (DelayTimer/Counter<17>.T, TrafficLevel) 
+N_PZ_184,net=TrafficLevel: PINT ( DelayTimer/Counter<1>.T )
+  <--2--  (DelayTimer/Counter<0>.Q, TrafficLevel) (N_PZ_265, TrafficLevel)
+  --1--> (DelayTimer/Counter<1>.T, TrafficLevel) 
+N_PZ_185,net=TrafficLevel: PINT ( DelayTimer/Counter<2>.T )
+  <--2--  (N_PZ_265, TrafficLevel) (N_PZ_271, TrafficLevel)
+  --1--> (DelayTimer/Counter<2>.T, TrafficLevel) 
+N_PZ_186,net=TrafficLevel: PINT ( DelayTimer/Counter<3>.T )
+  <--2--  (N_PZ_265, TrafficLevel) (N_PZ_272, TrafficLevel)
+  --1--> (DelayTimer/Counter<3>.T, TrafficLevel) 
+N_PZ_187,net=TrafficLevel: PINT ( DelayTimer/Counter<4>.T )
+  <--2--  (N_PZ_265, TrafficLevel) (N_PZ_274, TrafficLevel)
+  --1--> (DelayTimer/Counter<4>.T, TrafficLevel) 
+N_PZ_188,net=TrafficLevel: PINT ( DelayTimer/Counter<5>.T )
+  <--3--  (N_PZ_265, TrafficLevel) (N_PZ_276, TrafficLevel) (N_PZ_303, TrafficLevel)
+  --1--> (DelayTimer/Counter<5>.T, TrafficLevel) 
+N_PZ_189,net=TrafficLevel: PINT ( DelayTimer/Counter<6>.T )
+  <--2--  (N_PZ_267, TrafficLevel) (N_PZ_276, TrafficLevel)
+  --1--> (DelayTimer/Counter<6>.T, TrafficLevel) 
+N_PZ_190,net=TrafficLevel: PINT ( DelayTimer/Counter<7>.T )
+  <--2--  (N_PZ_267, TrafficLevel) (N_PZ_280, TrafficLevel)
+  --1--> (DelayTimer/Counter<7>.T, TrafficLevel) 
+N_PZ_191,net=TrafficLevel: PINT ( DelayTimer/Counter<8>.T )
+  <--3--  (N_PZ_267, TrafficLevel) (N_PZ_282, TrafficLevel) (N_PZ_303, TrafficLevel)
+  --1--> (DelayTimer/Counter<8>.T, TrafficLevel) 
+N_PZ_192,net=TrafficLevel: PINT ( DelayTimer/Counter<9>.T )
+  <--2--  (N_PZ_269, TrafficLevel) (N_PZ_282, TrafficLevel)
+  --1--> (DelayTimer/Counter<9>.T, TrafficLevel) 
+N_PZ_193,net=TrafficLevel: PINT ( DelayTimer/Counter<18>.T )
+  <--3--  (N_PZ_288, TrafficLevel) (N_PZ_303, TrafficLevel) (N_PZ_320, TrafficLevel)
+  --1--> (DelayTimer/Counter<18>.T, TrafficLevel) 
+N_PZ_194,net=TrafficLevel: PINT ( statesTraffic/state_FSM_FFd4.T )
+  <--10--  (delayFinal.Q, TrafficLevel) (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+           (statesTraffic/temp_PedEW.Q, TrafficLevel) 
+           (statesTraffic/temp_PedNS.Q, TrafficLevel) (N_PZ_261, TrafficLevel) 
+           (N_PZ_262, TrafficLevel) (N_PZ_306, TrafficLevel) (N_PZ_312, TrafficLevel) 
+           (N_PZ_326, TrafficLevel) (N_PZ_327, TrafficLevel)
+  --1--> (statesTraffic/state_FSM_FFd4.T, TrafficLevel) 
+DelayTimer/Counter<10>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_176, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<11>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_177, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<12>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_178, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<13>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_179, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<14>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_180, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<15>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_181, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<16>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_182, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<17>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_183, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<1>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_184, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<2>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_185, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<3>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_186, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<4>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_187, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<5>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_188, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<6>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_189, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<7>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_190, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<8>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_191, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<9>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_192, TrafficLevel)
+  --0--> 
+DelayTimer/Counter<18>.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_193, TrafficLevel)
+  --0--> 
+statesTraffic/state_FSM_FFd4.T,net=TrafficLevel: PO
+  <--1--  (N_PZ_194, TrafficLevel)
+  --0--> 
+N_PZ_259,net=TrafficLevel: INT
+  <--2--  (CarEW, TrafficLevel) (statesTraffic/temp_PedEW.Q, TrafficLevel)
+  --2--> (N_PZ_264, TrafficLevel) (N_PZ_327, TrafficLevel) 
+N_PZ_260,net=TrafficLevel: INT
+  <--2--  (N_PZ_326, TrafficLevel) (N_PZ_327, TrafficLevel)
+  --4--> (N_PZ_263, TrafficLevel) (N_PZ_287, TrafficLevel) (N_PZ_102, TrafficLevel)  
+         (N_PZ_323, TrafficLevel) 
+N_PZ_261,net=TrafficLevel: INT
+  <--2--  (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel)
+  --7--> (N_PZ_262, TrafficLevel) (N_PZ_264, TrafficLevel) (N_PZ_140, TrafficLevel)  
+         (N_PZ_129, TrafficLevel) (N_PZ_130, TrafficLevel) (N_PZ_134, TrafficLevel)  
+         (N_PZ_194, TrafficLevel) 
+N_PZ_262,net=TrafficLevel: INT
+  <--2--  (statesTraffic/state_FSM_FFd1.Q, TrafficLevel) (N_PZ_261, TrafficLevel)
+  --4--> (N_PZ_263, TrafficLevel) (N_PZ_264, TrafficLevel) (N_PZ_194, TrafficLevel)  
+         (N_PZ_311, TrafficLevel) 
+N_PZ_263,net=TrafficLevel: INT
+  <--2--  (N_PZ_260, TrafficLevel) (N_PZ_262, TrafficLevel)
+  --2--> (N_PZ_265, TrafficLevel) (N_PZ_318, TrafficLevel) 
+N_PZ_264,net=TrafficLevel: INT
+  <--5--  (CarNS, TrafficLevel) (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+          (N_PZ_259, TrafficLevel) (N_PZ_261, TrafficLevel) (N_PZ_262, TrafficLevel)
+  --1--> (N_PZ_279, TrafficLevel) 
+N_PZ_265,net=TrafficLevel: INT
+  <--2--  (delayFinal.Q, TrafficLevel) (N_PZ_263, TrafficLevel)
+  --8--> (N_PZ_150, TrafficLevel) (N_PZ_184, TrafficLevel) (N_PZ_267, TrafficLevel)  
+         (N_PZ_185, TrafficLevel) (N_PZ_186, TrafficLevel) (N_PZ_187, TrafficLevel)  
+         (N_PZ_188, TrafficLevel) (N_PZ_169, TrafficLevel) 
+N_PZ_266,net=TrafficLevel: INT
+  <--2--  (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel)
+  --5--> (N_PZ_270, TrafficLevel) (N_PZ_140, TrafficLevel) (N_PZ_281, TrafficLevel)  
+         (N_PZ_312, TrafficLevel) (N_PZ_138, TrafficLevel) 
+N_PZ_267,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<5>.Q, TrafficLevel) (N_PZ_265, TrafficLevel)
+  --4--> (N_PZ_269, TrafficLevel) (N_PZ_189, TrafficLevel) (N_PZ_190, TrafficLevel)  
+         (N_PZ_191, TrafficLevel) 
+N_PZ_268,net=TrafficLevel: INT
+  <--3--  (Clocksec/lagTime<2>.Q, TrafficLevel) (Clocksec/lagTime<3>.Q, TrafficLevel) 
+          (N_PZ_319, TrafficLevel)
+  --3--> (N_PZ_309, TrafficLevel) (N_PZ_8, TrafficLevel) (N_PZ_0, TrafficLevel) 
+N_PZ_269,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<8>.Q, TrafficLevel) (N_PZ_267, TrafficLevel)
+  --6--> (N_PZ_278, TrafficLevel) (N_PZ_192, TrafficLevel) (N_PZ_176, TrafficLevel)  
+         (N_PZ_177, TrafficLevel) (N_PZ_178, TrafficLevel) (N_PZ_179, TrafficLevel) 
+N_PZ_270,net=TrafficLevel: INT
+  <--2--  (statesTraffic/state_FSM_FFd1.Q, TrafficLevel) (N_PZ_266, TrafficLevel)
+  --3--> (N_PZ_287, TrafficLevel) (N_PZ_286, TrafficLevel) (N_PZ_0, TrafficLevel) 
+N_PZ_271,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<0>.Q, TrafficLevel) 
+          (DelayTimer/Counter<1>.Q, TrafficLevel)
+  --2--> (N_PZ_185, TrafficLevel) (N_PZ_272, TrafficLevel) 
+N_PZ_272,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<2>.Q, TrafficLevel) (N_PZ_271, TrafficLevel)
+  --2--> (N_PZ_186, TrafficLevel) (N_PZ_274, TrafficLevel) 
+N_PZ_273,net=TrafficLevel: INT
+  <--2--  (count_LED<0>.Q, TrafficLevel) (count_LED<1>.Q, TrafficLevel)
+  --3--> (N_PZ_136, TrafficLevel) (N_PZ_317, TrafficLevel) (N_PZ_135, TrafficLevel) 
+N_PZ_274,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<3>.Q, TrafficLevel) (N_PZ_272, TrafficLevel)
+  --2--> (N_PZ_187, TrafficLevel) (N_PZ_276, TrafficLevel) 
+N_PZ_275,net=TrafficLevel: INT
+  <--2--  (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd1.Q, TrafficLevel)
+  --5--> (N_PZ_140, TrafficLevel) (N_PZ_281, TrafficLevel) (N_PZ_102, TrafficLevel)  
+         (N_PZ_129, TrafficLevel) (N_PZ_130, TrafficLevel) 
+N_PZ_276,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<4>.Q, TrafficLevel) (N_PZ_274, TrafficLevel)
+  --3--> (N_PZ_189, TrafficLevel) (N_PZ_280, TrafficLevel) (N_PZ_188, TrafficLevel) 
+N_PZ_277,net=TrafficLevel: INT
+  <--2--  (delayFinal.Q, TrafficLevel) (count_LED<3>.Q, TrafficLevel)
+  --2--> (N_PZ_279, TrafficLevel) (N_PZ_130, TrafficLevel) 
+N_PZ_278,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<13>.Q, TrafficLevel) (N_PZ_269, TrafficLevel)
+  --3--> (N_PZ_283, TrafficLevel) (N_PZ_180, TrafficLevel) (N_PZ_181, TrafficLevel) 
+N_PZ_279,net=TrafficLevel: INT
+  <--2--  (N_PZ_264, TrafficLevel) (N_PZ_277, TrafficLevel)
+  --3--> (N_PZ_307, TrafficLevel) (N_PZ_325, TrafficLevel) (N_PZ_314, TrafficLevel) 
+N_PZ_280,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<6>.Q, TrafficLevel) (N_PZ_276, TrafficLevel)
+  --2--> (N_PZ_190, TrafficLevel) (N_PZ_282, TrafficLevel) 
+N_PZ_281,net=TrafficLevel: INT
+  <--2--  (N_PZ_266, TrafficLevel) (N_PZ_275, TrafficLevel)
+  --2--> (N_PZ_170, TrafficLevel) (N_PZ_171, TrafficLevel) 
+N_PZ_282,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<7>.Q, TrafficLevel) (N_PZ_280, TrafficLevel)
+  --3--> (N_PZ_192, TrafficLevel) (N_PZ_289, TrafficLevel) (N_PZ_191, TrafficLevel) 
+N_PZ_283,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<15>.Q, TrafficLevel) (N_PZ_278, TrafficLevel)
+  --2--> (N_PZ_285, TrafficLevel) (N_PZ_182, TrafficLevel) 
+N_PZ_284,net=TrafficLevel: INT
+  <--2--  (Clocksec/lagTime<0>.Q, TrafficLevel) (start_Count.Q, TrafficLevel)
+  --4--> (N_PZ_313, TrafficLevel) (N_PZ_8, TrafficLevel) (N_PZ_0, TrafficLevel)  
+         (N_PZ_12, TrafficLevel) 
+N_PZ_285,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<16>.Q, TrafficLevel) (N_PZ_283, TrafficLevel)
+  --2--> (N_PZ_288, TrafficLevel) (N_PZ_183, TrafficLevel) 
+N_PZ_286,net=TrafficLevel: INT
+  <--5--  (Clocksec/lagTime<2>.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd1.Q, TrafficLevel) (N_PZ_270, TrafficLevel) 
+          (N_PZ_305, TrafficLevel)
+  --2--> (N_PZ_16, TrafficLevel) (N_PZ_146, TrafficLevel) 
+N_PZ_287,net=TrafficLevel: INT
+  <--3--  (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) (N_PZ_260, TrafficLevel) 
+          (N_PZ_270, TrafficLevel)
+  --2--> (N_PZ_16, TrafficLevel) (N_PZ_324, TrafficLevel) 
+N_PZ_288,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<17>.Q, TrafficLevel) (N_PZ_285, TrafficLevel)
+  --2--> (N_PZ_292, TrafficLevel) (N_PZ_193, TrafficLevel) 
+N_PZ_289,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<9>.Q, TrafficLevel) (N_PZ_282, TrafficLevel)
+  --2--> (N_PZ_176, TrafficLevel) (N_PZ_304, TrafficLevel) 
+N_PZ_290,net=TrafficLevel: INT
+  <--3--  (Clocksec/lagTime<3>.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) (N_PZ_319, TrafficLevel)
+  --1--> (N_PZ_309, TrafficLevel) 
+N_PZ_291,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<2>.Q, TrafficLevel) 
+          (DelayTimer/Counter<7>.Q, TrafficLevel)
+  --1--> (N_PZ_292, TrafficLevel) 
+N_PZ_292,net=TrafficLevel: INT
+  <--2--  (N_PZ_288, TrafficLevel) (N_PZ_291, TrafficLevel)
+  --1--> (N_PZ_293, TrafficLevel) 
+N_PZ_293,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<0>.Q, TrafficLevel) (N_PZ_292, TrafficLevel)
+  --1--> (N_PZ_294, TrafficLevel) 
+N_PZ_294,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<4>.Q, TrafficLevel) (N_PZ_293, TrafficLevel)
+  --1--> (N_PZ_295, TrafficLevel) 
+N_PZ_295,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<6>.Q, TrafficLevel) (N_PZ_294, TrafficLevel)
+  --1--> (N_PZ_296, TrafficLevel) 
+N_PZ_296,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<9>.Q, TrafficLevel) (N_PZ_295, TrafficLevel)
+  --1--> (N_PZ_297, TrafficLevel) 
+N_PZ_297,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<18>.Q, TrafficLevel) (N_PZ_296, TrafficLevel)
+  --1--> (N_PZ_298, TrafficLevel) 
+N_PZ_298,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<10>.Q, TrafficLevel) (N_PZ_297, TrafficLevel)
+  --1--> (N_PZ_299, TrafficLevel) 
+N_PZ_299,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<3>.Q, TrafficLevel) (N_PZ_298, TrafficLevel)
+  --1--> (N_PZ_300, TrafficLevel) 
+N_PZ_300,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<11>.Q, TrafficLevel) (N_PZ_299, TrafficLevel)
+  --1--> (N_PZ_301, TrafficLevel) 
+N_PZ_301,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<12>.Q, TrafficLevel) (N_PZ_300, TrafficLevel)
+  --1--> (N_PZ_302, TrafficLevel) 
+N_PZ_302,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<14>.Q, TrafficLevel) (N_PZ_301, TrafficLevel)
+  --1--> (N_PZ_303, TrafficLevel) 
+N_PZ_303,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<1>.Q, TrafficLevel) (N_PZ_302, TrafficLevel)
+  --8--> (N_PZ_188, TrafficLevel) (N_PZ_191, TrafficLevel) (N_PZ_179, TrafficLevel)  
+         (N_PZ_169, TrafficLevel) (N_PZ_183, TrafficLevel) (N_PZ_181, TrafficLevel)  
+         (N_PZ_193, TrafficLevel) (N_PZ_182, TrafficLevel) 
+N_PZ_304,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<10>.Q, TrafficLevel) (N_PZ_289, TrafficLevel)
+  --2--> (N_PZ_177, TrafficLevel) (N_PZ_308, TrafficLevel) 
+N_PZ_305,net=TrafficLevel: INT
+  <--2--  (Clocksec/lagTime<1>.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel)
+  --4--> (N_PZ_286, TrafficLevel) (N_PZ_16, TrafficLevel) (N_PZ_12, TrafficLevel)  
+         (N_PZ_324, TrafficLevel) 
+N_PZ_306,net=TrafficLevel: INT
+  <--2--  (delayFinal.Q, TrafficLevel) (statesTraffic/state_FSM_FFd4.Q, TrafficLevel)
+  --4--> (N_PZ_102, TrafficLevel) (N_PZ_99, TrafficLevel) (N_PZ_111, TrafficLevel)  
+         (N_PZ_194, TrafficLevel) 
+N_PZ_307,net=TrafficLevel: INT
+  <--2--  (count_LED<2>.Q, TrafficLevel) (N_PZ_279, TrafficLevel)
+  --5--> (N_PZ_136, TrafficLevel) (N_PZ_135, TrafficLevel) (N_PZ_133, TrafficLevel)  
+         (N_PZ_314, TrafficLevel) (N_PZ_137, TrafficLevel) 
+N_PZ_308,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<11>.Q, TrafficLevel) (N_PZ_304, TrafficLevel)
+  --2--> (N_PZ_178, TrafficLevel) (N_PZ_310, TrafficLevel) 
+N_PZ_309,net=TrafficLevel: INT
+  <--4--  (Clocksec/lagTime<1>.Q, TrafficLevel) (Clocksec/lagTime<2>.Q, TrafficLevel) 
+          (N_PZ_268, TrafficLevel) (N_PZ_290, TrafficLevel)
+  --1--> (N_PZ_318, TrafficLevel) 
+N_PZ_310,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<12>.Q, TrafficLevel) (N_PZ_308, TrafficLevel)
+  --3--> (N_PZ_179, TrafficLevel) (N_PZ_180, TrafficLevel) (N_PZ_320, TrafficLevel) 
+N_PZ_311,net=TrafficLevel: INT
+  <--3--  (N_PZ_262, TrafficLevel) (N_PZ_326, TrafficLevel) (N_PZ_327, TrafficLevel)
+  --2--> (N_PZ_129, TrafficLevel) (N_PZ_130, TrafficLevel) 
+N_PZ_312,net=TrafficLevel: INT
+  <--3--  (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) (N_PZ_266, TrafficLevel)
+  --2--> (N_PZ_139, TrafficLevel) (N_PZ_194, TrafficLevel) 
+N_PZ_313,net=TrafficLevel: INT
+  <--2--  (Clocksec/lagTime<1>.Q, TrafficLevel) (N_PZ_284, TrafficLevel)
+  --3--> (N_PZ_16, TrafficLevel) (N_PZ_8, TrafficLevel) (N_PZ_12, TrafficLevel) 
+N_PZ_314,net=TrafficLevel: INT
+  <--4--  (count_LED<1>.Q, TrafficLevel) (N_PZ_279, TrafficLevel) 
+          (N_PZ_307, TrafficLevel) (N_PZ_328, TrafficLevel)
+  --2--> (N_PZ_131, TrafficLevel) (N_PZ_132, TrafficLevel) 
+N_PZ_315,net=TrafficLevel: INT
+  <--2--  (Clocksec/lagTime<3>.Q, TrafficLevel) (start_Count.Q, TrafficLevel)
+  --4--> (N_PZ_16, TrafficLevel) (N_PZ_8, TrafficLevel) (N_PZ_0, TrafficLevel)  
+         (N_PZ_12, TrafficLevel) 
+N_PZ_316,net=TrafficLevel: INT
+  <--2--  (Reset, TrafficLevel) (start_Count.Q, TrafficLevel)
+  --5--> (N_PZ_116, TrafficLevel) (N_PZ_169, TrafficLevel) (N_PZ_107, TrafficLevel)  
+         (N_PZ_119, TrafficLevel) (N_PZ_110, TrafficLevel) 
+N_PZ_317,net=TrafficLevel: INT
+  <--2--  (count_LED<2>.Q, TrafficLevel) (N_PZ_273, TrafficLevel)
+  --2--> (N_PZ_129, TrafficLevel) (N_PZ_130, TrafficLevel) 
+N_PZ_318,net=TrafficLevel: INT
+  <--2--  (N_PZ_263, TrafficLevel) (N_PZ_309, TrafficLevel)
+  --2--> (N_PZ_8, TrafficLevel) (N_PZ_0, TrafficLevel) 
+N_PZ_319,net=TrafficLevel: INT
+  <--2--  (statesTraffic/state_FSM_FFd3.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd1.Q, TrafficLevel)
+  --4--> (N_PZ_290, TrafficLevel) (N_PZ_268, TrafficLevel) (N_PZ_99, TrafficLevel)  
+         (N_PZ_12, TrafficLevel) 
+N_PZ_320,net=TrafficLevel: INT
+  <--2--  (DelayTimer/Counter<14>.Q, TrafficLevel) (N_PZ_310, TrafficLevel)
+  --4--> (N_PZ_183, TrafficLevel) (N_PZ_181, TrafficLevel) (N_PZ_193, TrafficLevel)  
+         (N_PZ_182, TrafficLevel) 
+N_PZ_321,net=TrafficLevel: INT
+  <--2--  (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd1.Q, TrafficLevel)
+  --3--> (N_PZ_134, TrafficLevel) (N_PZ_138, TrafficLevel) (N_PZ_99, TrafficLevel) 
+N_PZ_322,net=TrafficLevel: INT
+  <--3--  (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) 
+          (statesTraffic/temp_PedEW.Q, TrafficLevel) 
+          (statesTraffic/temp_PedNS.Q, TrafficLevel)
+  --1--> (N_PZ_111, TrafficLevel) 
+N_PZ_323,net=TrafficLevel: INT
+  <--4--  (Clocksec/lagTime<2>.Q, TrafficLevel) (Clocksec/lagTime<3>.Q, TrafficLevel) 
+          (start_Count.Q, TrafficLevel) (N_PZ_260, TrafficLevel)
+  --1--> (N_PZ_12, TrafficLevel) 
+N_PZ_324,net=TrafficLevel: INT
+  <--4--  (Clocksec/lagTime<2>.Q, TrafficLevel) 
+          (statesTraffic/state_FSM_FFd4.Q, TrafficLevel) (N_PZ_287, TrafficLevel) 
+          (N_PZ_305, TrafficLevel)
+  --1--> (N_PZ_146, TrafficLevel) 
+N_PZ_325,net=TrafficLevel: INT
+  <--2--  (count_LED<2>.Q, TrafficLevel) (N_PZ_279, TrafficLevel)
+  --3--> (N_PZ_135, TrafficLevel) (N_PZ_131, TrafficLevel) (N_PZ_132, TrafficLevel) 
+N_PZ_326,net=TrafficLevel: INT
+  <--2--  (CarNS, TrafficLevel) (statesTraffic/state_FSM_FFd2.Q, TrafficLevel)
+  --3--> (N_PZ_194, TrafficLevel) (N_PZ_260, TrafficLevel) (N_PZ_311, TrafficLevel) 
+N_PZ_327,net=TrafficLevel: INT
+  <--2--  (statesTraffic/state_FSM_FFd2.Q, TrafficLevel) (N_PZ_259, TrafficLevel)
+  --3--> (N_PZ_194, TrafficLevel) (N_PZ_260, TrafficLevel) (N_PZ_311, TrafficLevel) 
+N_PZ_328,net=TrafficLevel: INT
+  <--2--  (count_LED<0>.Q, TrafficLevel) (count_LED<1>.Q, TrafficLevel)
+  --3--> (N_PZ_133, TrafficLevel) (N_PZ_314, TrafficLevel) (N_PZ_137, TrafficLevel) 

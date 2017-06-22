@@ -1,0 +1,1 @@
+vhdtdtfi -prj Traffic -o C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/statesTraffic.tfi -module statesTraffic -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror -lib work ../statesTraffic.vhd 

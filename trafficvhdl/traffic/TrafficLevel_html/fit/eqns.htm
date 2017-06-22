@@ -1,0 +1,673 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="paths.js"></script><script src="eqns.js"></script><script>
+      var design = "TrafficLevel";
+      var device = "XC2C64A";
+      signals = new Array("ClockseclagTime0_SPECSIG","ClockseclagTime1_SPECSIG","ClockseclagTime2_SPECSIG","ClockseclagTime3_SPECSIG","DelayTimerCounter0_SPECSIG","DelayTimerCounter10_SPECSIG","DelayTimerCounter11_SPECSIG","DelayTimerCounter12_SPECSIG","DelayTimerCounter13_SPECSIG","DelayTimerCounter14_SPECSIG","DelayTimerCounter15_SPECSIG","DelayTimerCounter16_SPECSIG","DelayTimerCounter17_SPECSIG","DelayTimerCounter18_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter9_SPECSIG","LEDs0_SPECSIG","LEDs1_SPECSIG","LEDs2_SPECSIG","LEDs3_SPECSIG","LEDs4_SPECSIG","LEDs5_SPECSIG","LEDs6_SPECSIG","LEDs7_SPECSIG","LightsEW0_SPECSIG","LightsEW1_SPECSIG","LightsNS0_SPECSIG","LightsNS1_SPECSIG","N_PZ_260","N_PZ_265","N_PZ_279","N_PZ_281","count_LED0_SPECSIG","count_LED1_SPECSIG","count_LED2_SPECSIG","count_LED3_SPECSIG","delayFinal","start_Count","statesTrafficstate_FSM_FFd1_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG","statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","statesTraffictemp_PedEW_SPECSIG","statesTraffictemp_PedNS_SPECSIG");
+      sigNegs = new Array("ON","ON","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","ON","ON","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF");
+      sigTypes = new Array("DFF","DFF","TFF","DFF","TFFS_SPECSIG","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","","","","","","","","","","","","","","","","","DEFF","DEFF","DEFF","DEFF","DFF","TFF","DFF","TFF","TFF","TFF","TFF","TFF");
+
+      
+           iostyle["PedNS"]=new Array("KPR");
+        
+           iostyle["PedEW"]=new Array("KPR");
+        
+           iostyle["CarNS"]=new Array("KPR");
+        
+           iostyle["CarEW"]=new Array("KPR");
+        
+           iostyle["Reset"]=new Array("KPR");
+        
+           iostyle["Clock"]=new Array("KPR");
+        
+        specSig["b_SPECSIG"]=new Array("(b)");
+      
+        specSig["DelayTimerCounter17_SPECSIG"]=new Array("DelayTimer/Counter<17>");
+      
+        specSig["DelayTimerCounter12_SPECSIG"]=new Array("DelayTimer/Counter<12>");
+      
+        specSig["DelayTimerCounter11_SPECSIG"]=new Array("DelayTimer/Counter<11>");
+      
+        specSig["GSRI_SPECSIG"]=new Array("GSR/I");
+      
+        specSig["LightsEW1_SPECSIG"]=new Array("LightsEW<1>");
+      
+        specSig["LightsEW0_SPECSIG"]=new Array("LightsEW<0>");
+      
+        specSig["LightsNS1_SPECSIG"]=new Array("LightsNS<1>");
+      
+        specSig["LightsNS0_SPECSIG"]=new Array("LightsNS<0>");
+      
+        specSig["ClockseclagTime0_SPECSIG"]=new Array("Clocksec/lagTime<0>");
+      
+        specSig["ClockseclagTime2_SPECSIG"]=new Array("Clocksec/lagTime<2>");
+      
+        specSig["count_LED3_SPECSIG"]=new Array("count_LED<3>");
+      
+        specSig["LEDs7_SPECSIG"]=new Array("LEDs<7>");
+      
+        specSig["LEDs6_SPECSIG"]=new Array("LEDs<6>");
+      
+        specSig["LEDs5_SPECSIG"]=new Array("LEDs<5>");
+      
+        specSig["LEDs4_SPECSIG"]=new Array("LEDs<4>");
+      
+        specSig["LEDs3_SPECSIG"]=new Array("LEDs<3>");
+      
+        specSig["LEDs2_SPECSIG"]=new Array("LEDs<2>");
+      
+        specSig["LEDs1_SPECSIG"]=new Array("LEDs<1>");
+      
+        specSig["LEDs0_SPECSIG"]=new Array("LEDs<0>");
+      
+        specSig["DelayTimerCounter16_SPECSIG"]=new Array("DelayTimer/Counter<16>");
+      
+        specSig["DelayTimerCounter15_SPECSIG"]=new Array("DelayTimer/Counter<15>");
+      
+        specSig["DelayTimerCounter9_SPECSIG"]=new Array("DelayTimer/Counter<9>");
+      
+        specSig["DelayTimerCounter7_SPECSIG"]=new Array("DelayTimer/Counter<7>");
+      
+        specSig["DelayTimerCounter6_SPECSIG"]=new Array("DelayTimer/Counter<6>");
+      
+        specSig["DelayTimerCounter4_SPECSIG"]=new Array("DelayTimer/Counter<4>");
+      
+        specSig["DelayTimerCounter3_SPECSIG"]=new Array("DelayTimer/Counter<3>");
+      
+        specSig["DelayTimerCounter13_SPECSIG"]=new Array("DelayTimer/Counter<13>");
+      
+        specSig["DelayTimerCounter14_SPECSIG"]=new Array("DelayTimer/Counter<14>");
+      
+        specSig["DelayTimerCounter10_SPECSIG"]=new Array("DelayTimer/Counter<10>");
+      
+        specSig["DelayTimerCounter2_SPECSIG"]=new Array("DelayTimer/Counter<2>");
+      
+        specSig["DelayTimerCounter1_SPECSIG"]=new Array("DelayTimer/Counter<1>");
+      
+        specSig["DelayTimerCounter0_SPECSIG"]=new Array("DelayTimer/Counter<0>");
+      
+        specSig["DelayTimerCounter18_SPECSIG"]=new Array("DelayTimer/Counter<18>");
+      
+        specSig["DelayTimerCounter5_SPECSIG"]=new Array("DelayTimer/Counter<5>");
+      
+        specSig["DelayTimerCounter8_SPECSIG"]=new Array("DelayTimer/Counter<8>");
+      
+        specSig["TFFS_SPECSIG"]=new Array("TFF/S");
+      
+        specSig["ClockseclagTime1_SPECSIG"]=new Array("Clocksec/lagTime<1>");
+      
+        specSig["statesTrafficstate_FSM_FFd3_SPECSIG"]=new Array("statesTraffic/state_FSM_FFd3");
+      
+        specSig["statesTrafficstate_FSM_FFd4_SPECSIG"]=new Array("statesTraffic/state_FSM_FFd4");
+      
+        specSig["statesTrafficstate_FSM_FFd1_SPECSIG"]=new Array("statesTraffic/state_FSM_FFd1");
+      
+        specSig["statesTrafficstate_FSM_FFd2_SPECSIG"]=new Array("statesTraffic/state_FSM_FFd2");
+      
+        specSig["ClockseclagTime3_SPECSIG"]=new Array("Clocksec/lagTime<3>");
+      
+        specSig["statesTraffictemp_PedEW_SPECSIG"]=new Array("statesTraffic/temp_PedEW");
+      
+        specSig["statesTraffictemp_PedNS_SPECSIG"]=new Array("statesTraffic/temp_PedNS");
+      
+        specSig["count_LED2_SPECSIG"]=new Array("count_LED<2>");
+      
+        specSig["count_LED1_SPECSIG"]=new Array("count_LED<1>");
+      
+        specSig["count_LED0_SPECSIG"]=new Array("count_LED<0>");
+      
+            pterms["FB1_0"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter10_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter11_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter12_SPECSIG","DelayTimerCounter9_SPECSIG");
+          
+            pterms["FB1_1"]=new Array("/DelayTimerCounter0_SPECSIG","/N_PZ_265","/DelayTimerCounter10_SPECSIG","/DelayTimerCounter1_SPECSIG","/DelayTimerCounter2_SPECSIG","/DelayTimerCounter3_SPECSIG","/DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","/DelayTimerCounter11_SPECSIG","/DelayTimerCounter6_SPECSIG","/DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","/DelayTimerCounter12_SPECSIG","/DelayTimerCounter9_SPECSIG","DelayTimerCounter13_SPECSIG","/DelayTimerCounter14_SPECSIG","DelayTimerCounter15_SPECSIG","DelayTimerCounter16_SPECSIG","DelayTimerCounter17_SPECSIG","DelayTimerCounter18_SPECSIG");
+          
+            pterms["FB1_2"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter10_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter11_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter12_SPECSIG","DelayTimerCounter9_SPECSIG","DelayTimerCounter13_SPECSIG","DelayTimerCounter14_SPECSIG");
+          
+            pterms["FB1_3"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter10_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter11_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter12_SPECSIG","DelayTimerCounter9_SPECSIG","DelayTimerCounter13_SPECSIG","DelayTimerCounter14_SPECSIG","DelayTimerCounter15_SPECSIG");
+          
+            pterms["FB1_4"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter10_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter11_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter12_SPECSIG","DelayTimerCounter9_SPECSIG","DelayTimerCounter13_SPECSIG","DelayTimerCounter14_SPECSIG","DelayTimerCounter15_SPECSIG","DelayTimerCounter16_SPECSIG");
+          
+            pterms["FB1_19"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG");
+          
+            pterms["FB1_22"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter6_SPECSIG");
+          
+            pterms["FB1_25"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG");
+          
+            pterms["FB1_28"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG");
+          
+            pterms["FB1_31"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG");
+          
+            pterms["FB1_37"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter10_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter11_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter12_SPECSIG","DelayTimerCounter9_SPECSIG","DelayTimerCounter13_SPECSIG");
+          
+            pterms["FB1_40"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter10_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter11_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter9_SPECSIG");
+          
+            pterms["FB1_43"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter10_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter9_SPECSIG");
+          
+            pterms["FB1_46"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter9_SPECSIG");
+          
+            pterms["FB1_49"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG");
+          
+            pterms["FB1_52"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265");
+          
+            pterms["FB1_55"]=new Array("/N_PZ_265");
+          
+            pterms["FB2_0"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG");
+          
+            pterms["FB2_1"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd2_SPECSIG");
+          
+            pterms["FB2_2"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd2_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB2_3"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd2_SPECSIG");
+          
+            pterms["FB2_4"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd2_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB2_5"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG");
+          
+            pterms["FB2_6"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG");
+          
+            pterms["FB2_7"]=new Array("delayFinal","statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd2_SPECSIG","statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB2_8"]=new Array("delayFinal","statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB2_9"]=new Array("delayFinal","statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","statesTraffictemp_PedNS_SPECSIG");
+          
+            pterms["FB2_10"]=new Array("/delayFinal","statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB2_11"]=new Array("delayFinal","statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG","/statesTraffictemp_PedEW_SPECSIG");
+          
+            pterms["FB2_12"]=new Array("delayFinal","statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd2_SPECSIG","/statesTraffictemp_PedNS_SPECSIG");
+          
+            pterms["FB2_13"]=new Array("delayFinal","statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG");
+          
+            pterms["FB2_14"]=new Array("delayFinal","/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG");
+          
+            pterms["FB2_15"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/CarNS","/statesTrafficstate_FSM_FFd2_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","statesTraffictemp_PedEW_SPECSIG");
+          
+            pterms["FB2_16"]=new Array("delayFinal","statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG","/statesTraffictemp_PedEW_SPECSIG");
+          
+            pterms["FB2_17"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG","/statesTraffictemp_PedEW_SPECSIG","statesTraffictemp_PedNS_SPECSIG","/CarEW");
+          
+            pterms["FB2_18"]=new Array("/delayFinal","/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG","CarEW","/count_LED3_SPECSIG");
+          
+            pterms["FB2_19"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","start_Count");
+          
+            pterms["FB2_20"]=new Array("/delayFinal","/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","CarNS","/statesTrafficstate_FSM_FFd2_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","/count_LED3_SPECSIG");
+          
+            pterms["FB2_21"]=new Array("/delayFinal","/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG","statesTraffictemp_PedEW_SPECSIG","/count_LED3_SPECSIG");
+          
+            pterms["FB2_22"]=new Array("statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB2_23"]=new Array("delayFinal","statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG");
+          
+            pterms["FB2_24"]=new Array("delayFinal","/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG","/N_PZ_260");
+          
+            pterms["FB2_25"]=new Array("delayFinal","/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","/N_PZ_260");
+          
+            pterms["FB2_26"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_27"]=new Array("statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime1_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_28"]=new Array("statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime0_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_29"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","/ClockseclagTime2_SPECSIG","/ClockseclagTime1_SPECSIG","/ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_30"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","/ClockseclagTime2_SPECSIG","/ClockseclagTime1_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_31"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_32"]=new Array("delayFinal","/start_Count");
+          
+            pterms["FB2_33"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","N_PZ_260","start_Count");
+          
+            pterms["FB2_34"]=new Array("/ClockseclagTime1_SPECSIG","/ClockseclagTime0_SPECSIG");
+          
+            pterms["FB2_35"]=new Array("start_Count","ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG");
+          
+            pterms["FB2_36"]=new Array("start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime1_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_37"]=new Array("statesTrafficstate_FSM_FFd4_SPECSIG","start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_38"]=new Array("/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_39"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime1_SPECSIG");
+          
+            pterms["FB2_40"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime2_SPECSIG");
+          
+            pterms["FB2_41"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","start_Count");
+          
+            pterms["FB2_42"]=new Array("/start_Count","/ClockseclagTime1_SPECSIG");
+          
+            pterms["FB2_43"]=new Array("statesTrafficstate_FSM_FFd4_SPECSIG","start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime0_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_44"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","start_Count","ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG");
+          
+            pterms["FB2_45"]=new Array("statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG");
+          
+            pterms["FB2_46"]=new Array("/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","N_PZ_260","start_Count","ClockseclagTime2_SPECSIG");
+          
+            pterms["FB2_47"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/N_PZ_260","start_Count","ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_48"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","start_Count","/ClockseclagTime2_SPECSIG","/ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_49"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","start_Count","/ClockseclagTime2_SPECSIG","ClockseclagTime0_SPECSIG");
+          
+            pterms["FB2_50"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","start_Count","ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_51"]=new Array("statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","/ClockseclagTime2_SPECSIG","ClockseclagTime0_SPECSIG");
+          
+            pterms["FB2_52"]=new Array("statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB2_53"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","/ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG");
+          
+            pterms["FB2_54"]=new Array("/start_Count","/ClockseclagTime0_SPECSIG");
+          
+            pterms["FB2_55"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/N_PZ_260","start_Count","ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_0"]=new Array("delayFinal");
+          
+            pterms["FB3_1"]=new Array("statesTrafficstate_FSM_FFd4_SPECSIG");
+          
+            pterms["FB3_2"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG");
+          
+            pterms["FB3_3"]=new Array("count_LED0_SPECSIG","count_LED3_SPECSIG");
+          
+            pterms["FB3_4"]=new Array("/statesTrafficstate_FSM_FFd2_SPECSIG","statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB3_5"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/CarNS","/statesTrafficstate_FSM_FFd2_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB3_6"]=new Array("count_LED3_SPECSIG","count_LED1_SPECSIG");
+          
+            pterms["FB3_7"]=new Array("count_LED3_SPECSIG","count_LED2_SPECSIG");
+          
+            pterms["FB3_8"]=new Array("/count_LED0_SPECSIG","/count_LED3_SPECSIG","/count_LED1_SPECSIG","/count_LED2_SPECSIG");
+          
+            pterms["FB3_9"]=new Array("statesTrafficstate_FSM_FFd2_SPECSIG","/statesTraffictemp_PedEW_SPECSIG","/CarEW");
+          
+            pterms["FB3_10"]=new Array("/Reset","start_Count");
+          
+            pterms["FB3_11"]=new Array("count_LED3_SPECSIG");
+          
+            pterms["FB3_12"]=new Array("/count_LED0_SPECSIG","/count_LED1_SPECSIG","/count_LED2_SPECSIG");
+          
+            pterms["FB3_13"]=new Array("count_LED0_SPECSIG","/count_LED1_SPECSIG","/count_LED2_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_14"]=new Array("count_LED0_SPECSIG","/count_LED1_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_15"]=new Array("/count_LED0_SPECSIG","count_LED2_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_16"]=new Array("count_LED1_SPECSIG","/count_LED2_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_17"]=new Array("/count_LED1_SPECSIG","count_LED2_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_18"]=new Array("/count_LED0_SPECSIG","/count_LED1_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_19"]=new Array("/Reset","start_Count");
+          
+            pterms["FB3_20"]=new Array("count_LED0_SPECSIG","/count_LED2_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_21"]=new Array("/count_LED0_SPECSIG","count_LED1_SPECSIG","/count_LED2_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_22"]=new Array("/Reset","start_Count");
+          
+            pterms["FB3_23"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","start_Count","/ClockseclagTime2_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_24"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_25"]=new Array("statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","/ClockseclagTime2_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_26"]=new Array("statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_27"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","/ClockseclagTime1_SPECSIG","/ClockseclagTime0_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_28"]=new Array("/Reset","start_Count");
+          
+            pterms["FB3_29"]=new Array("statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd1_SPECSIG","start_Count","/ClockseclagTime1_SPECSIG","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_30"]=new Array("/start_Count","ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_31"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/N_PZ_260","start_Count","ClockseclagTime2_SPECSIG","ClockseclagTime1_SPECSIG","ClockseclagTime0_SPECSIG","/ClockseclagTime3_SPECSIG");
+          
+            pterms["FB3_32"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","/statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG","N_PZ_260");
+          
+            pterms["FB3_33"]=new Array("/CarNS","/statesTrafficstate_FSM_FFd2_SPECSIG");
+          
+            pterms["FB3_34"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","statesTrafficstate_FSM_FFd2_SPECSIG");
+          
+            pterms["FB3_35"]=new Array("/statesTrafficstate_FSM_FFd3_SPECSIG","statesTrafficstate_FSM_FFd4_SPECSIG","/statesTrafficstate_FSM_FFd1_SPECSIG");
+          
+            pterms["FB3_36"]=new Array("ClockseclagTime0_SPECSIG");
+          
+            pterms["FB3_37"]=new Array("/count_LED2_SPECSIG","N_PZ_279");
+          
+            pterms["FB3_38"]=new Array("ClockseclagTime1_SPECSIG");
+          
+            pterms["FB3_39"]=new Array("ClockseclagTime2_SPECSIG");
+          
+            pterms["FB3_40"]=new Array("ClockseclagTime3_SPECSIG");
+          
+            pterms["FB4_0"]=new Array("/Reset","/DelayTimerCounter0_SPECSIG","/N_PZ_265","/DelayTimerCounter10_SPECSIG","/DelayTimerCounter1_SPECSIG","/DelayTimerCounter2_SPECSIG","/DelayTimerCounter3_SPECSIG","/DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","/DelayTimerCounter11_SPECSIG","/DelayTimerCounter6_SPECSIG","/DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","/DelayTimerCounter12_SPECSIG","/DelayTimerCounter9_SPECSIG","DelayTimerCounter13_SPECSIG","/DelayTimerCounter14_SPECSIG","DelayTimerCounter15_SPECSIG","DelayTimerCounter16_SPECSIG","DelayTimerCounter17_SPECSIG","DelayTimerCounter18_SPECSIG");
+          
+            pterms["FB4_1"]=new Array("/Reset","start_Count","/N_PZ_265");
+          
+            pterms["FB4_2"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter10_SPECSIG","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter11_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","DelayTimerCounter12_SPECSIG","DelayTimerCounter9_SPECSIG","DelayTimerCounter13_SPECSIG","DelayTimerCounter14_SPECSIG","DelayTimerCounter15_SPECSIG","DelayTimerCounter16_SPECSIG","DelayTimerCounter17_SPECSIG");
+          
+            pterms["FB4_3"]=new Array("/DelayTimerCounter0_SPECSIG","/N_PZ_265","/DelayTimerCounter10_SPECSIG","/DelayTimerCounter1_SPECSIG","/DelayTimerCounter2_SPECSIG","/DelayTimerCounter3_SPECSIG","/DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","/DelayTimerCounter11_SPECSIG","/DelayTimerCounter6_SPECSIG","/DelayTimerCounter7_SPECSIG","DelayTimerCounter8_SPECSIG","/DelayTimerCounter12_SPECSIG","/DelayTimerCounter9_SPECSIG","DelayTimerCounter13_SPECSIG","/DelayTimerCounter14_SPECSIG","DelayTimerCounter15_SPECSIG","DelayTimerCounter16_SPECSIG","DelayTimerCounter17_SPECSIG","DelayTimerCounter18_SPECSIG");
+          
+            pterms["FB4_4"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG");
+          
+            pterms["FB4_5"]=new Array("DelayTimerCounter0_SPECSIG","/N_PZ_265","DelayTimerCounter1_SPECSIG","DelayTimerCounter2_SPECSIG","DelayTimerCounter3_SPECSIG","DelayTimerCounter4_SPECSIG","DelayTimerCounter5_SPECSIG","DelayTimerCounter6_SPECSIG","DelayTimerCounter7_SPECSIG");
+          
+            pterms["FB4_6"]=new Array("statesTraffictemp_PedEW_SPECSIG","/Reset","N_PZ_281");
+          
+            pterms["FB4_7"]=new Array("/statesTraffictemp_PedEW_SPECSIG","/Reset","/N_PZ_281","PedEW");
+          
+            pterms["FB4_8"]=new Array("/Reset","N_PZ_281","statesTraffictemp_PedNS_SPECSIG");
+          
+            pterms["FB4_9"]=new Array("/Reset","/N_PZ_281","/PedEW","/statesTraffictemp_PedNS_SPECSIG","PedNS");
+          
+          d2["DelayTimerCounter17_SPECSIG"]=new Array("FB1_4","FB1_1");
+          
+              gblclk["DelayTimerCounter17_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter17_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter17_SPECSIG"]="GND";
+          d2["DelayTimerCounter16_SPECSIG"]=new Array("FB1_3","FB1_1");
+          
+              gblclk["DelayTimerCounter16_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter16_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter16_SPECSIG"]="GND";
+          d2["DelayTimerCounter15_SPECSIG"]=new Array("FB1_2","FB1_1");
+          
+              gblclk["DelayTimerCounter15_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter15_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter15_SPECSIG"]="GND";
+          d1["DelayTimerCounter9_SPECSIG"]=new Array("FB1_19");
+          
+              gblclk["DelayTimerCounter9_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter9_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter9_SPECSIG"]="GND";
+          d1["DelayTimerCounter7_SPECSIG"]=new Array("FB1_22");
+          
+              gblclk["DelayTimerCounter7_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter7_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter7_SPECSIG"]="GND";
+          d1["DelayTimerCounter6_SPECSIG"]=new Array("FB1_25");
+          
+              gblclk["DelayTimerCounter6_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter6_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter6_SPECSIG"]="GND";
+          d1["DelayTimerCounter4_SPECSIG"]=new Array("FB1_28");
+          
+              gblclk["DelayTimerCounter4_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter4_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter4_SPECSIG"]="GND";
+          d1["DelayTimerCounter3_SPECSIG"]=new Array("FB1_31");
+          
+              gblclk["DelayTimerCounter3_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter3_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter3_SPECSIG"]="GND";
+          d2["DelayTimerCounter13_SPECSIG"]=new Array("FB1_0","FB1_1");
+          
+              gblclk["DelayTimerCounter13_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter13_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter13_SPECSIG"]="GND";
+          d1["DelayTimerCounter14_SPECSIG"]=new Array("FB1_37");
+          
+              gblclk["DelayTimerCounter14_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter14_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter14_SPECSIG"]="GND";
+          d1["DelayTimerCounter12_SPECSIG"]=new Array("FB1_40");
+          
+              gblclk["DelayTimerCounter12_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter12_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter12_SPECSIG"]="GND";
+          d1["DelayTimerCounter11_SPECSIG"]=new Array("FB1_43");
+          
+              gblclk["DelayTimerCounter11_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter11_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter11_SPECSIG"]="GND";
+          d1["DelayTimerCounter10_SPECSIG"]=new Array("FB1_46");
+          
+              gblclk["DelayTimerCounter10_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter10_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter10_SPECSIG"]="GND";
+          d1["DelayTimerCounter2_SPECSIG"]=new Array("FB1_49");
+          
+              gblclk["DelayTimerCounter2_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter2_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter2_SPECSIG"]="GND";
+          d1["DelayTimerCounter1_SPECSIG"]=new Array("FB1_52");
+          
+              gblclk["DelayTimerCounter1_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter1_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter1_SPECSIG"]="GND";
+          d1["DelayTimerCounter0_SPECSIG"]=new Array("FB1_55");
+          
+              gblclk["DelayTimerCounter0_SPECSIG"]=new Array("Clock");
+            
+              gblset["DelayTimerCounter0_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter0_SPECSIG"]="VCC";
+          d2["LightsEW1_SPECSIG"]=new Array("FB2_3","FB2_4");
+          
+          d2["LightsEW0_SPECSIG"]=new Array("FB2_1","FB2_2");
+          
+          d2["ClockseclagTime1_SPECSIG"]=new Array("FB2_42","FB2_34","FB2_35","FB2_41","FB2_40","FB2_39","FB2_26","FB2_37","FB2_38","FB2_36","FB2_33");
+          
+              gblclk["ClockseclagTime1_SPECSIG"]=new Array("Clock");
+            
+              gblrst["ClockseclagTime1_SPECSIG"]=new Array("Reset");
+            prld["ClockseclagTime1_SPECSIG"]="GND";
+          d1["delayFinal"]=new Array("FB2_19");
+          
+          d2["delayFinal"]=new Array("FB2_32","FB2_26","FB2_33","FB2_31","FB2_27","FB2_28","FB2_30","FB2_29");
+          
+              gblclk["delayFinal"]=new Array("Clock");
+            
+              gblrst["delayFinal"]=new Array("Reset");
+            prld["delayFinal"]="GND";
+          d1["LightsNS1_SPECSIG"]=new Array("FB2_22");
+          
+          d2["LightsNS1_SPECSIG"]=new Array("FB2_0");
+          
+          d2["LightsNS0_SPECSIG"]=new Array("FB2_5","FB2_6");
+          
+          d2["statesTrafficstate_FSM_FFd3_SPECSIG"]=new Array("FB2_23","FB2_24","FB2_25");
+          
+              gblclk["statesTrafficstate_FSM_FFd3_SPECSIG"]=new Array("Clock");
+            
+              gblrst["statesTrafficstate_FSM_FFd3_SPECSIG"]=new Array("Reset");
+            prld["statesTrafficstate_FSM_FFd3_SPECSIG"]="GND";
+          d2["N_PZ_279"]=new Array("FB2_21","FB2_18","FB2_20");
+          
+          d2["ClockseclagTime0_SPECSIG"]=new Array("FB2_54","FB2_51","FB2_52","FB2_49","FB2_50","FB2_55","FB2_53","FB2_48");
+          
+              gblclk["ClockseclagTime0_SPECSIG"]=new Array("Clock");
+            
+              gblset["ClockseclagTime0_SPECSIG"]=new Array("Reset");
+            prld["ClockseclagTime0_SPECSIG"]="GND";
+          d2["ClockseclagTime2_SPECSIG"]=new Array("FB2_40","FB2_26","FB2_45","FB2_36","FB2_44","FB2_43","FB2_46","FB2_47");
+          
+              gblclk["ClockseclagTime2_SPECSIG"]=new Array("Clock");
+            
+              gblrst["ClockseclagTime2_SPECSIG"]=new Array("Reset");
+            prld["ClockseclagTime2_SPECSIG"]="GND";
+          d2["statesTrafficstate_FSM_FFd4_SPECSIG"]=new Array("FB2_13","FB2_14","FB2_16","FB2_15","FB2_17");
+          
+              gblclk["statesTrafficstate_FSM_FFd4_SPECSIG"]=new Array("Clock");
+            
+              gblrst["statesTrafficstate_FSM_FFd4_SPECSIG"]=new Array("Reset");
+            prld["statesTrafficstate_FSM_FFd4_SPECSIG"]="GND";
+          d2["statesTrafficstate_FSM_FFd1_SPECSIG"]=new Array("FB2_10","FB2_11","FB2_12");
+          
+              gblclk["statesTrafficstate_FSM_FFd1_SPECSIG"]=new Array("Clock");
+            
+              gblrst["statesTrafficstate_FSM_FFd1_SPECSIG"]=new Array("Reset");
+            prld["statesTrafficstate_FSM_FFd1_SPECSIG"]="GND";
+          d2["statesTrafficstate_FSM_FFd2_SPECSIG"]=new Array("FB2_7","FB2_8","FB2_9");
+          
+              gblclk["statesTrafficstate_FSM_FFd2_SPECSIG"]=new Array("Clock");
+            
+              gblrst["statesTrafficstate_FSM_FFd2_SPECSIG"]=new Array("Reset");
+            prld["statesTrafficstate_FSM_FFd2_SPECSIG"]="GND";
+          d2["count_LED3_SPECSIG"]=new Array("FB3_40");
+          
+              gblclk["count_LED3_SPECSIG"]=new Array("Clock");
+            
+          ce["count_LED3_SPECSIG"]=new Array("FB3_10");
+          prld["count_LED3_SPECSIG"]="GND";
+          d1["LEDs7_SPECSIG"]=new Array("FB3_13");
+          
+          d2["LEDs6_SPECSIG"]=new Array("FB3_13","FB3_21");
+          
+          d2["count_LED2_SPECSIG"]=new Array("FB3_39");
+          
+              gblclk["count_LED2_SPECSIG"]=new Array("Clock");
+            
+          ce["count_LED2_SPECSIG"]=new Array("FB3_10");
+          prld["count_LED2_SPECSIG"]="GND";
+          d2["count_LED1_SPECSIG"]=new Array("FB3_38");
+          
+              gblclk["count_LED1_SPECSIG"]=new Array("Clock");
+            
+          ce["count_LED1_SPECSIG"]=new Array("FB3_10");
+          prld["count_LED1_SPECSIG"]="GND";
+          d2["LEDs5_SPECSIG"]=new Array("FB3_20","FB3_16");
+          
+          d2["count_LED0_SPECSIG"]=new Array("FB3_36");
+          
+              gblclk["count_LED0_SPECSIG"]=new Array("Clock");
+            
+          ce["count_LED0_SPECSIG"]=new Array("FB3_10");
+          prld["count_LED0_SPECSIG"]="GND";
+          d2["N_PZ_281"]=new Array("FB3_34","FB3_35");
+          
+          d2["N_PZ_260"]=new Array("FB3_33","FB3_9");
+          
+          d1["LEDs4_SPECSIG"]=new Array("FB3_37");
+          
+          d2["LEDs4_SPECSIG"]=new Array("FB3_18");
+          
+          d2["LEDs3_SPECSIG"]=new Array("FB3_14","FB3_16","FB3_17");
+          
+          d2["LEDs2_SPECSIG"]=new Array("FB3_14","FB3_15","FB3_16");
+          
+          d2["N_PZ_265"]=new Array("FB3_0","FB3_32");
+          
+          d2["LEDs1_SPECSIG"]=new Array("FB3_0","FB3_2","FB3_1","FB3_11","FB3_4","FB3_9","FB3_12","FB3_5");
+          
+          d2["LEDs0_SPECSIG"]=new Array("FB3_0","FB3_2","FB3_1","FB3_4","FB3_3","FB3_6","FB3_7","FB3_9","FB3_8","FB3_5");
+          
+          d2["ClockseclagTime3_SPECSIG"]=new Array("FB3_30","FB3_25","FB3_23","FB3_29","FB3_27","FB3_26","FB3_24","FB3_31");
+          
+              gblclk["ClockseclagTime3_SPECSIG"]=new Array("Clock");
+            
+              gblrst["ClockseclagTime3_SPECSIG"]=new Array("Reset");
+            prld["ClockseclagTime3_SPECSIG"]="GND";
+          d2["statesTraffictemp_PedNS_SPECSIG"]=new Array("FB4_8","FB4_9");
+          
+              gblclk["statesTraffictemp_PedNS_SPECSIG"]=new Array("Clock");
+            prld["statesTraffictemp_PedNS_SPECSIG"]="GND";
+          d2["statesTraffictemp_PedEW_SPECSIG"]=new Array("FB4_6","FB4_7");
+          
+              gblclk["statesTraffictemp_PedEW_SPECSIG"]=new Array("Clock");
+            prld["statesTraffictemp_PedEW_SPECSIG"]="GND";
+          d2["DelayTimerCounter8_SPECSIG"]=new Array("FB4_5","FB4_3");
+          
+              gblclk["DelayTimerCounter8_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter8_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter8_SPECSIG"]="GND";
+          d2["DelayTimerCounter5_SPECSIG"]=new Array("FB4_4","FB4_3");
+          
+              gblclk["DelayTimerCounter5_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter5_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter5_SPECSIG"]="GND";
+          d2["DelayTimerCounter18_SPECSIG"]=new Array("FB4_2","FB4_3");
+          
+              gblclk["DelayTimerCounter18_SPECSIG"]=new Array("Clock");
+            
+              gblrst["DelayTimerCounter18_SPECSIG"]=new Array("Reset");
+            prld["DelayTimerCounter18_SPECSIG"]="GND";
+          d2["start_Count"]=new Array("FB4_1","FB4_0");
+          
+              gblclk["start_Count"]=new Array("Clock");
+            prld["start_Count"]="GND";
+
+      uimSignals = new Array();
+
+      uimSigNegs = new Array();
+
+      uimPterms = new Array();
+      
+
+      
+        function getEqnList() {
+          var str = "<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>";
+          str += "<center><h3>Equations</h3></center>";
+          str += "<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>";
+          for (s=0; s<uimSignals.length; s++) {
+            str += "<tr><td>";
+            str += retUimEqn(uimSignals[s]);
+            str += "</td></tr>";
+          }
+          for (s=0; s<signals.length; s++) {
+            str += "<tr><td>";
+            str += retEqn(signals[s]);
+            str += "</td></tr>";
+          }
+
+          var legend = retLegend();
+		      if (legend != "") {
+		        str += "<tr><td>" + legend + "</td></tr>";
+		      }
+
+          str += "</table>";
+          str += "<form><span class='pgRef'>";
+
+          if (!parent.leftnav.IsNS()) {
+            str += "<table width='90%' align='center'>";
+            str += "<tr><td align='left'><input type='button' value='back to top' ";
+            str += "onclick='javascript:parent.leftnav.showEqnAll()' ";
+            str += "onmouseover=\"window.status='goto top of page'; return true;\" ";
+            str += "onmouseout=\"window.status=''\">";
+            str += "</td>";
+            str += "<td align='right'>";
+            str += "<input type='button' value='print page' ";
+            str += "onclick='javascript:window.print()' ";
+            str += "onmouseover=\"window.status='print page'; return true;\" ";
+            str += "onmouseout=\"window.status=''\">";
+            str += "</td>";
+            str += "</tr></table>";
+          }
+          else {
+            str += "<table width='90%' align='center'>";
+            str += "<tr><td align='left'><a href='javascript:parent.leftnav.showEqnAll()'>back to top</a>";
+            str += "</td>";
+            str += "<td align='right'>";
+            str += "<a href='javascript:window.print()'>";
+            str += "print page</a>";
+            str += "</td>";
+            str += "</tr></table>";
+          }
+
+          str += "</span></form>";
+          str += "</body></html>";
+          return str;
+        }
+      
+    </script>
+</head></html>

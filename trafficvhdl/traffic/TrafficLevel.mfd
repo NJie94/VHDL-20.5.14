@@ -1,0 +1,835 @@
+MDF Database:  version 1.0
+MDF_INFO | TrafficLevel | XC2C64A-7-VQ44
+MACROCELL | 2 | 14 | LEDs<0>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 12 | delayFinal  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | statesTraffic/state_FSM_FFd1  | count_LED<0>  | count_LED<3>  | count_LED<1>  | count_LED<2>  | statesTraffic/temp_PedEW  | CarEW  | CarNS
+INPUTMC | 10 | 1 | 3 | 1 | 8 | 1 | 13 | 1 | 15 | 1 | 14 | 2 | 6 | 2 | 0 | 2 | 4 | 2 | 3 | 3 | 7
+INPUTP | 2 | 1 | 2
+EQ | 15 | 
+   !LEDs<0> = delayFinal
+	# statesTraffic/state_FSM_FFd3
+	# statesTraffic/state_FSM_FFd4
+	# !statesTraffic/state_FSM_FFd2 & 
+	statesTraffic/state_FSM_FFd1
+	# count_LED<0> & count_LED<3>
+	# count_LED<3> & count_LED<1>
+	# count_LED<3> & count_LED<2>
+	# statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/temp_PedEW & !CarEW
+	# !count_LED<0> & !count_LED<3> & !count_LED<1> & 
+	!count_LED<2>
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !CarNS & !statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/state_FSM_FFd1;	// (10 pt, 12 inp)
+
+MACROCELL | 1 | 3 | delayFinal_MC
+ATTRIBUTES | 2189460224 | 0
+OUTPUTMC | 9 | 1 | 14 | 1 | 15 | 1 | 13 | 1 | 8 | 2 | 12 | 1 | 3 | 2 | 14 | 2 | 13 | 1 | 10
+INPUTS | 10 | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd1  | start_Count  | delayFinal  | Clocksec/lagTime<2>  | Clocksec/lagTime<3>  | statesTraffic/state_FSM_FFd4  | N_PZ_260  | Clocksec/lagTime<1>  | Clocksec/lagTime<0>
+INPUTMC | 10 | 1 | 8 | 1 | 14 | 3 | 15 | 1 | 3 | 1 | 12 | 2 | 15 | 1 | 13 | 2 | 8 | 1 | 2 | 1 | 11
+EQ | 24 | 
+   delayFinal := statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd1 & start_Count
+	$ delayFinal & !start_Count
+	# !statesTraffic/state_FSM_FFd3 & start_Count & 
+	Clocksec/lagTime<2> & Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1 & N_PZ_260 & 
+	start_Count
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1 & start_Count & 
+	Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd1 & start_Count & 
+	Clocksec/lagTime<2> & Clocksec/lagTime<1> & Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd4 & 
+	statesTraffic/state_FSM_FFd1 & start_Count & Clocksec/lagTime<2> & 
+	Clocksec/lagTime<0> & Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1 & start_Count & 
+	!Clocksec/lagTime<2> & !Clocksec/lagTime<1> & !Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd1 & start_Count & !Clocksec/lagTime<2> & 
+	!Clocksec/lagTime<1> & !Clocksec/lagTime<0> & !Clocksec/lagTime<3>;	// (9 pt, 10 inp)
+   delayFinal.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   delayFinal.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 1 | 8 | statesTraffic/state_FSM_FFd3_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 18 | 2 | 7 | 1 | 14 | 1 | 15 | 1 | 13 | 1 | 8 | 2 | 12 | 1 | 3 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 2 | 14 | 2 | 13 | 1 | 10 | 1 | 1 | 1 | 0 | 1 | 5 | 1 | 4
+INPUTS | 6 | delayFinal  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | N_PZ_260  | statesTraffic/state_FSM_FFd1
+INPUTMC | 6 | 1 | 3 | 1 | 8 | 1 | 13 | 1 | 15 | 2 | 8 | 1 | 14
+EQ | 8 | 
+   statesTraffic/state_FSM_FFd3.T := delayFinal & statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4
+	# delayFinal & !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2 & !N_PZ_260
+	# delayFinal & !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1 & !N_PZ_260;	// (3 pt, 6 inp)
+   statesTraffic/state_FSM_FFd3.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   statesTraffic/state_FSM_FFd3.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 1 | 13 | statesTraffic/state_FSM_FFd4_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 18 | 2 | 7 | 1 | 14 | 1 | 15 | 1 | 13 | 1 | 8 | 2 | 12 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 1 | 3 | 2 | 14 | 2 | 13 | 1 | 10 | 1 | 1 | 1 | 0 | 1 | 5 | 1 | 4
+INPUTS | 9 | delayFinal  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | statesTraffic/temp_PedEW  | CarNS  | statesTraffic/state_FSM_FFd1  | statesTraffic/temp_PedNS  | CarEW
+INPUTMC | 7 | 1 | 3 | 1 | 8 | 1 | 13 | 1 | 15 | 3 | 7 | 1 | 14 | 3 | 5
+INPUTP | 2 | 2 | 1
+EQ | 14 | 
+   statesTraffic/state_FSM_FFd4.T := delayFinal & statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4
+	# delayFinal & !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4
+	# delayFinal & statesTraffic/state_FSM_FFd4 & 
+	statesTraffic/state_FSM_FFd2 & !statesTraffic/temp_PedEW
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !CarNS & !statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/state_FSM_FFd1 & statesTraffic/temp_PedEW
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/temp_PedEW & statesTraffic/temp_PedNS & !CarEW;	// (5 pt, 9 inp)
+   statesTraffic/state_FSM_FFd4.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   statesTraffic/state_FSM_FFd4.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 1 | 15 | statesTraffic/state_FSM_FFd2_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 13 | 2 | 7 | 1 | 14 | 1 | 15 | 1 | 13 | 2 | 8 | 1 | 8 | 2 | 14 | 2 | 13 | 1 | 10 | 1 | 1 | 1 | 0 | 1 | 5 | 1 | 4
+INPUTS | 6 | delayFinal  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | statesTraffic/state_FSM_FFd1  | statesTraffic/state_FSM_FFd3  | statesTraffic/temp_PedNS
+INPUTMC | 6 | 1 | 3 | 1 | 13 | 1 | 15 | 1 | 14 | 1 | 8 | 3 | 5
+EQ | 10 | 
+   statesTraffic/state_FSM_FFd2.T := delayFinal & statesTraffic/state_FSM_FFd4 & 
+	!statesTraffic/state_FSM_FFd2 & statesTraffic/state_FSM_FFd1
+	# delayFinal & statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/state_FSM_FFd1
+	# delayFinal & statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1 & 
+	statesTraffic/temp_PedNS;	// (3 pt, 6 inp)
+   statesTraffic/state_FSM_FFd2.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   statesTraffic/state_FSM_FFd2.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 1 | 14 | statesTraffic/state_FSM_FFd1_MC
+ATTRIBUTES | 2189460224 | 0
+OUTPUTMC | 17 | 2 | 7 | 1 | 14 | 1 | 15 | 1 | 13 | 1 | 8 | 2 | 12 | 1 | 3 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 2 | 14 | 2 | 13 | 1 | 10 | 1 | 1 | 1 | 0 | 1 | 4
+INPUTS | 7 | delayFinal  | statesTraffic/state_FSM_FFd1  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | statesTraffic/temp_PedEW  | statesTraffic/temp_PedNS
+INPUTMC | 7 | 1 | 3 | 1 | 14 | 1 | 8 | 1 | 13 | 1 | 15 | 3 | 7 | 3 | 5
+EQ | 9 | 
+   statesTraffic/state_FSM_FFd1 := !delayFinal & statesTraffic/state_FSM_FFd1
+	# delayFinal & statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/temp_PedEW
+	# delayFinal & statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/temp_PedNS;	// (3 pt, 7 inp)
+   statesTraffic/state_FSM_FFd1.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   statesTraffic/state_FSM_FFd1.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 3 | 7 | statesTraffic/temp_PedEW_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 7 | 3 | 7 | 1 | 14 | 1 | 13 | 2 | 8 | 2 | 14 | 2 | 13 | 1 | 10
+INPUTS | 4 | statesTraffic/temp_PedEW  | Reset  | N_PZ_281  | PedEW
+INPUTMC | 2 | 3 | 7 | 2 | 7
+INPUTP | 2 | 78 | 9
+EQ | 4 | 
+   statesTraffic/temp_PedEW.T := statesTraffic/temp_PedEW & !Reset & N_PZ_281
+	# !statesTraffic/temp_PedEW & !Reset & !N_PZ_281 & 
+	PedEW;	// (2 pt, 4 inp)
+   statesTraffic/temp_PedEW.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | Clock
+
+MACROCELL | 2 | 7 | N_PZ_281_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 2 | 3 | 7 | 3 | 5
+INPUTS | 4 | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | statesTraffic/state_FSM_FFd1
+INPUTMC | 4 | 1 | 8 | 1 | 13 | 1 | 15 | 1 | 14
+EQ | 4 | 
+   N_PZ_281 = !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2
+	# !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1;	// (2 pt, 4 inp)
+
+MACROCELL | 3 | 5 | statesTraffic/temp_PedNS_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 4 | 3 | 5 | 1 | 14 | 1 | 15 | 1 | 13
+INPUTS | 5 | Reset  | N_PZ_281  | statesTraffic/temp_PedNS  | PedEW  | PedNS
+INPUTMC | 2 | 2 | 7 | 3 | 5
+INPUTP | 3 | 78 | 9 | 10
+EQ | 4 | 
+   statesTraffic/temp_PedNS.T := !Reset & N_PZ_281 & statesTraffic/temp_PedNS
+	# !Reset & !N_PZ_281 & !PedEW & 
+	!statesTraffic/temp_PedNS & PedNS;	// (2 pt, 5 inp)
+   statesTraffic/temp_PedNS.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | Clock
+
+MACROCELL | 2 | 8 | N_PZ_260_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 7 | 1 | 8 | 2 | 12 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 1 | 3
+INPUTS | 4 | CarNS  | statesTraffic/state_FSM_FFd2  | statesTraffic/temp_PedEW  | CarEW
+INPUTMC | 2 | 1 | 15 | 3 | 7
+INPUTP | 2 | 2 | 1
+EQ | 3 | 
+   N_PZ_260 = !CarNS & !statesTraffic/state_FSM_FFd2
+	# statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/temp_PedEW & !CarEW;	// (2 pt, 4 inp)
+
+MACROCELL | 3 | 15 | start_Count_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 10 | 3 | 15 | 1 | 3 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 2 | 6 | 2 | 0 | 2 | 4 | 2 | 3
+INPUTS | 22 | Reset  | start_Count  | N_PZ_265  | DelayTimer/Counter<0>  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>  | DelayTimer/Counter<14>  | DelayTimer/Counter<15>  | DelayTimer/Counter<16>  | DelayTimer/Counter<17>  | DelayTimer/Counter<18>
+INPUTMC | 21 | 3 | 15 | 2 | 12 | 0 | 15 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8 | 0 | 9 | 0 | 2 | 0 | 1 | 0 | 0 | 3 | 11
+INPUTP | 1 | 78
+EQ | 9 | 
+   start_Count.T := !Reset & start_Count & !N_PZ_265
+	# !Reset & !DelayTimer/Counter<0> & !N_PZ_265 & 
+	!DelayTimer/Counter<10> & !DelayTimer/Counter<1> & !DelayTimer/Counter<2> & 
+	!DelayTimer/Counter<3> & !DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	!DelayTimer/Counter<11> & !DelayTimer/Counter<6> & !DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & !DelayTimer/Counter<12> & !DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & !DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17> & DelayTimer/Counter<18>;	// (2 pt, 22 inp)
+   start_Count.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | Clock
+
+MACROCELL | 0 | 15 | DelayTimer/Counter<0>_MC
+ATTRIBUTES | 2168488708 | 0
+OUTPUTMC | 19 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 1 | N_PZ_265
+INPUTMC | 1 | 2 | 12
+EQ | 3 | 
+   DelayTimer/Counter<0>.T := !N_PZ_265;	// (1 pt, 1 inp)
+   DelayTimer/Counter<0>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<0>.AP = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 1 | Reset
+
+MACROCELL | 2 | 12 | N_PZ_265_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 20 | 0 | 15 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 5 | delayFinal  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd1  | N_PZ_260
+INPUTMC | 5 | 1 | 3 | 1 | 8 | 1 | 13 | 1 | 14 | 2 | 8
+EQ | 3 | 
+   N_PZ_265 = delayFinal
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1 & N_PZ_260;	// (2 pt, 5 inp)
+
+MACROCELL | 0 | 12 | DelayTimer/Counter<10>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 11 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 3 | 15
+INPUTS | 11 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<9>
+INPUTMC | 11 | 0 | 15 | 2 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 3
+EQ | 6 | 
+   DelayTimer/Counter<10>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1> & DelayTimer/Counter<2> & DelayTimer/Counter<3> & 
+	DelayTimer/Counter<4> & DelayTimer/Counter<5> & DelayTimer/Counter<6> & 
+	DelayTimer/Counter<7> & DelayTimer/Counter<8> & DelayTimer/Counter<9>;	// (1 pt, 11 inp)
+   DelayTimer/Counter<10>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<10>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 14 | DelayTimer/Counter<1>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 18 | 0 | 13 | 0 | 7 | 0 | 6 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 2 | DelayTimer/Counter<0>  | N_PZ_265
+INPUTMC | 2 | 0 | 15 | 2 | 12
+EQ | 3 | 
+   DelayTimer/Counter<1>.T := DelayTimer/Counter<0> & !N_PZ_265;	// (1 pt, 2 inp)
+   DelayTimer/Counter<1>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<1>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 13 | DelayTimer/Counter<2>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 17 | 0 | 7 | 0 | 6 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 3 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>
+INPUTMC | 3 | 0 | 15 | 2 | 12 | 0 | 14
+EQ | 4 | 
+   DelayTimer/Counter<2>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1>;	// (1 pt, 3 inp)
+   DelayTimer/Counter<2>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<2>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 7 | DelayTimer/Counter<3>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 16 | 0 | 6 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 4 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>
+INPUTMC | 4 | 0 | 15 | 2 | 12 | 0 | 14 | 0 | 13
+EQ | 4 | 
+   DelayTimer/Counter<3>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1> & DelayTimer/Counter<2>;	// (1 pt, 4 inp)
+   DelayTimer/Counter<3>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<3>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 6 | DelayTimer/Counter<4>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 15 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 5 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>
+INPUTMC | 5 | 0 | 15 | 2 | 12 | 0 | 14 | 0 | 13 | 0 | 7
+EQ | 4 | 
+   DelayTimer/Counter<4>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1> & DelayTimer/Counter<2> & DelayTimer/Counter<3>;	// (1 pt, 5 inp)
+   DelayTimer/Counter<4>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<4>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 3 | 9 | DelayTimer/Counter<5>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 15 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 20 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<10>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>  | DelayTimer/Counter<14>  | DelayTimer/Counter<15>  | DelayTimer/Counter<16>  | DelayTimer/Counter<17>  | DelayTimer/Counter<18>
+INPUTMC | 20 | 0 | 15 | 2 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 0 | 12 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8 | 0 | 9 | 0 | 2 | 0 | 1 | 0 | 0 | 3 | 11
+EQ | 12 | 
+   DelayTimer/Counter<5>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1> & DelayTimer/Counter<2> & DelayTimer/Counter<3> & 
+	DelayTimer/Counter<4>
+	# !DelayTimer/Counter<0> & !N_PZ_265 & 
+	!DelayTimer/Counter<10> & !DelayTimer/Counter<1> & !DelayTimer/Counter<2> & 
+	!DelayTimer/Counter<3> & !DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	!DelayTimer/Counter<11> & !DelayTimer/Counter<6> & !DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & !DelayTimer/Counter<12> & !DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & !DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17> & DelayTimer/Counter<18>;	// (2 pt, 20 inp)
+   DelayTimer/Counter<5>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<5>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 11 | DelayTimer/Counter<11>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 10 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 3 | 9 | 3 | 15
+INPUTS | 12 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<9>
+INPUTMC | 12 | 0 | 15 | 2 | 12 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 3
+EQ | 7 | 
+   DelayTimer/Counter<11>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<10> & DelayTimer/Counter<1> & DelayTimer/Counter<2> & 
+	DelayTimer/Counter<3> & DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	DelayTimer/Counter<6> & DelayTimer/Counter<7> & DelayTimer/Counter<8> & 
+	DelayTimer/Counter<9>;	// (1 pt, 12 inp)
+   DelayTimer/Counter<11>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<11>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 5 | DelayTimer/Counter<6>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 14 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 7 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>
+INPUTMC | 7 | 0 | 15 | 2 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9
+EQ | 5 | 
+   DelayTimer/Counter<6>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1> & DelayTimer/Counter<2> & DelayTimer/Counter<3> & 
+	DelayTimer/Counter<4> & DelayTimer/Counter<5>;	// (1 pt, 7 inp)
+   DelayTimer/Counter<6>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<6>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 4 | DelayTimer/Counter<7>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 13 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 8 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<6>
+INPUTMC | 8 | 0 | 15 | 2 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 5
+EQ | 5 | 
+   DelayTimer/Counter<7>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1> & DelayTimer/Counter<2> & DelayTimer/Counter<3> & 
+	DelayTimer/Counter<4> & DelayTimer/Counter<5> & DelayTimer/Counter<6>;	// (1 pt, 8 inp)
+   DelayTimer/Counter<7>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<7>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 3 | 8 | DelayTimer/Counter<8>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 13 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 20 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<10>  | DelayTimer/Counter<11>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>  | DelayTimer/Counter<14>  | DelayTimer/Counter<15>  | DelayTimer/Counter<16>  | DelayTimer/Counter<17>  | DelayTimer/Counter<18>
+INPUTMC | 20 | 0 | 15 | 2 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 5 | 0 | 4 | 0 | 12 | 0 | 11 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8 | 0 | 9 | 0 | 2 | 0 | 1 | 0 | 0 | 3 | 11
+EQ | 13 | 
+   DelayTimer/Counter<8>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1> & DelayTimer/Counter<2> & DelayTimer/Counter<3> & 
+	DelayTimer/Counter<4> & DelayTimer/Counter<5> & DelayTimer/Counter<6> & 
+	DelayTimer/Counter<7>
+	# !DelayTimer/Counter<0> & !N_PZ_265 & 
+	!DelayTimer/Counter<10> & !DelayTimer/Counter<1> & !DelayTimer/Counter<2> & 
+	!DelayTimer/Counter<3> & !DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	!DelayTimer/Counter<11> & !DelayTimer/Counter<6> & !DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & !DelayTimer/Counter<12> & !DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & !DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17> & DelayTimer/Counter<18>;	// (2 pt, 20 inp)
+   DelayTimer/Counter<8>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<8>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 10 | DelayTimer/Counter<12>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 9 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 3 | 9 | 3 | 15
+INPUTS | 13 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<9>
+INPUTMC | 13 | 0 | 15 | 2 | 12 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 3
+EQ | 7 | 
+   DelayTimer/Counter<12>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<10> & DelayTimer/Counter<1> & DelayTimer/Counter<2> & 
+	DelayTimer/Counter<3> & DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	DelayTimer/Counter<11> & DelayTimer/Counter<6> & DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & DelayTimer/Counter<9>;	// (1 pt, 13 inp)
+   DelayTimer/Counter<12>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<12>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 3 | DelayTimer/Counter<9>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 12 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15
+INPUTS | 10 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>
+INPUTMC | 10 | 0 | 15 | 2 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 5 | 0 | 4 | 3 | 8
+EQ | 6 | 
+   DelayTimer/Counter<9>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<1> & DelayTimer/Counter<2> & DelayTimer/Counter<3> & 
+	DelayTimer/Counter<4> & DelayTimer/Counter<5> & DelayTimer/Counter<6> & 
+	DelayTimer/Counter<7> & DelayTimer/Counter<8>;	// (1 pt, 10 inp)
+   DelayTimer/Counter<9>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<9>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 8 | DelayTimer/Counter<13>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 9 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 3 | 9 | 3 | 15
+INPUTS | 20 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>  | DelayTimer/Counter<14>  | DelayTimer/Counter<15>  | DelayTimer/Counter<16>  | DelayTimer/Counter<17>  | DelayTimer/Counter<18>
+INPUTMC | 20 | 0 | 15 | 2 | 12 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8 | 0 | 9 | 0 | 2 | 0 | 1 | 0 | 0 | 3 | 11
+EQ | 14 | 
+   DelayTimer/Counter<13>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<10> & DelayTimer/Counter<1> & DelayTimer/Counter<2> & 
+	DelayTimer/Counter<3> & DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	DelayTimer/Counter<11> & DelayTimer/Counter<6> & DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & DelayTimer/Counter<12> & DelayTimer/Counter<9>
+	# !DelayTimer/Counter<0> & !N_PZ_265 & 
+	!DelayTimer/Counter<10> & !DelayTimer/Counter<1> & !DelayTimer/Counter<2> & 
+	!DelayTimer/Counter<3> & !DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	!DelayTimer/Counter<11> & !DelayTimer/Counter<6> & !DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & !DelayTimer/Counter<12> & !DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & !DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17> & DelayTimer/Counter<18>;	// (2 pt, 20 inp)
+   DelayTimer/Counter<13>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<13>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 9 | DelayTimer/Counter<14>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 8 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 3 | 9 | 3 | 15
+INPUTS | 15 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>
+INPUTMC | 15 | 0 | 15 | 2 | 12 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8
+EQ | 8 | 
+   DelayTimer/Counter<14>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<10> & DelayTimer/Counter<1> & DelayTimer/Counter<2> & 
+	DelayTimer/Counter<3> & DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	DelayTimer/Counter<11> & DelayTimer/Counter<6> & DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & DelayTimer/Counter<12> & DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13>;	// (1 pt, 15 inp)
+   DelayTimer/Counter<14>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<14>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 2 | DelayTimer/Counter<15>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 8 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 3 | 9 | 3 | 15
+INPUTS | 20 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>  | DelayTimer/Counter<14>  | DelayTimer/Counter<15>  | DelayTimer/Counter<16>  | DelayTimer/Counter<17>  | DelayTimer/Counter<18>
+INPUTMC | 20 | 0 | 15 | 2 | 12 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8 | 0 | 9 | 0 | 2 | 0 | 1 | 0 | 0 | 3 | 11
+EQ | 15 | 
+   DelayTimer/Counter<15>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<10> & DelayTimer/Counter<1> & DelayTimer/Counter<2> & 
+	DelayTimer/Counter<3> & DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	DelayTimer/Counter<11> & DelayTimer/Counter<6> & DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & DelayTimer/Counter<12> & DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & DelayTimer/Counter<14>
+	# !DelayTimer/Counter<0> & !N_PZ_265 & 
+	!DelayTimer/Counter<10> & !DelayTimer/Counter<1> & !DelayTimer/Counter<2> & 
+	!DelayTimer/Counter<3> & !DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	!DelayTimer/Counter<11> & !DelayTimer/Counter<6> & !DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & !DelayTimer/Counter<12> & !DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & !DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17> & DelayTimer/Counter<18>;	// (2 pt, 20 inp)
+   DelayTimer/Counter<15>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<15>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 1 | DelayTimer/Counter<16>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 8 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 3 | 9 | 3 | 15
+INPUTS | 20 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>  | DelayTimer/Counter<14>  | DelayTimer/Counter<15>  | DelayTimer/Counter<16>  | DelayTimer/Counter<17>  | DelayTimer/Counter<18>
+INPUTMC | 20 | 0 | 15 | 2 | 12 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8 | 0 | 9 | 0 | 2 | 0 | 1 | 0 | 0 | 3 | 11
+EQ | 15 | 
+   DelayTimer/Counter<16>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<10> & DelayTimer/Counter<1> & DelayTimer/Counter<2> & 
+	DelayTimer/Counter<3> & DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	DelayTimer/Counter<11> & DelayTimer/Counter<6> & DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & DelayTimer/Counter<12> & DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & DelayTimer/Counter<14> & DelayTimer/Counter<15>
+	# !DelayTimer/Counter<0> & !N_PZ_265 & 
+	!DelayTimer/Counter<10> & !DelayTimer/Counter<1> & !DelayTimer/Counter<2> & 
+	!DelayTimer/Counter<3> & !DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	!DelayTimer/Counter<11> & !DelayTimer/Counter<6> & !DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & !DelayTimer/Counter<12> & !DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & !DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17> & DelayTimer/Counter<18>;	// (2 pt, 20 inp)
+   DelayTimer/Counter<16>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<16>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 0 | 0 | DelayTimer/Counter<17>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 8 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 3 | 9 | 3 | 15
+INPUTS | 20 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>  | DelayTimer/Counter<14>  | DelayTimer/Counter<15>  | DelayTimer/Counter<16>  | DelayTimer/Counter<17>  | DelayTimer/Counter<18>
+INPUTMC | 20 | 0 | 15 | 2 | 12 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8 | 0 | 9 | 0 | 2 | 0 | 1 | 0 | 0 | 3 | 11
+EQ | 16 | 
+   DelayTimer/Counter<17>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<10> & DelayTimer/Counter<1> & DelayTimer/Counter<2> & 
+	DelayTimer/Counter<3> & DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	DelayTimer/Counter<11> & DelayTimer/Counter<6> & DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & DelayTimer/Counter<12> & DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16>
+	# !DelayTimer/Counter<0> & !N_PZ_265 & 
+	!DelayTimer/Counter<10> & !DelayTimer/Counter<1> & !DelayTimer/Counter<2> & 
+	!DelayTimer/Counter<3> & !DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	!DelayTimer/Counter<11> & !DelayTimer/Counter<6> & !DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & !DelayTimer/Counter<12> & !DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & !DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17> & DelayTimer/Counter<18>;	// (2 pt, 20 inp)
+   DelayTimer/Counter<17>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<17>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 3 | 11 | DelayTimer/Counter<18>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 8 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 3 | 9 | 3 | 15
+INPUTS | 20 | DelayTimer/Counter<0>  | N_PZ_265  | DelayTimer/Counter<10>  | DelayTimer/Counter<1>  | DelayTimer/Counter<2>  | DelayTimer/Counter<3>  | DelayTimer/Counter<4>  | DelayTimer/Counter<5>  | DelayTimer/Counter<11>  | DelayTimer/Counter<6>  | DelayTimer/Counter<7>  | DelayTimer/Counter<8>  | DelayTimer/Counter<12>  | DelayTimer/Counter<9>  | DelayTimer/Counter<13>  | DelayTimer/Counter<14>  | DelayTimer/Counter<15>  | DelayTimer/Counter<16>  | DelayTimer/Counter<17>  | DelayTimer/Counter<18>
+INPUTMC | 20 | 0 | 15 | 2 | 12 | 0 | 12 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 3 | 9 | 0 | 11 | 0 | 5 | 0 | 4 | 3 | 8 | 0 | 10 | 0 | 3 | 0 | 8 | 0 | 9 | 0 | 2 | 0 | 1 | 0 | 0 | 3 | 11
+EQ | 16 | 
+   DelayTimer/Counter<18>.T := DelayTimer/Counter<0> & !N_PZ_265 & 
+	DelayTimer/Counter<10> & DelayTimer/Counter<1> & DelayTimer/Counter<2> & 
+	DelayTimer/Counter<3> & DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	DelayTimer/Counter<11> & DelayTimer/Counter<6> & DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & DelayTimer/Counter<12> & DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17>
+	# !DelayTimer/Counter<0> & !N_PZ_265 & 
+	!DelayTimer/Counter<10> & !DelayTimer/Counter<1> & !DelayTimer/Counter<2> & 
+	!DelayTimer/Counter<3> & !DelayTimer/Counter<4> & DelayTimer/Counter<5> & 
+	!DelayTimer/Counter<11> & !DelayTimer/Counter<6> & !DelayTimer/Counter<7> & 
+	DelayTimer/Counter<8> & !DelayTimer/Counter<12> & !DelayTimer/Counter<9> & 
+	DelayTimer/Counter<13> & !DelayTimer/Counter<14> & DelayTimer/Counter<15> & 
+	DelayTimer/Counter<16> & DelayTimer/Counter<17> & DelayTimer/Counter<18>;	// (2 pt, 20 inp)
+   DelayTimer/Counter<18>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   DelayTimer/Counter<18>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 1 | 12 | Clocksec/lagTime<2>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 6 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 1 | 3 | 2 | 3
+INPUTS | 9 | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd1  | start_Count  | Clocksec/lagTime<2>  | Clocksec/lagTime<3>  | Clocksec/lagTime<1>  | Clocksec/lagTime<0>  | statesTraffic/state_FSM_FFd4  | N_PZ_260
+INPUTMC | 9 | 1 | 8 | 1 | 14 | 3 | 15 | 1 | 12 | 2 | 15 | 1 | 2 | 1 | 11 | 1 | 13 | 2 | 8
+EQ | 20 | 
+   Clocksec/lagTime<2>.T := statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd1 & start_Count & Clocksec/lagTime<2>
+	# !statesTraffic/state_FSM_FFd3 & start_Count & 
+	Clocksec/lagTime<2> & Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd1 & start_Count & 
+	Clocksec/lagTime<1> & Clocksec/lagTime<0>
+	# start_Count & Clocksec/lagTime<2> & 
+	Clocksec/lagTime<1> & Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & start_Count & Clocksec/lagTime<1> & 
+	Clocksec/lagTime<0>
+	# statesTraffic/state_FSM_FFd4 & start_Count & 
+	Clocksec/lagTime<2> & Clocksec/lagTime<0> & Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd4 & 
+	!statesTraffic/state_FSM_FFd1 & N_PZ_260 & start_Count & Clocksec/lagTime<2>
+	# !statesTraffic/state_FSM_FFd3 & !N_PZ_260 & 
+	start_Count & Clocksec/lagTime<1> & Clocksec/lagTime<0> & 
+	!Clocksec/lagTime<3>;	// (8 pt, 9 inp)
+   Clocksec/lagTime<2>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   Clocksec/lagTime<2>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 1 | 2 | Clocksec/lagTime<1>_MC
+ATTRIBUTES | 2189460224 | 0
+OUTPUTMC | 6 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 1 | 3 | 2 | 4
+INPUTS | 9 | start_Count  | Clocksec/lagTime<1>  | Clocksec/lagTime<0>  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd1  | Clocksec/lagTime<2>  | Clocksec/lagTime<3>  | N_PZ_260
+INPUTMC | 9 | 3 | 15 | 1 | 2 | 1 | 11 | 1 | 8 | 1 | 13 | 1 | 14 | 1 | 12 | 2 | 15 | 2 | 8
+EQ | 23 | 
+   !Clocksec/lagTime<1> := !start_Count & !Clocksec/lagTime<1>
+	# !Clocksec/lagTime<1> & !Clocksec/lagTime<0>
+	# start_Count & Clocksec/lagTime<1> & 
+	Clocksec/lagTime<0>
+	# statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1 & start_Count
+	# statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd1 & start_Count & Clocksec/lagTime<2>
+	# statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd1 & start_Count & Clocksec/lagTime<1>
+	# !statesTraffic/state_FSM_FFd3 & start_Count & 
+	Clocksec/lagTime<2> & Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd4 & start_Count & 
+	Clocksec/lagTime<2> & Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd4 & 
+	!statesTraffic/state_FSM_FFd1 & start_Count & Clocksec/lagTime<3>
+	# start_Count & Clocksec/lagTime<2> & 
+	Clocksec/lagTime<1> & Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd1 & N_PZ_260 & 
+	start_Count;	// (11 pt, 9 inp)
+   Clocksec/lagTime<1>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   Clocksec/lagTime<1>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 1 | 11 | Clocksec/lagTime<0>_MC
+ATTRIBUTES | 2172683008 | 0
+OUTPUTMC | 6 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 1 | 3 | 2 | 6
+INPUTS | 9 | start_Count  | Clocksec/lagTime<0>  | statesTraffic/state_FSM_FFd1  | Clocksec/lagTime<2>  | Clocksec/lagTime<3>  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | N_PZ_260  | Clocksec/lagTime<1>
+INPUTMC | 9 | 3 | 15 | 1 | 11 | 1 | 14 | 1 | 12 | 2 | 15 | 1 | 8 | 1 | 13 | 2 | 8 | 1 | 2
+EQ | 21 | 
+   !Clocksec/lagTime<0> := !start_Count & !Clocksec/lagTime<0>
+	# statesTraffic/state_FSM_FFd1 & start_Count & 
+	!Clocksec/lagTime<2> & Clocksec/lagTime<0>
+	# statesTraffic/state_FSM_FFd1 & start_Count & 
+	Clocksec/lagTime<0> & !Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & start_Count & !Clocksec/lagTime<2> & 
+	Clocksec/lagTime<0>
+	# !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & start_Count & Clocksec/lagTime<0> & 
+	!Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd3 & !N_PZ_260 & 
+	start_Count & Clocksec/lagTime<0> & !Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd1 & start_Count & 
+	!Clocksec/lagTime<1> & Clocksec/lagTime<0>
+	# statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & start_Count & !Clocksec/lagTime<2> & 
+	!Clocksec/lagTime<1> & Clocksec/lagTime<0> & !Clocksec/lagTime<3>;	// (8 pt, 9 inp)
+   Clocksec/lagTime<0>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   Clocksec/lagTime<0>.AP = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 1 | Reset
+
+MACROCELL | 2 | 15 | Clocksec/lagTime<3>_MC
+ATTRIBUTES | 2189460224 | 0
+OUTPUTMC | 6 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 1 | 3 | 2 | 0
+INPUTS | 9 | start_Count  | Clocksec/lagTime<3>  | statesTraffic/state_FSM_FFd1  | Clocksec/lagTime<2>  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | Clocksec/lagTime<1>  | Clocksec/lagTime<0>  | N_PZ_260
+INPUTMC | 9 | 3 | 15 | 2 | 15 | 1 | 14 | 1 | 12 | 1 | 8 | 1 | 13 | 1 | 2 | 1 | 11 | 2 | 8
+EQ | 23 | 
+   Clocksec/lagTime<3> := !start_Count & Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd1 & start_Count & 
+	!Clocksec/lagTime<2> & Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & start_Count & !Clocksec/lagTime<2> & 
+	Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd1 & start_Count & 
+	!Clocksec/lagTime<1> & Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd1 & start_Count & !Clocksec/lagTime<1> & 
+	!Clocksec/lagTime<0> & Clocksec/lagTime<3>
+	# statesTraffic/state_FSM_FFd1 & start_Count & 
+	Clocksec/lagTime<2> & Clocksec/lagTime<1> & Clocksec/lagTime<0> & 
+	!Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & start_Count & Clocksec/lagTime<2> & 
+	Clocksec/lagTime<1> & Clocksec/lagTime<0> & !Clocksec/lagTime<3>
+	# !statesTraffic/state_FSM_FFd3 & !N_PZ_260 & 
+	start_Count & Clocksec/lagTime<2> & Clocksec/lagTime<1> & 
+	Clocksec/lagTime<0> & !Clocksec/lagTime<3>;	// (8 pt, 9 inp)
+   Clocksec/lagTime<3>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+   Clocksec/lagTime<3>.AR = Reset;	// GSR	(0 pt, 0 inp)
+GLOBALS | 2 | 2 | Clock | 4 | Reset
+
+MACROCELL | 2 | 6 | count_LED<0>_MC
+ATTRIBUTES | 2155905856 | 0
+OUTPUTMC | 8 | 2 | 14 | 2 | 13 | 2 | 11 | 2 | 10 | 2 | 9 | 2 | 5 | 2 | 2 | 2 | 1
+INPUTS | 3 | Clocksec/lagTime<0>  | Reset  | start_Count
+INPUTMC | 2 | 1 | 11 | 3 | 15
+INPUTP | 1 | 78
+EQ | 3 | 
+   count_LED<0> := Clocksec/lagTime<0>;	// (1 pt, 1 inp)
+   count_LED<0>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+    count_LED<0>.CE = !Reset & start_Count;	// (1 pt, 2 inp)
+GLOBALS | 1 | 2 | Clock
+
+MACROCELL | 2 | 0 | count_LED<3>_MC
+ATTRIBUTES | 2155905856 | 0
+OUTPUTMC | 3 | 2 | 14 | 2 | 13 | 1 | 10
+INPUTS | 3 | Clocksec/lagTime<3>  | Reset  | start_Count
+INPUTMC | 2 | 2 | 15 | 3 | 15
+INPUTP | 1 | 78
+EQ | 3 | 
+   count_LED<3> := Clocksec/lagTime<3>;	// (1 pt, 1 inp)
+   count_LED<3>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+    count_LED<3>.CE = !Reset & start_Count;	// (1 pt, 2 inp)
+GLOBALS | 1 | 2 | Clock
+
+MACROCELL | 2 | 4 | count_LED<1>_MC
+ATTRIBUTES | 2155905856 | 0
+OUTPUTMC | 8 | 2 | 14 | 2 | 13 | 2 | 11 | 2 | 10 | 2 | 9 | 2 | 5 | 2 | 2 | 2 | 1
+INPUTS | 3 | Clocksec/lagTime<1>  | Reset  | start_Count
+INPUTMC | 2 | 1 | 2 | 3 | 15
+INPUTP | 1 | 78
+EQ | 3 | 
+   count_LED<1> := Clocksec/lagTime<1>;	// (1 pt, 1 inp)
+   count_LED<1>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+    count_LED<1>.CE = !Reset & start_Count;	// (1 pt, 2 inp)
+GLOBALS | 1 | 2 | Clock
+
+MACROCELL | 2 | 3 | count_LED<2>_MC
+ATTRIBUTES | 2155905856 | 0
+OUTPUTMC | 8 | 2 | 14 | 2 | 13 | 2 | 11 | 2 | 10 | 2 | 9 | 2 | 5 | 2 | 2 | 2 | 1
+INPUTS | 3 | Clocksec/lagTime<2>  | Reset  | start_Count
+INPUTMC | 2 | 1 | 12 | 3 | 15
+INPUTP | 1 | 78
+EQ | 3 | 
+   count_LED<2> := Clocksec/lagTime<2>;	// (1 pt, 1 inp)
+   count_LED<2>.CLK  =  Clock;	// GCK	(0 pt, 0 inp)
+    count_LED<2>.CE = !Reset & start_Count;	// (1 pt, 2 inp)
+GLOBALS | 1 | 2 | Clock
+
+MACROCELL | 2 | 13 | LEDs<1>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 12 | delayFinal  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | count_LED<3>  | statesTraffic/state_FSM_FFd2  | statesTraffic/state_FSM_FFd1  | statesTraffic/temp_PedEW  | CarEW  | count_LED<0>  | count_LED<1>  | count_LED<2>  | CarNS
+INPUTMC | 10 | 1 | 3 | 1 | 8 | 1 | 13 | 2 | 0 | 1 | 15 | 1 | 14 | 3 | 7 | 2 | 6 | 2 | 4 | 2 | 3
+INPUTP | 2 | 1 | 2
+EQ | 12 | 
+   !LEDs<1> = delayFinal
+	# statesTraffic/state_FSM_FFd3
+	# statesTraffic/state_FSM_FFd4
+	# count_LED<3>
+	# !statesTraffic/state_FSM_FFd2 & 
+	statesTraffic/state_FSM_FFd1
+	# statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/temp_PedEW & !CarEW
+	# !count_LED<0> & !count_LED<1> & !count_LED<2>
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !CarNS & !statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/state_FSM_FFd1;	// (8 pt, 12 inp)
+
+MACROCELL | 2 | 11 | LEDs<2>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | count_LED<0>  | count_LED<1>  | N_PZ_279  | count_LED<2>
+INPUTMC | 4 | 2 | 6 | 2 | 4 | 1 | 10 | 2 | 3
+EQ | 3 | 
+   LEDs<2> = count_LED<0> & !count_LED<1> & N_PZ_279
+	# !count_LED<0> & count_LED<2> & N_PZ_279
+	# count_LED<1> & !count_LED<2> & N_PZ_279;	// (3 pt, 4 inp)
+
+MACROCELL | 1 | 10 | N_PZ_279_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 6 | 2 | 11 | 2 | 10 | 2 | 9 | 2 | 5 | 2 | 2 | 2 | 1
+INPUTS | 9 | delayFinal  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | statesTraffic/temp_PedEW  | count_LED<3>  | CarEW  | CarNS  | statesTraffic/state_FSM_FFd1
+INPUTMC | 7 | 1 | 3 | 1 | 8 | 1 | 13 | 1 | 15 | 3 | 7 | 2 | 0 | 1 | 14
+INPUTP | 2 | 1 | 2
+EQ | 9 | 
+   N_PZ_279 = !delayFinal & !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2 & 
+	statesTraffic/temp_PedEW & !count_LED<3>
+	# !delayFinal & !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2 & CarEW & 
+	!count_LED<3>
+	# !delayFinal & !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & CarNS & !statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/state_FSM_FFd1 & !count_LED<3>;	// (3 pt, 9 inp)
+
+MACROCELL | 2 | 10 | LEDs<3>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | count_LED<0>  | count_LED<1>  | N_PZ_279  | count_LED<2>
+INPUTMC | 4 | 2 | 6 | 2 | 4 | 1 | 10 | 2 | 3
+EQ | 3 | 
+   LEDs<3> = count_LED<0> & !count_LED<1> & N_PZ_279
+	# count_LED<1> & !count_LED<2> & N_PZ_279
+	# !count_LED<1> & count_LED<2> & N_PZ_279;	// (3 pt, 4 inp)
+
+MACROCELL | 2 | 9 | LEDs<4>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | count_LED<2>  | N_PZ_279  | count_LED<0>  | count_LED<1>
+INPUTMC | 4 | 2 | 3 | 1 | 10 | 2 | 6 | 2 | 4
+EQ | 2 | 
+   LEDs<4> = !count_LED<2> & N_PZ_279
+	$ !count_LED<0> & !count_LED<1> & N_PZ_279;	// (2 pt, 4 inp)
+
+MACROCELL | 2 | 5 | LEDs<5>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | count_LED<0>  | count_LED<2>  | N_PZ_279  | count_LED<1>
+INPUTMC | 4 | 2 | 6 | 2 | 3 | 1 | 10 | 2 | 4
+EQ | 2 | 
+   LEDs<5> = count_LED<0> & !count_LED<2> & N_PZ_279
+	# count_LED<1> & !count_LED<2> & N_PZ_279;	// (2 pt, 4 inp)
+
+MACROCELL | 2 | 2 | LEDs<6>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | count_LED<0>  | count_LED<1>  | count_LED<2>  | N_PZ_279
+INPUTMC | 4 | 2 | 6 | 2 | 4 | 2 | 3 | 1 | 10
+EQ | 4 | 
+   LEDs<6> = count_LED<0> & !count_LED<1> & !count_LED<2> & 
+	N_PZ_279
+	# !count_LED<0> & count_LED<1> & !count_LED<2> & 
+	N_PZ_279;	// (2 pt, 4 inp)
+
+MACROCELL | 2 | 1 | LEDs<7>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | count_LED<0>  | count_LED<1>  | count_LED<2>  | N_PZ_279
+INPUTMC | 4 | 2 | 6 | 2 | 4 | 2 | 3 | 1 | 10
+EQ | 2 | 
+   LEDs<7> = count_LED<0> & !count_LED<1> & !count_LED<2> & 
+	N_PZ_279;	// (1 pt, 4 inp)
+
+MACROCELL | 1 | 1 | LightsEW<0>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | statesTraffic/state_FSM_FFd1
+INPUTMC | 4 | 1 | 8 | 1 | 13 | 1 | 15 | 1 | 14
+EQ | 5 | 
+   LightsEW<0> = statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd2
+	# !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd2 & 
+	!statesTraffic/state_FSM_FFd1;	// (2 pt, 4 inp)
+
+MACROCELL | 1 | 0 | LightsEW<1>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2  | statesTraffic/state_FSM_FFd1
+INPUTMC | 4 | 1 | 8 | 1 | 13 | 1 | 15 | 1 | 14
+EQ | 4 | 
+   LightsEW<1> = !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & !statesTraffic/state_FSM_FFd2
+	# !statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd2 & !statesTraffic/state_FSM_FFd1;	// (2 pt, 4 inp)
+
+MACROCELL | 1 | 5 | LightsNS<0>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 3 | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd2
+INPUTMC | 3 | 1 | 8 | 1 | 13 | 1 | 15
+EQ | 4 | 
+   LightsNS<0> = statesTraffic/state_FSM_FFd3 & 
+	!statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2
+	# !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd4 & statesTraffic/state_FSM_FFd2;	// (2 pt, 3 inp)
+
+MACROCELL | 1 | 4 | LightsNS<1>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 4 | statesTraffic/state_FSM_FFd4  | statesTraffic/state_FSM_FFd1  | statesTraffic/state_FSM_FFd3  | statesTraffic/state_FSM_FFd2
+INPUTMC | 4 | 1 | 13 | 1 | 14 | 1 | 8 | 1 | 15
+EQ | 4 | 
+   LightsNS<1> = statesTraffic/state_FSM_FFd4 & 
+	statesTraffic/state_FSM_FFd1
+	$ !statesTraffic/state_FSM_FFd3 & 
+	statesTraffic/state_FSM_FFd2;	// (2 pt, 4 inp)
+
+PIN | CarEW | 64 | 16 | LVCMOS33 | 1 | 5 | 1 | 13 | 2 | 8 | 2 | 14 | 2 | 13 | 1 | 10
+PIN | CarNS | 64 | 16 | LVCMOS33 | 2 | 5 | 1 | 13 | 2 | 8 | 2 | 14 | 2 | 13 | 1 | 10
+PIN | Clock | 16384 | 16 | LVCMOS33 | 23 | 35 | 3 | 7 | 3 | 5 | 1 | 14 | 1 | 15 | 1 | 13 | 1 | 8 | 0 | 15 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 3 | 15 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 1 | 3 | 2 | 6 | 2 | 0 | 2 | 4 | 2 | 3
+PIN | Reset | 65600 | 16 | LVCMOS33 | 78 | 35 | 3 | 7 | 3 | 5 | 3 | 15 | 2 | 6 | 2 | 0 | 2 | 4 | 2 | 3 | 1 | 14 | 1 | 15 | 1 | 13 | 1 | 8 | 0 | 15 | 0 | 14 | 0 | 13 | 0 | 7 | 0 | 6 | 0 | 5 | 0 | 4 | 0 | 3 | 0 | 10 | 0 | 9 | 3 | 11 | 0 | 0 | 0 | 1 | 0 | 2 | 0 | 8 | 3 | 8 | 0 | 11 | 3 | 9 | 0 | 12 | 2 | 15 | 1 | 11 | 1 | 2 | 1 | 12 | 1 | 3
+PIN | PedEW | 64 | 16 | LVCMOS33 | 9 | 2 | 3 | 7 | 3 | 5
+PIN | PedNS | 64 | 16 | LVCMOS33 | 10 | 1 | 3 | 5
+PIN | LEDs<0> | 536871040 | 0 | LVCMOS33 | 55
+PIN | LEDs<1> | 536871040 | 0 | LVCMOS33 | 56
+PIN | LEDs<2> | 536871040 | 0 | LVCMOS33 | 59
+PIN | LEDs<3> | 536871040 | 0 | LVCMOS33 | 60
+PIN | LEDs<4> | 536871040 | 0 | LVCMOS33 | 61
+PIN | LEDs<5> | 536871040 | 0 | LVCMOS33 | 65
+PIN | LEDs<6> | 536871040 | 0 | LVCMOS33 | 71
+PIN | LEDs<7> | 536871040 | 0 | LVCMOS33 | 72
+PIN | LightsEW<0> | 536871040 | 0 | LVCMOS33 | 13
+PIN | LightsEW<1> | 536871040 | 0 | LVCMOS33 | 12
+PIN | LightsNS<0> | 536871040 | 0 | LVCMOS33 | 17
+PIN | LightsNS<1> | 536871040 | 0 | LVCMOS33 | 16

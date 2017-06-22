@@ -1,0 +1,356 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: TrafficLevel.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "TrafficLevel.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "TrafficLevel"
+Output Format                      : NGC
+Target Device                      : CoolRunner2 CPLDs
+
+---- Source Options
+Top Module Name                    : TrafficLevel
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+
+---- Target Options
+Add IO Buffers                     : YES
+MACRO Preserve                     : YES
+XOR Preserve                       : YES
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : Yes
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Verilog 2001                       : YES
+
+---- Other Options
+Clock Enable                       : YES
+wysiwyg                            : NO
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Y510P/Desktop/TrafficVHDL/statesTraffic.vhd" in Library work.
+Entity <statestraffic> compiled.
+Entity <statestraffic> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/Y510P/Desktop/TrafficVHDL/DelayTimer.vhd" in Library work.
+Architecture behavioral of Entity delaytimer is up to date.
+Compiling vhdl file "C:/Users/Y510P/Desktop/TrafficVHDL/Trafficlight.vhd" in Library work.
+Architecture behavioral of Entity trafficlight is up to date.
+Compiling vhdl file "C:/Users/Y510P/Desktop/TrafficVHDL/LED_countdown.vhd" in Library work.
+Architecture behavioral of Entity led_countdown is up to date.
+Compiling vhdl file "C:/Users/Y510P/Desktop/TrafficVHDL/Clocksec.vhd" in Library work.
+Architecture behavioral of Entity clocksec is up to date.
+Compiling vhdl file "C:/Users/Y510P/Desktop/TrafficVHDL/TrafficTopLevel.vhd" in Library work.
+Architecture behavioral of Entity trafficlevel is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <TrafficLevel> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <statesTraffic> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <DelayTimer> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <Trafficlight> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <LED_countdown> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <Clocksec> in library <work> (architecture <Behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <TrafficLevel> in library <work> (Architecture <behavioral>).
+Entity <TrafficLevel> analyzed. Unit <TrafficLevel> generated.
+
+Analyzing Entity <statesTraffic> in library <work> (Architecture <Behavioral>).
+Entity <statesTraffic> analyzed. Unit <statesTraffic> generated.
+
+Analyzing Entity <DelayTimer> in library <work> (Architecture <Behavioral>).
+Entity <DelayTimer> analyzed. Unit <DelayTimer> generated.
+
+Analyzing Entity <Trafficlight> in library <work> (Architecture <Behavioral>).
+INFO:Xst:1561 - "C:/Users/Y510P/Desktop/TrafficVHDL/Trafficlight.vhd" line 27: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "C:/Users/Y510P/Desktop/TrafficVHDL/Trafficlight.vhd" line 44: Mux is complete : default of case is discarded
+Entity <Trafficlight> analyzed. Unit <Trafficlight> generated.
+
+Analyzing Entity <LED_countdown> in library <work> (Architecture <Behavioral>).
+Entity <LED_countdown> analyzed. Unit <LED_countdown> generated.
+
+Analyzing Entity <Clocksec> in library <work> (Architecture <Behavioral>).
+Entity <Clocksec> analyzed. Unit <Clocksec> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <statesTraffic>.
+    Related source file is "C:/Users/Y510P/Desktop/TrafficVHDL/statesTraffic.vhd".
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 28                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 14                                             |
+    | Clock              | Clock                     (rising_edge)        |
+    | Reset              | Reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | ew_green                                       |
+    | Power Up State     | ew_green                                       |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <temp_PedEW>.
+    Found 1-bit register for signal <temp_PedNS>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 D-type flip-flop(s).
+Unit <statesTraffic> synthesized.
+
+
+Synthesizing Unit <DelayTimer>.
+    Related source file is "C:/Users/Y510P/Desktop/TrafficVHDL/DelayTimer.vhd".
+    Found 1-bit register for signal <clkTimer>.
+    Found 19-bit up counter for signal <Counter>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <DelayTimer> synthesized.
+
+
+Synthesizing Unit <Trafficlight>.
+    Related source file is "C:/Users/Y510P/Desktop/TrafficVHDL/Trafficlight.vhd".
+    Found 8x4-bit ROM for signal <count$rom0000>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <Trafficlight> synthesized.
+
+
+Synthesizing Unit <LED_countdown>.
+    Related source file is "C:/Users/Y510P/Desktop/TrafficVHDL/LED_countdown.vhd".
+Unit <LED_countdown> synthesized.
+
+
+Synthesizing Unit <Clocksec>.
+    Related source file is "C:/Users/Y510P/Desktop/TrafficVHDL/Clocksec.vhd".
+    Found 4-bit register for signal <countLED>.
+    Found 1-bit register for signal <delayFinal>.
+    Found 4-bit comparator greater for signal <delayFinal$cmp_gt0000> created at line 57.
+    Found 4-bit up counter for signal <lagTime>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <Clocksec> synthesized.
+
+
+Synthesizing Unit <TrafficLevel>.
+    Related source file is "C:/Users/Y510P/Desktop/TrafficVHDL/TrafficTopLevel.vhd".
+Unit <TrafficLevel> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 8x4-bit ROM                                           : 1
+# Counters                                             : 2
+ 19-bit up counter                                     : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 5
+ 1-bit register                                        : 4
+ 4-bit register                                        : 1
+# Comparators                                          : 1
+ 4-bit comparator greater                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <statesTraffic/state/FSM> on signal <state[1:4]> with user encoding.
+-------------------------
+ State       | Encoding
+-------------------------
+ ew_green    | 0000
+ ew_greenped | 0001
+ ew_amber    | 0010
+ ew_red      | 0011
+ ns_green    | 0100
+ ns_greenped | 0101
+ ns_amber    | 0110
+ ns_red      | 0111
+ ew_green12  | 1000
+ ns_green12  | 1001
+-------------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 1
+ 8x4-bit ROM                                           : 1
+# Counters                                             : 2
+ 19-bit up counter                                     : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 4
+ Flip-Flops                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <TrafficLevel> ...
+
+Optimizing unit <LED_countdown> ...
+
+Optimizing unit <statesTraffic> ...
+  implementation constraint: INIT=r	 : state_FSM_FFd1
+  implementation constraint: INIT=r	 : state_FSM_FFd2
+  implementation constraint: INIT=r	 : state_FSM_FFd3
+  implementation constraint: INIT=r	 : state_FSM_FFd4
+
+Optimizing unit <Trafficlight> ...
+
+Optimizing unit <DelayTimer> ...
+  implementation constraint: INIT=r	 : clkTimer
+  implementation constraint: INIT=r	 : Counter_18
+  implementation constraint: INIT=r	 : Counter_17
+  implementation constraint: INIT=r	 : Counter_16
+  implementation constraint: INIT=r	 : Counter_15
+  implementation constraint: INIT=r	 : Counter_14
+  implementation constraint: INIT=r	 : Counter_13
+  implementation constraint: INIT=r	 : Counter_12
+  implementation constraint: INIT=r	 : Counter_11
+  implementation constraint: INIT=r	 : Counter_10
+  implementation constraint: INIT=r	 : Counter_9
+  implementation constraint: INIT=r	 : Counter_8
+  implementation constraint: INIT=r	 : Counter_7
+  implementation constraint: INIT=r	 : Counter_6
+  implementation constraint: INIT=r	 : Counter_5
+  implementation constraint: INIT=r	 : Counter_4
+  implementation constraint: INIT=r	 : Counter_3
+  implementation constraint: INIT=r	 : Counter_2
+  implementation constraint: INIT=r	 : Counter_1
+  implementation constraint: INIT=s	 : Counter_0
+
+Optimizing unit <Clocksec> ...
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : TrafficLevel.ngr
+Top Level Output File Name         : TrafficLevel
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : Yes
+Target Technology                  : CoolRunner2 CPLDs
+Macro Preserve                     : YES
+XOR Preserve                       : YES
+Clock Enable                       : YES
+wysiwyg                            : NO
+
+Design Statistics
+# IOs                              : 18
+
+Cell Usage :
+# BELS                             : 371
+#      AND2                        : 114
+#      AND3                        : 18
+#      AND4                        : 2
+#      AND8                        : 1
+#      GND                         : 3
+#      INV                         : 142
+#      OR2                         : 65
+#      OR3                         : 5
+#      XOR2                        : 21
+# FlipFlops/Latches                : 35
+#      FDC                         : 4
+#      FDCE                        : 29
+#      FDPE                        : 2
+# IO Buffers                       : 18
+#      IBUF                        : 6
+#      OBUF                        : 12
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.00 secs
+ 
+--> 
+
+Total memory usage is 246776 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

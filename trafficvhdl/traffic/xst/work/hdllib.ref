@@ -1,0 +1,12 @@
+AR trafficlevel behavioral C:/Users/Y510P/Desktop/TrafficVHDL/TrafficTopLevel.vhd sub00/vhpl11 1400589884
+AR trafficlight behavioral C:/Users/Y510P/Desktop/TrafficVHDL/Trafficlight.vhd sub00/vhpl05 1400589878
+EN led_countdown NULL C:/Users/Y510P/Desktop/TrafficVHDL/LED_countdown.vhd sub00/vhpl06 1400589879
+EN clocksec NULL C:/Users/Y510P/Desktop/TrafficVHDL/Clocksec.vhd sub00/vhpl08 1400589881
+AR clocksec behavioral C:/Users/Y510P/Desktop/TrafficVHDL/Clocksec.vhd sub00/vhpl09 1400589882
+AR delaytimer behavioral C:/Users/Y510P/Desktop/TrafficVHDL/DelayTimer.vhd sub00/vhpl03 1400589876
+EN trafficlight NULL C:/Users/Y510P/Desktop/TrafficVHDL/Trafficlight.vhd sub00/vhpl04 1400589877
+EN statestraffic NULL C:/Users/Y510P/Desktop/TrafficVHDL/statesTraffic.vhd sub00/vhpl00 1400589873
+AR led_countdown behavioral C:/Users/Y510P/Desktop/TrafficVHDL/LED_countdown.vhd sub00/vhpl07 1400589880
+EN trafficlevel NULL C:/Users/Y510P/Desktop/TrafficVHDL/TrafficTopLevel.vhd sub00/vhpl10 1400589883
+AR statestraffic behavioral C:/Users/Y510P/Desktop/TrafficVHDL/statesTraffic.vhd sub00/vhpl01 1400589874
+EN delaytimer NULL C:/Users/Y510P/Desktop/TrafficVHDL/DelayTimer.vhd sub00/vhpl02 1400589875

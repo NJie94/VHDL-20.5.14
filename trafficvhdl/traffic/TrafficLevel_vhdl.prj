@@ -1,0 +1,6 @@
+vhdl work "C:\Users\Y510P\Desktop\TrafficVHDL\Trafficlight.vhd"
+vhdl work "C:\Users\Y510P\Desktop\TrafficVHDL\statesTraffic.vhd"
+vhdl work "C:\Users\Y510P\Desktop\TrafficVHDL\LED_countdown.vhd"
+vhdl work "C:\Users\Y510P\Desktop\TrafficVHDL\DelayTimer.vhd"
+vhdl work "C:\Users\Y510P\Desktop\TrafficVHDL\Clocksec.vhd"
+vhdl work "C:\Users\Y510P\Desktop\TrafficVHDL\TrafficTopLevel.vhd"

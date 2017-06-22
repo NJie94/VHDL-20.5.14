@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+DelayTimer instance_name (
+    .Reset(Reset), 
+    .Clk_in(Clk_in), 
+    .startTimer(startTimer), 
+    .startCount(startCount)
+    );
+
+

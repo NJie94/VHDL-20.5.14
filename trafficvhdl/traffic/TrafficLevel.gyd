@@ -1,0 +1,46 @@
+Pin Freeze File:  version P.20131013
+
+2C64A44VQ XC2C64A-7-VQ44
+CarEW S:PIN33
+CarNS S:PIN34
+Clock S:PIN1
+PedEW S:PIN36
+PedNS S:PIN37
+Reset S:PIN30
+LEDs<0> S:PIN18
+LEDs<1> S:PIN19
+LEDs<2> S:PIN20
+LEDs<3> S:PIN21
+LEDs<4> S:PIN22
+LEDs<5> S:PIN23
+LEDs<6> S:PIN27
+LEDs<7> S:PIN28
+LightsEW<0> S:PIN40
+LightsEW<1> S:PIN39
+LightsNS<0> S:PIN42
+LightsNS<1> S:PIN41
+
+
+;The remaining section of the .gyd file is for documentation purposes only.
+;It shows where your internal equations were placed in the last successful fit.
+
+PARTITION FB1_1 DelayTimer/Counter<17> DelayTimer/Counter<16> DelayTimer/Counter<15> DelayTimer/Counter<9>
+		 DelayTimer/Counter<7> DelayTimer/Counter<6> DelayTimer/Counter<4> DelayTimer/Counter<3>
+		 DelayTimer/Counter<13> DelayTimer/Counter<14> DelayTimer/Counter<12> DelayTimer/Counter<11>
+		 DelayTimer/Counter<10> DelayTimer/Counter<2> DelayTimer/Counter<1> DelayTimer/Counter<0>
+		
+PARTITION FB2_1 LightsEW<1> LightsEW<0> Clocksec/lagTime<1> delayFinal
+		 LightsNS<1> LightsNS<0>
+PARTITION FB2_9 statesTraffic/state_FSM_FFd3
+PARTITION FB2_11 N_PZ_279 Clocksec/lagTime<0> Clocksec/lagTime<2> statesTraffic/state_FSM_FFd4
+		 statesTraffic/state_FSM_FFd1 statesTraffic/state_FSM_FFd2
+PARTITION FB3_1 count_LED<3> LEDs<7> LEDs<6> count_LED<2>
+		 count_LED<1> LEDs<5> count_LED<0> N_PZ_281
+		 N_PZ_260 LEDs<4> LEDs<3> LEDs<2>
+		 N_PZ_265 LEDs<1> LEDs<0> Clocksec/lagTime<3>
+		
+PARTITION FB4_6 statesTraffic/temp_PedNS
+PARTITION FB4_8 statesTraffic/temp_PedEW DelayTimer/Counter<8> DelayTimer/Counter<5>
+PARTITION FB4_12 DelayTimer/Counter<18>
+PARTITION FB4_16 start_Count
+

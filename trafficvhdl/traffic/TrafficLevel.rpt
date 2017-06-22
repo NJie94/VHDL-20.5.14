@@ -1,0 +1,951 @@
+ 
+cpldfit:  version P.20131013                        Xilinx Inc.
+                                  Fitter Report
+Design Name: TrafficLevel                        Date:  5-20-2014,  8:44PM
+Device Used: XC2C64A-7-VQ44
+Fitting Status: Successful
+
+*************************  Mapped Resource Summary  **************************
+
+Macrocells     Product Terms    Function Block   Registers      Pins           
+Used/Tot       Used/Tot         Inps Used/Tot    Used/Tot       Used/Tot       
+51 /64  ( 80%) 124 /224  ( 55%) 83  /160  ( 52%) 35 /64  ( 55%) 18 /33  ( 55%)
+
+** Function Block Resources **
+
+Function Mcells   FB Inps  Pterms   IO       CTC      CTR      CTS      CTE     
+Block    Used/Tot Used/Tot Used/Tot Used/Tot Used/Tot Used/Tot Used/Tot Used/Tot
+FB1      16/16*    20/40    17/56     0/ 8    0/1      0/1      0/1      0/1
+FB2      13/16     16/40    56/56*    4/ 9    0/1      0/1      0/1      0/1
+FB3      16/16*    20/40    41/56     8/ 9    0/1      0/1      0/1      0/1
+FB4       6/16     27/40    10/56     0/ 7    0/1      0/1      0/1      0/1
+         -----    -------  -------   -----    ---      ---      ---      ---
+Total    51/64     83/160  124/224   12/33    0/4      0/4      0/4      0/4 
+
+CTC - Control Term Clock
+CTR - Control Term Reset
+CTS - Control Term Set
+CTE - Control Term Output Enable
+
+* - Resource is exhausted
+
+** Global Control Resources **
+
+GCK         GSR         GTS         DGE         
+Used/Tot    Used/Tot    Used/Tot    Used/Tot    
+1/3         1/1         0/4         0/0
+
+Signal 'Clock' mapped onto global clock net GCK2.
+Signal 'Reset' mapped onto global set/reset net GSR.
+
+** Pin Resources **
+
+Signal Type    Required     Mapped  |  Pin Type            Used    Total 
+------------------------------------|------------------------------------
+Input         :    4           4    |  I/O              :    14     25
+Output        :   12          12    |  GCK/IO           :     1      3
+Bidirectional :    0           0    |  GTS/IO           :     2      4
+GCK           :    1           1    |  GSR/IO           :     1      1
+GTS           :    0           0    |  
+GSR           :    1           1    |  
+                 ----        ----
+        Total     18          18
+
+End of Mapped Resource Summary
+**************************  Errors and Warnings  ***************************
+
+WARNING:Cpld - Unable to retrieve the path to the iSE Project Repository. Will
+   use the default filename of 'TrafficLevel.ise'.
+INFO:Cpld - Inferring BUFG constraint for signal 'Clock' based upon the LOC
+   constraint 'P1'. It is recommended that you declare this BUFG explicitedly in
+   your design. Note that for certain device families the output of a BUFG
+   constraint can not drive a gated clock, and the BUFG constraint will be
+   ignored.
+*************************  Summary of Mapped Logic  ************************
+
+** 12 Outputs **
+
+Signal                        Total Total Bank Loc     Pin   Pin       Pin     I/O      I/O       Slew Reg     Reg Init
+Name                          Pts   Inps               No.   Type      Use     STD      Style     Rate Use     State
+LightsEW<1>                   2     4     1    FB2_1   39    I/O       O       LVCMOS33           FAST         
+LightsEW<0>                   2     4     1    FB2_2   40    I/O       O       LVCMOS33           FAST         
+LightsNS<1>                   2     4     1    FB2_5   41    I/O       O       LVCMOS33           FAST         
+LightsNS<0>                   2     3     1    FB2_6   42    I/O       O       LVCMOS33           FAST         
+LEDs<7>                       1     4     2    FB3_2   28    I/O       O       LVCMOS33           FAST         
+LEDs<6>                       2     4     2    FB3_3   27    I/O       O       LVCMOS33           FAST         
+LEDs<5>                       2     4     2    FB3_6   23    I/O       O       LVCMOS33           FAST         
+LEDs<4>                       2     4     2    FB3_10  22    I/O       O       LVCMOS33           FAST         
+LEDs<3>                       3     4     2    FB3_11  21    I/O       O       LVCMOS33           FAST         
+LEDs<2>                       3     4     2    FB3_12  20    I/O       O       LVCMOS33           FAST         
+LEDs<1>                       8     12    2    FB3_14  19    I/O       O       LVCMOS33           FAST         
+LEDs<0>                       10    12    2    FB3_15  18    I/O       O       LVCMOS33           FAST         
+
+** 39 Buried Nodes **
+
+Signal                        Total Total Loc     Reg     Reg Init
+Name                          Pts   Inps          Use     State
+DelayTimer/Counter<17>        2     20    FB1_1   TFF     RESET
+DelayTimer/Counter<16>        2     20    FB1_2   TFF     RESET
+DelayTimer/Counter<15>        2     20    FB1_3   TFF     RESET
+DelayTimer/Counter<9>         1     10    FB1_4   TFF     RESET
+DelayTimer/Counter<7>         1     8     FB1_5   TFF     RESET
+DelayTimer/Counter<6>         1     7     FB1_6   TFF     RESET
+DelayTimer/Counter<4>         1     5     FB1_7   TFF     RESET
+DelayTimer/Counter<3>         1     4     FB1_8   TFF     RESET
+DelayTimer/Counter<13>        2     20    FB1_9   TFF     RESET
+DelayTimer/Counter<14>        1     15    FB1_10  TFF     RESET
+DelayTimer/Counter<12>        1     13    FB1_11  TFF     RESET
+DelayTimer/Counter<11>        1     12    FB1_12  TFF     RESET
+DelayTimer/Counter<10>        1     11    FB1_13  TFF     RESET
+DelayTimer/Counter<2>         1     3     FB1_14  TFF     RESET
+DelayTimer/Counter<1>         1     2     FB1_15  TFF     RESET
+DelayTimer/Counter<0>         1     1     FB1_16  TFF/S   SET
+Clocksec/lagTime<1>           11    9     FB2_3   DFF     RESET
+delayFinal                    9     10    FB2_4   DFF     RESET
+statesTraffic/state_FSM_FFd3  3     6     FB2_9   TFF     RESET
+N_PZ_279                      3     9     FB2_11          
+Clocksec/lagTime<0>           8     9     FB2_12  DFF     RESET
+Clocksec/lagTime<2>           8     9     FB2_13  TFF     RESET
+statesTraffic/state_FSM_FFd4  5     9     FB2_14  TFF     RESET
+statesTraffic/state_FSM_FFd1  3     7     FB2_15  DFF     RESET
+statesTraffic/state_FSM_FFd2  3     6     FB2_16  TFF     RESET
+count_LED<3>                  2     3     FB3_1   DEFF    RESET
+count_LED<2>                  2     3     FB3_4   DEFF    RESET
+count_LED<1>                  2     3     FB3_5   DEFF    RESET
+count_LED<0>                  2     3     FB3_7   DEFF    RESET
+N_PZ_281                      2     4     FB3_8           
+N_PZ_260                      2     4     FB3_9           
+N_PZ_265                      2     5     FB3_13          
+Clocksec/lagTime<3>           8     9     FB3_16  DFF     RESET
+statesTraffic/temp_PedNS      2     5     FB4_6   TFF     RESET
+statesTraffic/temp_PedEW      2     4     FB4_8   TFF     RESET
+DelayTimer/Counter<8>         2     20    FB4_9   TFF     RESET
+DelayTimer/Counter<5>         2     20    FB4_10  TFF     RESET
+DelayTimer/Counter<18>        2     20    FB4_12  TFF     RESET
+start_Count                   2     22    FB4_16  TFF     RESET
+
+** 6 Inputs **
+
+Signal                        Bank Loc     Pin   Pin       Pin     I/O      I/O
+Name                                       No.   Type      Use     STD      Style
+PedNS                         2    FB1_2   37    I/O       I       LVCMOS33 KPR
+PedEW                         2    FB1_3   36    I/O       I       LVCMOS33 KPR
+CarNS                         2    FB1_9   34    GTS/I/O   I       LVCMOS33 KPR
+CarEW                         2    FB1_10  33    GTS/I/O   I       LVCMOS33 KPR
+Reset                         2    FB1_13  30    GSR/I/O   GSR/I   LVCMOS33 KPR
+Clock                         1    FB2_10  1     GCK/I/O   GCK     LVCMOS33 KPR
+
+Legend:
+Pin No.   - ~     - User Assigned
+I/O Style - OD    - OpenDrain
+          - PU    - Pullup
+          - KPR   - Keeper
+          - S     - SchmittTrigger
+          - DG    - DataGate
+Reg Use   - LATCH - Transparent latch
+          - DFF   - D-flip-flop
+          - DEFF  - D-flip-flop with clock enable
+          - TFF   - T-flip-flop
+          - TDFF  - Dual-edge-triggered T-flip-flop
+          - DDFF  - Dual-edge-triggered flip-flop
+          - DDEFF - Dual-edge-triggered flip-flop with clock enable
+          /S (after any above flop/latch type) indicates initial state is Set
+**************************  Function Block Details  ************************
+Legend:
+Total Pt     - Total product terms used by the macrocell signal
+Loc          - Location where logic was mapped in device
+Pin Type/Use - I  - Input             GCK - Global clock
+               O  - Output            GTS - Global Output Enable
+              (b) - Buried macrocell  GSR - Global Set/Reset
+              VRF - Vref
+Pin No.      - ~  - User Assigned
+*********************************** FB1  ***********************************
+This function block is part of I/O Bank number:               2
+Number of function block inputs used/remaining:               20/20
+Number of function block control terms used/remaining:        0/4
+Number of PLA product terms used/remaining:                   17/39
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+DelayTimer/Counter<17>        2     FB1_1   38   I/O     (b)               
+DelayTimer/Counter<16>        2     FB1_2   37   I/O     I                 
+DelayTimer/Counter<15>        2     FB1_3   36   I/O     I                 
+DelayTimer/Counter<9>         1     FB1_4        (b)     (b)               
+DelayTimer/Counter<7>         1     FB1_5        (b)     (b)               
+DelayTimer/Counter<6>         1     FB1_6        (b)     (b)               
+DelayTimer/Counter<4>         1     FB1_7        (b)     (b)               
+DelayTimer/Counter<3>         1     FB1_8        (b)     (b)               
+DelayTimer/Counter<13>        2     FB1_9   34   GTS/I/O I                 
+DelayTimer/Counter<14>        1     FB1_10  33   GTS/I/O I                 
+DelayTimer/Counter<12>        1     FB1_11  32   GTS/I/O (b)               
+DelayTimer/Counter<11>        1     FB1_12  31   GTS/I/O (b)               
+DelayTimer/Counter<10>        1     FB1_13  30   GSR/I/O GSR/I             
+DelayTimer/Counter<2>         1     FB1_14       (b)     (b)               
+DelayTimer/Counter<1>         1     FB1_15       (b)     (b)               
+DelayTimer/Counter<0>         1     FB1_16       (b)     (b)               
+
+Signals Used by Logic in Function Block
+  1: DelayTimer/Counter<0>    8: DelayTimer/Counter<16>  15: DelayTimer/Counter<5> 
+  2: DelayTimer/Counter<10>   9: DelayTimer/Counter<17>  16: DelayTimer/Counter<6> 
+  3: DelayTimer/Counter<11>  10: DelayTimer/Counter<18>  17: DelayTimer/Counter<7> 
+  4: DelayTimer/Counter<12>  11: DelayTimer/Counter<1>   18: DelayTimer/Counter<8> 
+  5: DelayTimer/Counter<13>  12: DelayTimer/Counter<2>   19: DelayTimer/Counter<9> 
+  6: DelayTimer/Counter<14>  13: DelayTimer/Counter<3>   20: N_PZ_265 
+  7: DelayTimer/Counter<15>  14: DelayTimer/Counter<4>  
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+DelayTimer/Counter<17> 
+                  XXXXXXXXXXXXXXXXXXXX.................... 20      
+DelayTimer/Counter<16> 
+                  XXXXXXXXXXXXXXXXXXXX.................... 20      
+DelayTimer/Counter<15> 
+                  XXXXXXXXXXXXXXXXXXXX.................... 20      
+DelayTimer/Counter<9> 
+                  X.........XXXXXXXX.X.................... 10      
+DelayTimer/Counter<7> 
+                  X.........XXXXXX...X.................... 8       
+DelayTimer/Counter<6> 
+                  X.........XXXXX....X.................... 7       
+DelayTimer/Counter<4> 
+                  X.........XXX......X.................... 5       
+DelayTimer/Counter<3> 
+                  X.........XX.......X.................... 4       
+DelayTimer/Counter<13> 
+                  XXXXXXXXXXXXXXXXXXXX.................... 20      
+DelayTimer/Counter<14> 
+                  XXXXX.....XXXXXXXXXX.................... 15      
+DelayTimer/Counter<12> 
+                  XXX.......XXXXXXXXXX.................... 13      
+DelayTimer/Counter<11> 
+                  XX........XXXXXXXXXX.................... 12      
+DelayTimer/Counter<10> 
+                  X.........XXXXXXXXXX.................... 11      
+DelayTimer/Counter<2> 
+                  X.........X........X.................... 3       
+DelayTimer/Counter<1> 
+                  X..................X.................... 2       
+DelayTimer/Counter<0> 
+                  ...................X.................... 1       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB2  ***********************************
+This function block is part of I/O Bank number:               1
+Number of function block inputs used/remaining:               16/24
+Number of function block control terms used/remaining:        0/4
+Number of PLA product terms used/remaining:                   56/0
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+LightsEW<1>                   2     FB2_1   39   I/O     O                 
+LightsEW<0>                   2     FB2_2   40   I/O     O                 
+Clocksec/lagTime<1>           11    FB2_3        (b)     (b)               
+delayFinal                    9     FB2_4        (b)     (b)               
+LightsNS<1>                   2     FB2_5   41   I/O     O                 
+LightsNS<0>                   2     FB2_6   42   I/O     O                 
+(unused)                      0     FB2_7   43   GCK/I/O       
+(unused)                      0     FB2_8   44   GCK/I/O       
+statesTraffic/state_FSM_FFd3  3     FB2_9        (b)     (b)               
+(unused)                      0     FB2_10  1    GCK/I/O GCK   
+N_PZ_279                      3     FB2_11       (b)     (b)               
+Clocksec/lagTime<0>           8     FB2_12  2    I/O     (b)               
+Clocksec/lagTime<2>           8     FB2_13  3    I/O     (b)               
+statesTraffic/state_FSM_FFd4  5     FB2_14       (b)     (b)               
+statesTraffic/state_FSM_FFd1  3     FB2_15       (b)     (b)               
+statesTraffic/state_FSM_FFd2  3     FB2_16       (b)     (b)               
+
+Signals Used by Logic in Function Block
+  1: CarEW                 7: N_PZ_260                      12: statesTraffic/state_FSM_FFd2 
+  2: CarNS                 8: count_LED<3>                  13: statesTraffic/state_FSM_FFd3 
+  3: Clocksec/lagTime<0>   9: delayFinal                    14: statesTraffic/state_FSM_FFd4 
+  4: Clocksec/lagTime<1>  10: start_Count                   15: statesTraffic/temp_PedEW 
+  5: Clocksec/lagTime<2>  11: statesTraffic/state_FSM_FFd1  16: statesTraffic/temp_PedNS 
+  6: Clocksec/lagTime<3> 
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+LightsEW<1>       ..........XXXX.......................... 4       
+LightsEW<0>       ..........XXXX.......................... 4       
+Clocksec/lagTime<1> 
+                  ..XXXXX..XX.XX.......................... 9       
+delayFinal        ..XXXXX.XXX.XX.......................... 10      
+LightsNS<1>       ..........XXXX.......................... 4       
+LightsNS<0>       ...........XXX.......................... 3       
+statesTraffic/state_FSM_FFd3 
+                  ......X.X.XXXX.......................... 6       
+N_PZ_279          XX.....XX.XXXXX......................... 9       
+Clocksec/lagTime<0> 
+                  ..XXXXX..XX.XX.......................... 9       
+Clocksec/lagTime<2> 
+                  ..XXXXX..XX.XX.......................... 9       
+statesTraffic/state_FSM_FFd4 
+                  XX......X.XXXXXX........................ 9       
+statesTraffic/state_FSM_FFd1 
+                  ........X.XXXXXX........................ 7       
+statesTraffic/state_FSM_FFd2 
+                  ........X.XXXX.X........................ 6       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB3  ***********************************
+This function block is part of I/O Bank number:               2
+Number of function block inputs used/remaining:               20/20
+Number of function block control terms used/remaining:        0/4
+Number of PLA product terms used/remaining:                   41/15
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+count_LED<3>                  2     FB3_1   29   I/O     (b)               
+LEDs<7>                       1     FB3_2   28   I/O     O                 
+LEDs<6>                       2     FB3_3   27   I/O     O                 
+count_LED<2>                  2     FB3_4        (b)     (b)               
+count_LED<1>                  2     FB3_5        (b)     (b)               
+LEDs<5>                       2     FB3_6   23   I/O     O                 
+count_LED<0>                  2     FB3_7        (b)     (b)               
+N_PZ_281                      2     FB3_8        (b)     (b)               
+N_PZ_260                      2     FB3_9        (b)     (b)               
+LEDs<4>                       2     FB3_10  22   I/O     O                 
+LEDs<3>                       3     FB3_11  21   I/O     O                 
+LEDs<2>                       3     FB3_12  20   I/O     O                 
+N_PZ_265                      2     FB3_13       (b)     (b)               
+LEDs<1>                       8     FB3_14  19   I/O     O                 
+LEDs<0>                       10    FB3_15  18   I/O     O                 
+Clocksec/lagTime<3>           8     FB3_16       (b)     (b)               
+
+Signals Used by Logic in Function Block
+  1: CarEW                 8: N_PZ_279          15: start_Count 
+  2: CarNS                 9: Reset             16: statesTraffic/state_FSM_FFd1 
+  3: Clocksec/lagTime<0>  10: count_LED<0>      17: statesTraffic/state_FSM_FFd2 
+  4: Clocksec/lagTime<1>  11: count_LED<1>      18: statesTraffic/state_FSM_FFd3 
+  5: Clocksec/lagTime<2>  12: count_LED<2>      19: statesTraffic/state_FSM_FFd4 
+  6: Clocksec/lagTime<3>  13: count_LED<3>      20: statesTraffic/temp_PedEW 
+  7: N_PZ_260             14: delayFinal       
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+count_LED<3>      .....X..X.....X......................... 3       
+LEDs<7>           .......X.XXX............................ 4       
+LEDs<6>           .......X.XXX............................ 4       
+count_LED<2>      ....X...X.....X......................... 3       
+count_LED<1>      ...X....X.....X......................... 3       
+LEDs<5>           .......X.XXX............................ 4       
+count_LED<0>      ..X.....X.....X......................... 3       
+N_PZ_281          ...............XXXX..................... 4       
+N_PZ_260          XX..............X..X.................... 4       
+LEDs<4>           .......X.XXX............................ 4       
+LEDs<3>           .......X.XXX............................ 4       
+LEDs<2>           .......X.XXX............................ 4       
+N_PZ_265          ......X......X.X.XX..................... 5       
+LEDs<1>           XX.......XXXXX.XXXXX.................... 12      
+LEDs<0>           XX.......XXXXX.XXXXX.................... 12      
+Clocksec/lagTime<3> 
+                  ..XXXXX.......XX.XX..................... 9       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB4  ***********************************
+This function block is part of I/O Bank number:               1
+Number of function block inputs used/remaining:               27/13
+Number of function block control terms used/remaining:        0/4
+Number of PLA product terms used/remaining:                   10/46
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+(unused)                      0     FB4_1   5    I/O           
+(unused)                      0     FB4_2   6    I/O           
+(unused)                      0     FB4_3        (b)           
+(unused)                      0     FB4_4        (b)           
+(unused)                      0     FB4_5        (b)           
+statesTraffic/temp_PedNS      2     FB4_6        (b)     (b)               
+(unused)                      0     FB4_7   8    I/O           
+statesTraffic/temp_PedEW      2     FB4_8        (b)     (b)               
+DelayTimer/Counter<8>         2     FB4_9        (b)     (b)               
+DelayTimer/Counter<5>         2     FB4_10       (b)     (b)               
+(unused)                      0     FB4_11  12   I/O           
+DelayTimer/Counter<18>        2     FB4_12       (b)     (b)               
+(unused)                      0     FB4_13  13   I/O           
+(unused)                      0     FB4_14  14   I/O           
+(unused)                      0     FB4_15  16   I/O           
+start_Count                   2     FB4_16       (b)     (b)               
+
+Signals Used by Logic in Function Block
+  1: DelayTimer/Counter<0>   10: DelayTimer/Counter<18>  19: DelayTimer/Counter<9> 
+  2: DelayTimer/Counter<10>  11: DelayTimer/Counter<1>   20: N_PZ_265 
+  3: DelayTimer/Counter<11>  12: DelayTimer/Counter<2>   21: N_PZ_281 
+  4: DelayTimer/Counter<12>  13: DelayTimer/Counter<3>   22: PedEW 
+  5: DelayTimer/Counter<13>  14: DelayTimer/Counter<4>   23: PedNS 
+  6: DelayTimer/Counter<14>  15: DelayTimer/Counter<5>   24: Reset 
+  7: DelayTimer/Counter<15>  16: DelayTimer/Counter<6>   25: start_Count 
+  8: DelayTimer/Counter<16>  17: DelayTimer/Counter<7>   26: statesTraffic/temp_PedEW 
+  9: DelayTimer/Counter<17>  18: DelayTimer/Counter<8>   27: statesTraffic/temp_PedNS 
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+statesTraffic/temp_PedNS 
+                  ....................XXXX..X............. 5       
+statesTraffic/temp_PedEW 
+                  ....................XX.X.X.............. 4       
+DelayTimer/Counter<8> 
+                  XXXXXXXXXXXXXXXXXXXX.................... 20      
+DelayTimer/Counter<5> 
+                  XXXXXXXXXXXXXXXXXXXX.................... 20      
+DelayTimer/Counter<18> 
+                  XXXXXXXXXXXXXXXXXXXX.................... 20      
+start_Count       XXXXXXXXXXXXXXXXXXXX...XX............... 22      
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*******************************  Equations  ********************************
+
+********** Mapped Logic **********
+
+FDCPE_Clocksec/lagTime0: FDCPE port map (Clocksec/lagTime(0),Clocksec/lagTime_D(0),Clock,'0',Reset,'1');
+Clocksec/lagTime_D(0) <= NOT (((NOT start_Count AND NOT Clocksec/lagTime(0))
+	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	NOT Clocksec/lagTime(2) AND Clocksec/lagTime(0))
+	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND start_Count AND NOT Clocksec/lagTime(2) AND 
+	Clocksec/lagTime(0))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND start_Count AND Clocksec/lagTime(0) AND 
+	NOT Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND NOT N_PZ_260 AND 
+	start_Count AND Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	NOT Clocksec/lagTime(1) AND Clocksec/lagTime(0))
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND start_Count AND NOT Clocksec/lagTime(2) AND 
+	NOT Clocksec/lagTime(1) AND Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3))));
+
+FDCPE_Clocksec/lagTime1: FDCPE port map (Clocksec/lagTime(1),Clocksec/lagTime_D(1),Clock,Reset,'0','1');
+Clocksec/lagTime_D(1) <= NOT (((NOT start_Count AND NOT Clocksec/lagTime(1))
+	OR (NOT Clocksec/lagTime(1) AND NOT Clocksec/lagTime(0))
+	OR (start_Count AND Clocksec/lagTime(1) AND 
+	Clocksec/lagTime(0))
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND start_Count)
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(2))
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(1))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND start_Count AND 
+	Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd4 AND start_Count AND 
+	Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd4 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(3))
+	OR (start_Count AND Clocksec/lagTime(2) AND 
+	Clocksec/lagTime(1) AND Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND N_PZ_260 AND 
+	start_Count)));
+
+FTCPE_Clocksec/lagTime2: FTCPE port map (Clocksec/lagTime(2),Clocksec/lagTime_T(2),Clock,Reset,'0','1');
+Clocksec/lagTime_T(2) <= ((statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(2))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND start_Count AND 
+	Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	Clocksec/lagTime(1) AND Clocksec/lagTime(0))
+	OR (start_Count AND Clocksec/lagTime(2) AND 
+	Clocksec/lagTime(1) AND Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND start_Count AND Clocksec/lagTime(1) AND 
+	Clocksec/lagTime(0))
+	OR (statesTraffic/state_FSM_FFd4 AND start_Count AND 
+	Clocksec/lagTime(2) AND Clocksec/lagTime(0) AND Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd4 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND N_PZ_260 AND start_Count AND Clocksec/lagTime(2))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND NOT N_PZ_260 AND 
+	start_Count AND Clocksec/lagTime(1) AND Clocksec/lagTime(0) AND 
+	NOT Clocksec/lagTime(3)));
+
+FDCPE_Clocksec/lagTime3: FDCPE port map (Clocksec/lagTime(3),Clocksec/lagTime_D(3),Clock,Reset,'0','1');
+Clocksec/lagTime_D(3) <= ((NOT start_Count AND Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	NOT Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND start_Count AND NOT Clocksec/lagTime(2) AND 
+	Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	NOT Clocksec/lagTime(1) AND Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd1 AND start_Count AND NOT Clocksec/lagTime(1) AND 
+	NOT Clocksec/lagTime(0) AND Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	Clocksec/lagTime(2) AND Clocksec/lagTime(1) AND Clocksec/lagTime(0) AND 
+	NOT Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND start_Count AND Clocksec/lagTime(2) AND 
+	Clocksec/lagTime(1) AND Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND NOT N_PZ_260 AND 
+	start_Count AND Clocksec/lagTime(2) AND Clocksec/lagTime(1) AND 
+	Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3)));
+
+FTCPE_DelayTimer/Counter0: FTCPE port map (DelayTimer/Counter(0),NOT N_PZ_265,Clock,'0',Reset,'1');
+
+FTCPE_DelayTimer/Counter1: FTCPE port map (DelayTimer/Counter(1),DelayTimer/Counter_T(1),Clock,Reset,'0','1');
+DelayTimer/Counter_T(1) <= (DelayTimer/Counter(0) AND NOT N_PZ_265);
+
+FTCPE_DelayTimer/Counter2: FTCPE port map (DelayTimer/Counter(2),DelayTimer/Counter_T(2),Clock,Reset,'0','1');
+DelayTimer/Counter_T(2) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1));
+
+FTCPE_DelayTimer/Counter3: FTCPE port map (DelayTimer/Counter(3),DelayTimer/Counter_T(3),Clock,Reset,'0','1');
+DelayTimer/Counter_T(3) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1) AND DelayTimer/Counter(2));
+
+FTCPE_DelayTimer/Counter4: FTCPE port map (DelayTimer/Counter(4),DelayTimer/Counter_T(4),Clock,Reset,'0','1');
+DelayTimer/Counter_T(4) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3));
+
+FTCPE_DelayTimer/Counter5: FTCPE port map (DelayTimer/Counter(5),DelayTimer/Counter_T(5),Clock,Reset,'0','1');
+DelayTimer/Counter_T(5) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+	DelayTimer/Counter(4))
+	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+
+FTCPE_DelayTimer/Counter6: FTCPE port map (DelayTimer/Counter(6),DelayTimer/Counter_T(6),Clock,Reset,'0','1');
+DelayTimer/Counter_T(6) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+	DelayTimer/Counter(4) AND DelayTimer/Counter(5));
+
+FTCPE_DelayTimer/Counter7: FTCPE port map (DelayTimer/Counter(7),DelayTimer/Counter_T(7),Clock,Reset,'0','1');
+DelayTimer/Counter_T(7) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+	DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND DelayTimer/Counter(6));
+
+FTCPE_DelayTimer/Counter8: FTCPE port map (DelayTimer/Counter(8),DelayTimer/Counter_T(8),Clock,Reset,'0','1');
+DelayTimer/Counter_T(8) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+	DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND DelayTimer/Counter(6) AND 
+	DelayTimer/Counter(7))
+	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+
+FTCPE_DelayTimer/Counter9: FTCPE port map (DelayTimer/Counter(9),DelayTimer/Counter_T(9),Clock,Reset,'0','1');
+DelayTimer/Counter_T(9) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+	DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND DelayTimer/Counter(6) AND 
+	DelayTimer/Counter(7) AND DelayTimer/Counter(8));
+
+FTCPE_DelayTimer/Counter10: FTCPE port map (DelayTimer/Counter(10),DelayTimer/Counter_T(10),Clock,Reset,'0','1');
+DelayTimer/Counter_T(10) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+	DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND DelayTimer/Counter(6) AND 
+	DelayTimer/Counter(7) AND DelayTimer/Counter(8) AND DelayTimer/Counter(9));
+
+FTCPE_DelayTimer/Counter11: FTCPE port map (DelayTimer/Counter(11),DelayTimer/Counter_T(11),Clock,Reset,'0','1');
+DelayTimer/Counter_T(11) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND DelayTimer/Counter(8) AND 
+	DelayTimer/Counter(9));
+
+FTCPE_DelayTimer/Counter12: FTCPE port map (DelayTimer/Counter(12),DelayTimer/Counter_T(12),Clock,Reset,'0','1');
+DelayTimer/Counter_T(12) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND DelayTimer/Counter(9));
+
+FTCPE_DelayTimer/Counter13: FTCPE port map (DelayTimer/Counter(13),DelayTimer/Counter_T(13),Clock,Reset,'0','1');
+DelayTimer/Counter_T(13) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9))
+	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+
+FTCPE_DelayTimer/Counter14: FTCPE port map (DelayTimer/Counter(14),DelayTimer/Counter_T(14),Clock,Reset,'0','1');
+DelayTimer/Counter_T(14) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13));
+
+FTCPE_DelayTimer/Counter15: FTCPE port map (DelayTimer/Counter(15),DelayTimer/Counter_T(15),Clock,Reset,'0','1');
+DelayTimer/Counter_T(15) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND DelayTimer/Counter(14))
+	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+
+FTCPE_DelayTimer/Counter16: FTCPE port map (DelayTimer/Counter(16),DelayTimer/Counter_T(16),Clock,Reset,'0','1');
+DelayTimer/Counter_T(16) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND DelayTimer/Counter(14) AND DelayTimer/Counter(15))
+	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+
+FTCPE_DelayTimer/Counter17: FTCPE port map (DelayTimer/Counter(17),DelayTimer/Counter_T(17),Clock,Reset,'0','1');
+DelayTimer/Counter_T(17) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16))
+	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+
+FTCPE_DelayTimer/Counter18: FTCPE port map (DelayTimer/Counter(18),DelayTimer/Counter_T(18),Clock,Reset,'0','1');
+DelayTimer/Counter_T(18) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17))
+	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+
+
+LEDs(0) <= NOT (((delayFinal)
+	OR (statesTraffic/state_FSM_FFd3)
+	OR (statesTraffic/state_FSM_FFd4)
+	OR (NOT statesTraffic/state_FSM_FFd2 AND 
+	statesTraffic/state_FSM_FFd1)
+	OR (count_LED(0) AND count_LED(3))
+	OR (count_LED(3) AND count_LED(1))
+	OR (count_LED(3) AND count_LED(2))
+	OR (statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/temp_PedEW AND NOT CarEW)
+	OR (NOT count_LED(0) AND NOT count_LED(3) AND NOT count_LED(1) AND 
+	NOT count_LED(2))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT CarNS AND NOT statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/state_FSM_FFd1)));
+
+
+LEDs(1) <= NOT (((delayFinal)
+	OR (statesTraffic/state_FSM_FFd3)
+	OR (statesTraffic/state_FSM_FFd4)
+	OR (count_LED(3))
+	OR (NOT statesTraffic/state_FSM_FFd2 AND 
+	statesTraffic/state_FSM_FFd1)
+	OR (statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/temp_PedEW AND NOT CarEW)
+	OR (NOT count_LED(0) AND NOT count_LED(1) AND NOT count_LED(2))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT CarNS AND NOT statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/state_FSM_FFd1)));
+
+
+LEDs(2) <= ((count_LED(0) AND NOT count_LED(1) AND N_PZ_279)
+	OR (NOT count_LED(0) AND count_LED(2) AND N_PZ_279)
+	OR (count_LED(1) AND NOT count_LED(2) AND N_PZ_279));
+
+
+LEDs(3) <= ((count_LED(0) AND NOT count_LED(1) AND N_PZ_279)
+	OR (count_LED(1) AND NOT count_LED(2) AND N_PZ_279)
+	OR (NOT count_LED(1) AND count_LED(2) AND N_PZ_279));
+
+
+LEDs(4) <= (NOT count_LED(2) AND N_PZ_279)
+	XOR (NOT count_LED(0) AND NOT count_LED(1) AND N_PZ_279);
+
+
+LEDs(5) <= ((count_LED(0) AND NOT count_LED(2) AND N_PZ_279)
+	OR (count_LED(1) AND NOT count_LED(2) AND N_PZ_279));
+
+
+LEDs(6) <= ((count_LED(0) AND NOT count_LED(1) AND NOT count_LED(2) AND 
+	N_PZ_279)
+	OR (NOT count_LED(0) AND count_LED(1) AND NOT count_LED(2) AND 
+	N_PZ_279));
+
+
+LEDs(7) <= (count_LED(0) AND NOT count_LED(1) AND NOT count_LED(2) AND 
+	N_PZ_279);
+
+
+LightsEW(0) <= ((statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd2)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/state_FSM_FFd1));
+
+
+LightsEW(1) <= ((NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd2)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd2 AND NOT statesTraffic/state_FSM_FFd1));
+
+
+LightsNS(0) <= ((statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2));
+
+
+LightsNS(1) <= (statesTraffic/state_FSM_FFd4 AND 
+	statesTraffic/state_FSM_FFd1)
+	XOR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd2);
+
+
+N_PZ_260 <= ((NOT CarNS AND NOT statesTraffic/state_FSM_FFd2)
+	OR (statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/temp_PedEW AND NOT CarEW));
+
+
+N_PZ_265 <= ((delayFinal)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND N_PZ_260));
+
+
+N_PZ_279 <= ((NOT delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND 
+	statesTraffic/temp_PedEW AND NOT count_LED(3))
+	OR (NOT delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND CarEW AND 
+	NOT count_LED(3))
+	OR (NOT delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND CarNS AND NOT statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND NOT count_LED(3)));
+
+
+N_PZ_281 <= ((NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1));
+
+FDCPE_count_LED0: FDCPE port map (count_LED(0),Clocksec/lagTime(0),Clock,'0','0',count_LED_CE(0));
+count_LED_CE(0) <= (NOT Reset AND start_Count);
+
+FDCPE_count_LED1: FDCPE port map (count_LED(1),Clocksec/lagTime(1),Clock,'0','0',count_LED_CE(1));
+count_LED_CE(1) <= (NOT Reset AND start_Count);
+
+FDCPE_count_LED2: FDCPE port map (count_LED(2),Clocksec/lagTime(2),Clock,'0','0',count_LED_CE(2));
+count_LED_CE(2) <= (NOT Reset AND start_Count);
+
+FDCPE_count_LED3: FDCPE port map (count_LED(3),Clocksec/lagTime(3),Clock,'0','0',count_LED_CE(3));
+count_LED_CE(3) <= (NOT Reset AND start_Count);
+
+FDCPE_delayFinal: FDCPE port map (delayFinal,delayFinal_D,Clock,Reset,'0','1');
+delayFinal_D <= (statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND start_Count)
+	XOR ((delayFinal AND NOT start_Count)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND start_Count AND 
+	Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND N_PZ_260 AND 
+	start_Count)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	Clocksec/lagTime(2) AND Clocksec/lagTime(1) AND Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd4 AND 
+	statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(2) AND 
+	Clocksec/lagTime(0) AND Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND start_Count AND 
+	NOT Clocksec/lagTime(2) AND NOT Clocksec/lagTime(1) AND NOT Clocksec/lagTime(3))
+	OR (statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND NOT Clocksec/lagTime(2) AND 
+	NOT Clocksec/lagTime(1) AND NOT Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3)));
+
+FTCPE_start_Count: FTCPE port map (start_Count,start_Count_T,Clock,'0','0','1');
+start_Count_T <= ((NOT Reset AND start_Count AND NOT N_PZ_265)
+	OR (NOT Reset AND NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+
+FDCPE_statesTraffic/state_FSM_FFd1: FDCPE port map (statesTraffic/state_FSM_FFd1,statesTraffic/state_FSM_FFd1_D,Clock,Reset,'0','1');
+statesTraffic/state_FSM_FFd1_D <= ((NOT delayFinal AND statesTraffic/state_FSM_FFd1)
+	OR (delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/temp_PedEW)
+	OR (delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/temp_PedNS));
+
+FTCPE_statesTraffic/state_FSM_FFd2: FTCPE port map (statesTraffic/state_FSM_FFd2,statesTraffic/state_FSM_FFd2_T,Clock,Reset,'0','1');
+statesTraffic/state_FSM_FFd2_T <= ((delayFinal AND statesTraffic/state_FSM_FFd4 AND 
+	NOT statesTraffic/state_FSM_FFd2 AND statesTraffic/state_FSM_FFd1)
+	OR (delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/state_FSM_FFd1)
+	OR (delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND 
+	statesTraffic/temp_PedNS));
+
+FTCPE_statesTraffic/state_FSM_FFd3: FTCPE port map (statesTraffic/state_FSM_FFd3,statesTraffic/state_FSM_FFd3_T,Clock,Reset,'0','1');
+statesTraffic/state_FSM_FFd3_T <= ((delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4)
+	OR (delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND NOT N_PZ_260)
+	OR (delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND NOT N_PZ_260));
+
+FTCPE_statesTraffic/state_FSM_FFd4: FTCPE port map (statesTraffic/state_FSM_FFd4,statesTraffic/state_FSM_FFd4_T,Clock,Reset,'0','1');
+statesTraffic/state_FSM_FFd4_T <= ((delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4)
+	OR (delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+	statesTraffic/state_FSM_FFd4)
+	OR (delayFinal AND statesTraffic/state_FSM_FFd4 AND 
+	statesTraffic/state_FSM_FFd2 AND NOT statesTraffic/temp_PedEW)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND NOT CarNS AND NOT statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/state_FSM_FFd1 AND statesTraffic/temp_PedEW)
+	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND 
+	NOT statesTraffic/temp_PedEW AND statesTraffic/temp_PedNS AND NOT CarEW));
+
+FTCPE_statesTraffic/temp_PedEW: FTCPE port map (statesTraffic/temp_PedEW,statesTraffic/temp_PedEW_T,Clock,'0','0','1');
+statesTraffic/temp_PedEW_T <= ((statesTraffic/temp_PedEW AND NOT Reset AND N_PZ_281)
+	OR (NOT statesTraffic/temp_PedEW AND NOT Reset AND NOT N_PZ_281 AND 
+	PedEW));
+
+FTCPE_statesTraffic/temp_PedNS: FTCPE port map (statesTraffic/temp_PedNS,statesTraffic/temp_PedNS_T,Clock,'0','0','1');
+statesTraffic/temp_PedNS_T <= ((NOT Reset AND N_PZ_281 AND statesTraffic/temp_PedNS)
+	OR (NOT Reset AND NOT N_PZ_281 AND NOT PedEW AND 
+	NOT statesTraffic/temp_PedNS AND PedNS));
+
+
+Register Legend:
+ FDCPE (Q,D,C,CLR,PRE,CE); 
+ FDDCPE (Q,D,C,CLR,PRE,CE); 
+ FTCPE (Q,D,C,CLR,PRE,CE); 
+ FTDCPE (Q,D,C,CLR,PRE,CE); 
+ LDCP  (Q,D,G,CLR,PRE); 
+
+******************************  Device Pin Out *****************************
+
+Device : XC2C64A-7-VQ44
+
+
+   --------------------------------  
+  /44 43 42 41 40 39 38 37 36 35 34 \
+ | 1                             33 | 
+ | 2                             32 | 
+ | 3                             31 | 
+ | 4                             30 | 
+ | 5         XC2C64A-7-VQ44      29 | 
+ | 6                             28 | 
+ | 7                             27 | 
+ | 8                             26 | 
+ | 9                             25 | 
+ | 10                            24 | 
+ | 11                            23 | 
+ \ 12 13 14 15 16 17 18 19 20 21 22 /
+   --------------------------------  
+
+
+Pin Signal                         Pin Signal                        
+No. Name                           No. Name                          
+  1 Clock                            23 LEDs<5>                       
+  2 KPR                              24 TDO                           
+  3 KPR                              25 GND                           
+  4 GND                              26 VCCIO-3.3                     
+  5 KPR                              27 LEDs<6>                       
+  6 KPR                              28 LEDs<7>                       
+  7 VCCIO-3.3                        29 KPR                           
+  8 KPR                              30 Reset                         
+  9 TDI                              31 KPR                           
+ 10 TMS                              32 KPR                           
+ 11 TCK                              33 CarEW                         
+ 12 KPR                              34 CarNS                         
+ 13 KPR                              35 VCCAUX                        
+ 14 KPR                              36 PedEW                         
+ 15 VCC                              37 PedNS                         
+ 16 KPR                              38 KPR                           
+ 17 GND                              39 LightsEW<1>                   
+ 18 LEDs<0>                          40 LightsEW<0>                   
+ 19 LEDs<1>                          41 LightsNS<1>                   
+ 20 LEDs<2>                          42 LightsNS<0>                   
+ 21 LEDs<3>                          43 KPR                           
+ 22 LEDs<4>                          44 KPR                           
+
+
+Legend :  NC  = Not Connected, unbonded pin
+        PGND  = Unused I/O configured as additional Ground pin
+         KPR  = Unused I/O with weak keeper (leave unconnected)
+         WPU  = Unused I/O with weak pull up (leave unconnected)
+         TIE  = Unused I/O floating -- must tie to VCC, GND or other signal
+         VCC  = Dedicated Power Pin
+      VCCAUX  = Power supply for JTAG pins
+   VCCIO-3.3  = I/O supply voltage for LVTTL, LVCMOS33, SSTL3_I
+   VCCIO-2.5  = I/O supply voltage for LVCMOS25, SSTL2_I
+   VCCIO-1.8  = I/O supply voltage for LVCMOS18
+   VCCIO-1.5  = I/O supply voltage for LVCMOS15, HSTL_I
+        VREF  = Reference voltage for indicated input standard
+       *VREF  = Reference voltage pin selected by software
+         GND  = Dedicated Ground Pin
+         TDI  = Test Data In, JTAG pin
+         TDO  = Test Data Out, JTAG pin
+         TCK  = Test Clock, JTAG pin
+         TMS  = Test Mode Select, JTAG pin
+  PROHIBITED  = User reserved pin
+****************************  Compiler Options  ****************************
+
+Following is a list of all global compiler options used by the fitter run.
+
+Device(s) Specified                         : xc2c64a-7-VQ44
+Optimization Method                         : DENSITY
+Multi-Level Logic Optimization              : ON
+Ignore Timing Specifications                : OFF
+Default Register Power Up Value             : LOW
+Keep User Location Constraints              : ON
+What-You-See-Is-What-You-Get                : OFF
+Exhaustive Fitting                          : OFF
+Keep Unused Inputs                          : OFF
+Slew Rate                                   : FAST
+Set Unused I/O Pin Termination              : KEEPER
+Global Clock Optimization                   : ON
+Global Set/Reset Optimization               : ON
+Global Ouput Enable Optimization            : ON
+Enable Input Registers                      : ON
+Function Block Fan-in Limit                 : 38
+Use DATA_GATE Attribute                     : ON
+Set Tristate Outputs to Termination Mode    : KEEPER
+Default Voltage Standard for All Outputs    : LVCMOS18
+Input Limit                                 : 32
+Pterm Limit                                 : 28

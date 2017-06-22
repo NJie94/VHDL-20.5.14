@@ -1,0 +1,89 @@
+
+----------------------------------------
+|  P a r t i t i o n    S u c c e e d  |
+----------------------------------------
+0 Group(s)
+
+GCLK2: 0=Clock.p
+GSET: 1=Reset.p
+GRST: 1=Reset.p
+----------------- B l o c k 0 ------------------
+PLApt(17/56), Fanin(20/38), Clk(1/3), Bct(0/4), Pin(5/8), Mcell(16/16)
+PLApts[17/56] 117 123 119 120 121 () () () () () () () () () () () () () () 113 () () 111 () () 110 () () 108 () () 107 () () () () () 118 () () 116 () () 115 () () 114 () () 106 () () 105 () () 104
+Fanins[20] DelayTimer/Counter<0>.n DelayTimer/Counter<10>.n DelayTimer/Counter<11>.n DelayTimer/Counter<12>.n DelayTimer/Counter<13>.n DelayTimer/Counter<14>.n DelayTimer/Counter<15>.n DelayTimer/Counter<16>.n DelayTimer/Counter<17>.n DelayTimer/Counter<18>.n DelayTimer/Counter<1>.n DelayTimer/Counter<2>.n DelayTimer/Counter<3>.n DelayTimer/Counter<4>.n DelayTimer/Counter<5>.n DelayTimer/Counter<6>.n DelayTimer/Counter<7>.n DelayTimer/Counter<8>.n DelayTimer/Counter<9>.n N_PZ_265.n
+clk[1] Clock 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[21] [CarEW(33)] [CarNS(34)] [PedEW(36)] [PedNS(37)] [Reset(30)] [DelayTimer/Counter<0>(60)]  
+           [DelayTimer/Counter<1>(59)] [DelayTimer/Counter<2>(58)] [DelayTimer/Counter<3>(52)]  
+           [DelayTimer/Counter<4>(51)] [DelayTimer/Counter<6>(50)] [DelayTimer/Counter<7>(49)]  
+           [DelayTimer/Counter<9>(48)] [DelayTimer/Counter<10>(57)] [DelayTimer/Counter<11>(56)]  
+           [DelayTimer/Counter<12>(55)] [DelayTimer/Counter<14>(54)] [DelayTimer/Counter<13>(53)]  
+           [DelayTimer/Counter<15>(47)] [DelayTimer/Counter<16>(46)] [DelayTimer/Counter<17>(45)] 
+Signal[21] [ 0: DelayTimer/Counter<17>(45) (38)  ][ 1: DelayTimer/Counter<16>(46) PedNS(37)  ][ 2:  
+           DelayTimer/Counter<15>(47) PedEW(36)  ][ 3: DelayTimer/Counter<9>(48)  ][ 4:  
+           DelayTimer/Counter<7>(49)  ][ 5: DelayTimer/Counter<6>(50)  ][ 6: DelayTimer/Counter<4>(51)  ] 
+           [ 7: DelayTimer/Counter<3>(52)  ][ 8: DelayTimer/Counter<13>(53) CarNS(34)  ][ 9:  
+           DelayTimer/Counter<14>(54) CarEW(33)  ][ 10: DelayTimer/Counter<12>(55) (32)  ][ 11:  
+           DelayTimer/Counter<11>(56) (31)  ][ 12: DelayTimer/Counter<10>(57) Reset(30)  ][ 13:  
+           DelayTimer/Counter<2>(58)  ][ 14: DelayTimer/Counter<1>(59)  ][ 15: DelayTimer/Counter<0>(60)  ]
+----------------- B l o c k 1 ------------------
+PLApt(56/56), Fanin(16/38), Clk(1/3), Bct(0/4), Pin(5/9), Mcell(13/16)
+PLApts[56/56] 16 14 33 19 32 13 17 27 29 83 23 82 85 12 15 79 81 84 22 63 35 78 24 11 89 90 46 54 58 69 72 73 74 88 5 41 42 43 62 64 65 70 76 44 47 52 87 92 45 48 50 53 56 60 75 91
+Fanins[16] Clocksec/lagTime<0>.n Clocksec/lagTime<1>.n Clocksec/lagTime<2>.n Clocksec/lagTime<3>.n N_PZ_260.n count_LED<3>.n delayFinal.n start_Count.n statesTraffic/state_FSM_FFd1.n statesTraffic/state_FSM_FFd2.n statesTraffic/state_FSM_FFd3.n statesTraffic/state_FSM_FFd4.n statesTraffic/temp_PedEW.n statesTraffic/temp_PedNS.n CarEW.p CarNS.p
+clk[1] Clock 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[14] [LightsNS<1>(65),LightsNS<1>(41)] [LightsEW<0>(62),LightsEW<0>(40)]  
+           [LightsEW<1>(61),LightsEW<1>(39)] [LightsNS<0>(66),LightsNS<0>(42)] [Clock(1)]  
+           [statesTraffic/state_FSM_FFd2(76)] [statesTraffic/state_FSM_FFd1(75)]  
+           [statesTraffic/state_FSM_FFd4(74)] [N_PZ_279(71)] [statesTraffic/state_FSM_FFd3(69)]  
+           [delayFinal(64)] [Clocksec/lagTime<1>(63)] [Clocksec/lagTime<2>(73)] [Clocksec/lagTime<0>(72)] 
+Signal[14] [ 0: LightsEW<1>(61) LightsEW<1>(39)  ][ 1: LightsEW<0>(62) LightsEW<0>(40)  ][ 2:  
+           Clocksec/lagTime<1>(63)  ][ 3: delayFinal(64)  ][ 4: LightsNS<1>(65) LightsNS<1>(41)  ][ 5:  
+           LightsNS<0>(66) LightsNS<0>(42)  ][ 6: (43)  ][ 7: (44)  ][ 8: statesTraffic/state_FSM_FFd3(69)  ] 
+           [ 9: Clock(1)  ][ 10: N_PZ_279(71)  ][ 11: Clocksec/lagTime<0>(72) (2)  ][ 12:  
+           Clocksec/lagTime<2>(73) (3)  ][ 13: statesTraffic/state_FSM_FFd4(74)  ][ 14:  
+           statesTraffic/state_FSM_FFd1(75)  ][ 15: statesTraffic/state_FSM_FFd2(76)  ]
+----------------- B l o c k 2 ------------------
+PLApt(41/56), Fanin(20/38), Clk(1/3), Bct(0/4), Pin(8/9), Mcell(16/16)
+PLApts[41/41] 2 8 10 21 25 34 36 37 39 80 40 20 38 103 94 96 101 97 95 40 100 102 40 49 51 55 57 59 40 61 77 93 86 9 17 30 3 99 4 6 7
+Fanins[20] Clocksec/lagTime<0>.n Clocksec/lagTime<1>.n Clocksec/lagTime<2>.n Clocksec/lagTime<3>.n N_PZ_260.n N_PZ_279.n count_LED<0>.n count_LED<1>.n count_LED<2>.n count_LED<3>.n delayFinal.n start_Count.n statesTraffic/state_FSM_FFd1.n statesTraffic/state_FSM_FFd2.n statesTraffic/state_FSM_FFd3.n statesTraffic/state_FSM_FFd4.n statesTraffic/temp_PedEW.n CarEW.p CarNS.p Reset.p
+clk[1] Clock 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[16] [LEDs<0>(91),LEDs<0>(18)] [LEDs<1>(90),LEDs<1>(19)] [LEDs<2>(88),LEDs<2>(20)]  
+           [LEDs<3>(87),LEDs<3>(21)] [LEDs<4>(86),LEDs<4>(22)] [LEDs<5>(82),LEDs<5>(23)]  
+           [LEDs<6>(79),LEDs<6>(27)] [LEDs<7>(78),LEDs<7>(28)] [Clocksec/lagTime<3>(92)] [N_PZ_265(89)]  
+           [N_PZ_260(85)] [N_PZ_281(84)] [count_LED<0>(83)] [count_LED<1>(81)] [count_LED<2>(80)]  
+           [count_LED<3>(77)] 
+Signal[16] [ 0: count_LED<3>(77) (29)  ][ 1: LEDs<7>(78) LEDs<7>(28)  ][ 2: LEDs<6>(79) LEDs<6>(27)  ][ 3:  
+           count_LED<2>(80)  ][ 4: count_LED<1>(81)  ][ 5: LEDs<5>(82) LEDs<5>(23)  ][ 6: count_LED<0>(83)  ] 
+           [ 7: N_PZ_281(84)  ][ 8: N_PZ_260(85)  ][ 9: LEDs<4>(86) LEDs<4>(22)  ][ 10: LEDs<3>(87)  
+           LEDs<3>(21)  ][ 11: LEDs<2>(88) LEDs<2>(20)  ][ 12: N_PZ_265(89)  ][ 13: LEDs<1>(90) LEDs<1>(19)  
+            ][ 14: LEDs<0>(91) LEDs<0>(18)  ][ 15: Clocksec/lagTime<3>(92)  ]
+----------------- B l o c k 3 ------------------
+PLApt(10/56), Fanin(27/38), Clk(1/3), Bct(0/4), Pin(0/7), Mcell(6/16)
+PLApts[10/10] 124 125 122 123 109 112 126 128 127 129
+Fanins[27] DelayTimer/Counter<0>.n DelayTimer/Counter<10>.n DelayTimer/Counter<11>.n DelayTimer/Counter<12>.n DelayTimer/Counter<13>.n DelayTimer/Counter<14>.n DelayTimer/Counter<15>.n DelayTimer/Counter<16>.n DelayTimer/Counter<17>.n DelayTimer/Counter<18>.n DelayTimer/Counter<1>.n DelayTimer/Counter<2>.n DelayTimer/Counter<3>.n DelayTimer/Counter<4>.n DelayTimer/Counter<5>.n DelayTimer/Counter<6>.n DelayTimer/Counter<7>.n DelayTimer/Counter<8>.n DelayTimer/Counter<9>.n N_PZ_265.n N_PZ_281.n start_Count.n statesTraffic/temp_PedEW.n statesTraffic/temp_PedNS.n PedEW.p PedNS.p Reset.p
+clk[1] Clock 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[ 6] [start_Count(108)] [DelayTimer/Counter<18>(104)] [DelayTimer/Counter<5>(102)]  
+           [DelayTimer/Counter<8>(101)] [statesTraffic/temp_PedEW(100)] [statesTraffic/temp_PedNS(98)] 
+Signal[ 6] [ 0: (5)  ][ 1: (6)  ][ 2:  ][ 3:  ][ 4:  ][ 5: statesTraffic/temp_PedNS(98)  ][ 6: (8)  ][ 7:  
+           statesTraffic/temp_PedEW(100)  ][ 8: DelayTimer/Counter<8>(101)  ][ 9: DelayTimer/Counter<5>(102)  
+            ][ 10: (12)  ][ 11: DelayTimer/Counter<18>(104)  ][ 12: (13)  ][ 13: (14)  ][ 14: (16)  ][ 15:  
+           start_Count(108)  ]

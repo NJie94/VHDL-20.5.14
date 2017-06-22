@@ -1,0 +1,479 @@
+<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>
+<h3 align='center'>Equations</h3>
+<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>
+<tr><td>
+</td></tr><tr><td>
+********** Mapped Logic **********
+</td></tr><tr><td>
+FDCPE_Clocksec/lagTime0: FDCPE port map (Clocksec/lagTime(0),Clocksec/lagTime_D(0),Clock,'0',Reset,'1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clocksec/lagTime_D(0) <= NOT (((NOT start_Count AND NOT Clocksec/lagTime(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(2) AND Clocksec/lagTime(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND start_Count AND NOT Clocksec/lagTime(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND start_Count AND Clocksec/lagTime(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND NOT N_PZ_260 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	start_Count AND Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(1) AND Clocksec/lagTime(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND start_Count AND NOT Clocksec/lagTime(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(1) AND Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3))));
+</td></tr><tr><td>
+FDCPE_Clocksec/lagTime1: FDCPE port map (Clocksec/lagTime(1),Clocksec/lagTime_D(1),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clocksec/lagTime_D(1) <= NOT (((NOT start_Count AND NOT Clocksec/lagTime(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT Clocksec/lagTime(1) AND NOT Clocksec/lagTime(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (start_Count AND Clocksec/lagTime(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND start_Count)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd4 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd4 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (start_Count AND Clocksec/lagTime(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(1) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND N_PZ_260 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	start_Count)));
+</td></tr><tr><td>
+FTCPE_Clocksec/lagTime2: FTCPE port map (Clocksec/lagTime(2),Clocksec/lagTime_T(2),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clocksec/lagTime_T(2) <= ((statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(1) AND Clocksec/lagTime(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (start_Count AND Clocksec/lagTime(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(1) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND start_Count AND Clocksec/lagTime(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd4 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(2) AND Clocksec/lagTime(0) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd4 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND N_PZ_260 AND start_Count AND Clocksec/lagTime(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND NOT N_PZ_260 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	start_Count AND Clocksec/lagTime(1) AND Clocksec/lagTime(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(3)));
+</td></tr><tr><td>
+FDCPE_Clocksec/lagTime3: FDCPE port map (Clocksec/lagTime(3),Clocksec/lagTime_D(3),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clocksec/lagTime_D(3) <= ((NOT start_Count AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND start_Count AND NOT Clocksec/lagTime(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(1) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd1 AND start_Count AND NOT Clocksec/lagTime(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(0) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(2) AND Clocksec/lagTime(1) AND Clocksec/lagTime(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND start_Count AND Clocksec/lagTime(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(1) AND Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND NOT N_PZ_260 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	start_Count AND Clocksec/lagTime(2) AND Clocksec/lagTime(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3)));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter0: FTCPE port map (DelayTimer/Counter(0),NOT N_PZ_265,Clock,'0',Reset,'1');
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter1: FTCPE port map (DelayTimer/Counter(1),DelayTimer/Counter_T(1),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(1) <= (DelayTimer/Counter(0) AND NOT N_PZ_265);
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter2: FTCPE port map (DelayTimer/Counter(2),DelayTimer/Counter_T(2),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(2) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter3: FTCPE port map (DelayTimer/Counter(3),DelayTimer/Counter_T(3),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(3) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1) AND DelayTimer/Counter(2));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter4: FTCPE port map (DelayTimer/Counter(4),DelayTimer/Counter_T(4),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(4) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter5: FTCPE port map (DelayTimer/Counter(5),DelayTimer/Counter_T(5),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(5) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter6: FTCPE port map (DelayTimer/Counter(6),DelayTimer/Counter_T(6),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(6) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(4) AND DelayTimer/Counter(5));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter7: FTCPE port map (DelayTimer/Counter(7),DelayTimer/Counter_T(7),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(7) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND DelayTimer/Counter(6));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter8: FTCPE port map (DelayTimer/Counter(8),DelayTimer/Counter_T(8),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(8) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND DelayTimer/Counter(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter9: FTCPE port map (DelayTimer/Counter(9),DelayTimer/Counter_T(9),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(9) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND DelayTimer/Counter(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(7) AND DelayTimer/Counter(8));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter10: FTCPE port map (DelayTimer/Counter(10),DelayTimer/Counter_T(10),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(10) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND DelayTimer/Counter(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND DelayTimer/Counter(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(7) AND DelayTimer/Counter(8) AND DelayTimer/Counter(9));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter11: FTCPE port map (DelayTimer/Counter(11),DelayTimer/Counter_T(11),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(11) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND DelayTimer/Counter(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(9));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter12: FTCPE port map (DelayTimer/Counter(12),DelayTimer/Counter_T(12),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(12) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND DelayTimer/Counter(9));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter13: FTCPE port map (DelayTimer/Counter(13),DelayTimer/Counter_T(13),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(13) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter14: FTCPE port map (DelayTimer/Counter(14),DelayTimer/Counter_T(14),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(14) <= (DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter15: FTCPE port map (DelayTimer/Counter(15),DelayTimer/Counter_T(15),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(15) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND DelayTimer/Counter(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter16: FTCPE port map (DelayTimer/Counter(16),DelayTimer/Counter_T(16),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(16) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND DelayTimer/Counter(14) AND DelayTimer/Counter(15))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter17: FTCPE port map (DelayTimer/Counter(17),DelayTimer/Counter_T(17),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(17) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+</td></tr><tr><td>
+FTCPE_DelayTimer/Counter18: FTCPE port map (DelayTimer/Counter(18),DelayTimer/Counter_T(18),Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DelayTimer/Counter_T(18) <= ((DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(10) AND DelayTimer/Counter(1) AND DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(3) AND DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(11) AND DelayTimer/Counter(6) AND DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND DelayTimer/Counter(12) AND DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LEDs(0) <= NOT (((delayFinal)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd4)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (count_LED(0) AND count_LED(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (count_LED(3) AND count_LED(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (count_LED(3) AND count_LED(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/temp_PedEW AND NOT CarEW)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT count_LED(0) AND NOT count_LED(3) AND NOT count_LED(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT count_LED(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT CarNS AND NOT statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LEDs(1) <= NOT (((delayFinal)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd4)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (count_LED(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/temp_PedEW AND NOT CarEW)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT count_LED(0) AND NOT count_LED(1) AND NOT count_LED(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT CarNS AND NOT statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LEDs(2) <= ((count_LED(0) AND NOT count_LED(1) AND N_PZ_279)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT count_LED(0) AND count_LED(2) AND N_PZ_279)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (count_LED(1) AND NOT count_LED(2) AND N_PZ_279));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LEDs(3) <= ((count_LED(0) AND NOT count_LED(1) AND N_PZ_279)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (count_LED(1) AND NOT count_LED(2) AND N_PZ_279)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT count_LED(1) AND count_LED(2) AND N_PZ_279));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LEDs(4) <= (NOT count_LED(2) AND N_PZ_279)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	XOR (NOT count_LED(0) AND NOT count_LED(1) AND N_PZ_279);
+</td></tr><tr><td>
+</td></tr><tr><td>
+LEDs(5) <= ((count_LED(0) AND NOT count_LED(2) AND N_PZ_279)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (count_LED(1) AND NOT count_LED(2) AND N_PZ_279));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LEDs(6) <= ((count_LED(0) AND NOT count_LED(1) AND NOT count_LED(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_279)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT count_LED(0) AND count_LED(1) AND NOT count_LED(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_279));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LEDs(7) <= (count_LED(0) AND NOT count_LED(1) AND NOT count_LED(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_279);
+</td></tr><tr><td>
+</td></tr><tr><td>
+LightsEW(0) <= ((statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LightsEW(1) <= ((NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd2 AND NOT statesTraffic/state_FSM_FFd1));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LightsNS(0) <= ((statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2));
+</td></tr><tr><td>
+</td></tr><tr><td>
+LightsNS(1) <= (statesTraffic/state_FSM_FFd4 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	XOR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd2);
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_260 <= ((NOT CarNS AND NOT statesTraffic/state_FSM_FFd2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/temp_PedEW AND NOT CarEW));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_265 <= ((delayFinal)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND N_PZ_260));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_279 <= ((NOT delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/temp_PedEW AND NOT count_LED(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND CarEW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT count_LED(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND CarNS AND NOT statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND NOT count_LED(3)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_281 <= ((NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1));
+</td></tr><tr><td>
+FDCPE_count_LED0: FDCPE port map (count_LED(0),Clocksec/lagTime(0),Clock,'0','0',count_LED_CE(0));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_LED_CE(0) <= (NOT Reset AND start_Count);
+</td></tr><tr><td>
+FDCPE_count_LED1: FDCPE port map (count_LED(1),Clocksec/lagTime(1),Clock,'0','0',count_LED_CE(1));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_LED_CE(1) <= (NOT Reset AND start_Count);
+</td></tr><tr><td>
+FDCPE_count_LED2: FDCPE port map (count_LED(2),Clocksec/lagTime(2),Clock,'0','0',count_LED_CE(2));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_LED_CE(2) <= (NOT Reset AND start_Count);
+</td></tr><tr><td>
+FDCPE_count_LED3: FDCPE port map (count_LED(3),Clocksec/lagTime(3),Clock,'0','0',count_LED_CE(3));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count_LED_CE(3) <= (NOT Reset AND start_Count);
+</td></tr><tr><td>
+FDCPE_delayFinal: FDCPE port map (delayFinal,delayFinal_D,Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delayFinal_D <= (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND start_Count)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	XOR ((delayFinal AND NOT start_Count)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(2) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND N_PZ_260 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	start_Count)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(2) AND Clocksec/lagTime(1) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd4 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd1 AND start_Count AND Clocksec/lagTime(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Clocksec/lagTime(0) AND Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND start_Count AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(2) AND NOT Clocksec/lagTime(1) AND NOT Clocksec/lagTime(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND start_Count AND NOT Clocksec/lagTime(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Clocksec/lagTime(1) AND NOT Clocksec/lagTime(0) AND NOT Clocksec/lagTime(3)));
+</td></tr><tr><td>
+FTCPE_start_Count: FTCPE port map (start_Count,start_Count_T,Clock,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start_Count_T <= ((NOT Reset AND start_Count AND NOT N_PZ_265)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT Reset AND NOT DelayTimer/Counter(0) AND NOT N_PZ_265 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(10) AND NOT DelayTimer/Counter(1) AND NOT DelayTimer/Counter(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(3) AND NOT DelayTimer/Counter(4) AND DelayTimer/Counter(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT DelayTimer/Counter(11) AND NOT DelayTimer/Counter(6) AND NOT DelayTimer/Counter(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(8) AND NOT DelayTimer/Counter(12) AND NOT DelayTimer/Counter(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(13) AND NOT DelayTimer/Counter(14) AND DelayTimer/Counter(15) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	DelayTimer/Counter(16) AND DelayTimer/Counter(17) AND DelayTimer/Counter(18)));
+</td></tr><tr><td>
+FDCPE_statesTraffic/state_FSM_FFd1: FDCPE port map (statesTraffic/state_FSM_FFd1,statesTraffic/state_FSM_FFd1_D,Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statesTraffic/state_FSM_FFd1_D <= ((NOT delayFinal AND statesTraffic/state_FSM_FFd1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/temp_PedEW)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/temp_PedNS));
+</td></tr><tr><td>
+FTCPE_statesTraffic/state_FSM_FFd2: FTCPE port map (statesTraffic/state_FSM_FFd2,statesTraffic/state_FSM_FFd2_T,Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statesTraffic/state_FSM_FFd2_T <= ((delayFinal AND statesTraffic/state_FSM_FFd4 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd2 AND statesTraffic/state_FSM_FFd1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/temp_PedNS));
+</td></tr><tr><td>
+FTCPE_statesTraffic/state_FSM_FFd3: FTCPE port map (statesTraffic/state_FSM_FFd3,statesTraffic/state_FSM_FFd3_T,Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statesTraffic/state_FSM_FFd3_T <= ((delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND NOT N_PZ_260)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT statesTraffic/state_FSM_FFd1 AND NOT N_PZ_260));
+</td></tr><tr><td>
+FTCPE_statesTraffic/state_FSM_FFd4: FTCPE port map (statesTraffic/state_FSM_FFd4,statesTraffic/state_FSM_FFd4_T,Clock,Reset,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statesTraffic/state_FSM_FFd4_T <= ((delayFinal AND statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (delayFinal AND NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd4)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (delayFinal AND statesTraffic/state_FSM_FFd4 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	statesTraffic/state_FSM_FFd2 AND NOT statesTraffic/temp_PedEW)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND NOT CarNS AND NOT statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd1 AND statesTraffic/temp_PedEW)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/state_FSM_FFd3 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/state_FSM_FFd4 AND statesTraffic/state_FSM_FFd2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/temp_PedEW AND statesTraffic/temp_PedNS AND NOT CarEW));
+</td></tr><tr><td>
+FTCPE_statesTraffic/temp_PedEW: FTCPE port map (statesTraffic/temp_PedEW,statesTraffic/temp_PedEW_T,Clock,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statesTraffic/temp_PedEW_T <= ((statesTraffic/temp_PedEW AND NOT Reset AND N_PZ_281)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT statesTraffic/temp_PedEW AND NOT Reset AND NOT N_PZ_281 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	PedEW));
+</td></tr><tr><td>
+FTCPE_statesTraffic/temp_PedNS: FTCPE port map (statesTraffic/temp_PedNS,statesTraffic/temp_PedNS_T,Clock,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statesTraffic/temp_PedNS_T <= ((NOT Reset AND N_PZ_281 AND statesTraffic/temp_PedNS)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT Reset AND NOT N_PZ_281 AND NOT PedEW AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT statesTraffic/temp_PedNS AND PedNS));
+</td></tr><tr><td>
+</td></tr><tr><td>
+Register Legend:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDCP  (Q,D,G,CLR,PRE); 
+</td></tr><tr><td>
+</td></tr>
+</table>
+<form><span class="pgRef"><table width="90%" align="center"><tr>
+<td align="left"><input type="button" onclick="javascript:parent.leftnav.showTop()" onmouseover="window.status='goto top of page'; return true;" onmouseout="window.status=''" value="back to top"></td>
+<td align="right"><input type="button" onclick="window.print()" onmouseover="window.status='print page'; return true;" onmouseout="window.status=''" value="print page"></td>
+</tr></table></span></form>
+</body></html>

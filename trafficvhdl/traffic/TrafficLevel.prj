@@ -1,0 +1,6 @@
+vhdl work "../Trafficlight.vhd"
+vhdl work "../statesTraffic.vhd"
+vhdl work "../LED_countdown.vhd"
+vhdl work "../DelayTimer.vhd"
+vhdl work "../Clocksec.vhd"
+vhdl work "../TrafficTopLevel.vhd"

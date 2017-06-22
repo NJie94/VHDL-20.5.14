@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Y510P/Desktop/TrafficVHDL/Traffic/xst"
+elaborate
+-ifn LED_countdown.prj
+-ifmt mixed
